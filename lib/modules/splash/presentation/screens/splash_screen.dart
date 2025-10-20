@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
+import 'package:pillwise_app/app/routes/app_routes.dart';
 import '../controllers/splash_controller.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -13,14 +15,14 @@ class SplashScreen extends GetView<SplashController> {
         children: [
           Positioned(
             right: 0,
-            top: -6,
+            top: -30,
             child: Transform.rotate(
-              angle: .1,
+              angle: .2,
               child: Image.asset(
-                'assets/welcome_bottle_drug.png',
+                'assets/images/welcome_bottle_drug.png',
                 width: 300,
                 height: 300,
-              ).slideDown(),
+              ).fadeInDownBig(),
             ),
           ),
           Padding(
@@ -49,20 +51,23 @@ class SplashScreen extends GetView<SplashController> {
                 const SizedBox(
                   height: 30,
                 ),
-                ElevatedButton(onPressed: () {}, child: Text('Go To Intro Page')).zoomIn()
+                ElevatedButton(
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.onboarding);
+                        }, child: Text('Go To Intro Page'))
+                    .zoomIn()
               ],
             ),
           ),
           Positioned(
-            left: -20,
             bottom: 0,
-            child: Image.asset(
-              'assets/img.png',
-              width: 300,
-              height: 300,
-            ).slideUp(),
+            child: AppSvgWidget(
+              assetsUrl: 'assets/icons/welcome_wave.svg',
+              color: Get.theme.primaryColor,
+              width: double.maxFinite,
+              height: 260,
+            ).fadeInUp(),
           ),
-
         ],
       ),
     );

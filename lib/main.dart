@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/app/core/constants/app_constants.dart';
 import 'package:pillwise_app/app/routes/app_pages.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
 
@@ -15,12 +17,22 @@ class PillWiseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: AppTheme.lightTheme,     // <--- تطبيق الثيم الأبيض
-      darkTheme: AppTheme.darkTheme, // <--- تطبيق الثيم الأسود
-      themeMode: ThemeMode.light, // (أو .light أو .dark)
-      getPages: AppPages.routes,
-      initialRoute: AppRoutes.initial,
+    return ScreenUtilInit(
+      designSize: const Size(AppConstants.designWidth, AppConstants.designHeight),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          theme: AppTheme.lightTheme,
+          // <--- تطبيق الثيم الأبيض
+          darkTheme: AppTheme.darkTheme,
+          // <--- تطبيق الثيم الأسود
+          themeMode: ThemeMode.light,
+          // (أو .light أو .dark)
+          getPages: AppPages.routes,
+          initialRoute: AppRoutes.initial,
+        );
+      },
     );
   }
 }

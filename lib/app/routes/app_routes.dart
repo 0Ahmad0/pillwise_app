@@ -6,6 +6,10 @@ abstract class AppRoutes {
   // المسار الأولي (يمكن أن يكون Splash أو Login)
   static const initial = '/';
 
+
+  static const onboarding = '/onboarding';
+
+
   // --- ميزة المصادقة (Auth) ---
   static const login = '/login';
   static const signup = '/signup';

@@ -16,6 +16,8 @@ dependencies:
   google_fonts:
   animate_do:
   flutter_screenutil:
+  cached_network_image:
+  lottie: 
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -28,7 +30,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
+    - assets/images/
+    - assets/icons/
+    - assets/lottie/
 
   # fonts:
   #   - family: Schyler

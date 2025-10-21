@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/generated/locale_keys.g.dart';
 import '../../../../app/core/constants/app_assets.dart';
 import '../../../../app/routes/app_routes.dart';
 import '../../data/models/onboarding_item_model.dart';
@@ -18,18 +19,18 @@ class OnboardingController extends GetxController {
   final List<OnboardingItem> onboardingPages = [
     OnboardingItem(
       lottieAsset: AppAssets.calendarAnimation, // TODO: غيّر هذا للمسار الصحيح
-      title: "Smart medication reminders",
-      subtitle: "لا تفوّت جرعة بعد اليوم. احصل على تنبيهات دقيقة ومباشرة لمواعيد دوائك وابقَ على اطلاع دائم بجدولك الصحي.",
+      title: LocaleKeys.onboarding_title1,
+      subtitle: LocaleKeys.onboarding_sub_title1,
     ),
     OnboardingItem(
       lottieAsset: AppAssets.scanDrugAnimation, // TODO: غيّر هذا للمسار الصحيح
-      title: "Easy participation scanning",
-      subtitle: "انضم للدراسات أو سجل حضورك الصحي بسهولة. فقط امسح الـ QR كود وستكون جاهزاً للانطلاق في ثوانٍ.",
+      title: LocaleKeys.onboarding_title2,
+      subtitle: LocaleKeys.onboarding_sub_title2,
     ),
     OnboardingItem(
       lottieAsset: AppAssets.healthAnalysisAnimation, // TODO: غيّر هذا للمسار الصحيح
-      title: "Personalised health insights",
-      subtitle: "افهم صحتك بشكل أعمق. استقبل نصائح وإحصاءات مخصصة بناءً على بياناتك ومدى تقدمك اليومي.",
+      title: LocaleKeys.onboarding_title3,
+      subtitle: LocaleKeys.onboarding_sub_title3,
     ),
   ];
 

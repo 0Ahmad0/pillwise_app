@@ -36,7 +36,7 @@ class OnboardingPageWidget extends StatelessWidget {
                     item.lottieAsset,
                   ),
                 ),
-              ),
+              ).zoomIn(),
               Positioned(
                 top: -24,
                 child: Transform.rotate(
@@ -59,7 +59,7 @@ class OnboardingPageWidget extends StatelessWidget {
             item.title,
             style: Get.textTheme.headlineMedium, // <-- من الثيم
             textAlign: TextAlign.center,
-          ),
+          ).slideDown(),
           16.verticalSpace, // مسافة متجاوبة
 
           // 3. النص العادي (الوصف)
@@ -67,7 +67,7 @@ class OnboardingPageWidget extends StatelessWidget {
             item.subtitle,
             style: Get.textTheme.bodyLarge, // <-- من الثيم
             textAlign: TextAlign.center,
-          ),
+          ).slideUp(),
         ],
       ),
     );

@@ -7,6 +7,7 @@ abstract class AppRoutes {
   static const initial = '/';
 
 
+  static const welcome = '/welcome';
   static const onboarding = '/onboarding';
 
 

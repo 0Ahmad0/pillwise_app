@@ -17,7 +17,8 @@ dependencies:
   animate_do:
   flutter_screenutil:
   cached_network_image:
-  lottie: 
+  lottie:
+  easy_localization:
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -33,6 +34,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/lottie/
+    - assets/translations/
 
   # fonts:
   #   - family: Schyler

@@ -16,6 +16,7 @@ class AppPages {
       binding: SplashBinding(), // الربط بالـ Binding الخاص بالصفحة
     ),
 
+
     GetPage(
       name: AppRoutes.onboarding,
       page: () => const OnboardingScreen(),

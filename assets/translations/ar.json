@@ -2,7 +2,9 @@
   "core": {
     "yes": "Yes",
     "no": "No",
-    "get_started": "Get Started"
+    "get_started": "Get Started",
+    "skip":"Skip",
+    "next": "Next"
   },
   "welcome": {
     "welcome_text_app":"Welcome To PillWise",
@@ -15,6 +17,22 @@
     "sub_title2": "Join studies or register your health attendance easily. Just scan the QR code and you'll be ready to go in seconds.",
     "title3": "Personalised health insights",
     "sub_title3": "Understand your health more deeply. Receive personalized tips and statistics based on your data and daily progress."
+  },
+  "login": {
+    "welcome_back": "Hi, Welcome Back! \uD83D\uDC4B",
+    "description": "",
+    "email_or_user_name": "",
+    "password": "",
+    "login":"Login"
+  },
+  "signup": {
+    "welcome": "Hi, Welcome Back! \uD83D\uDC4B",
+    "description": "",
+    "user_name": "",
+    "email": "",
+    "phone_number": "",
+    "password": "",
+    "confirm_password": "",
+    "signup":"Sign up"
   }
-
 }

@@ -18,7 +18,9 @@ class CodegenLoader extends AssetLoader{
   "core": {
     "yes": "Yes",
     "no": "No",
-    "get_started": "Get Started"
+    "get_started": "Get Started",
+    "skip": "Skip",
+    "next": "Next"
   },
   "welcome": {
     "welcome_text_app": "Welcome To PillWise",

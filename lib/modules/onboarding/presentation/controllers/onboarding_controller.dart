@@ -51,7 +51,6 @@ class OnboardingController extends GetxController {
   /// 7. دالة للانتقال للصفحة التالية
   void nextPage() {
     if (isLastPage) {
-      // إذا كانت الصفحة الأخيرة، اذهب لصفحة الدخول
       goToLogin();
     } else {
       pageController.nextPage(

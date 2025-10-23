@@ -9,11 +9,12 @@ abstract class AppAssets {
 
   // --- الصور (PNG / JPG) ---
   static const String logo = '$_imagesPath/logo.png';
-  static const String background = '$_imagesPath/background.jpg';
+  static const String loginLogo = '$_imagesPath/login_logo.png';
+  static const String signupLogo = '$_imagesPath/signup_logo.png';
 
   // --- الأيقونات (SVG) ---
-  static const String homeIcon = '$_iconsPath/home_icon.svg';
-  static const String profileIcon = '$_iconsPath/profile_icon.svg';
+  static const String splashHeartIcon = '$_iconsPath/splash_heart_icon.svg';
+  static const String welcomeWaveIcon = '$_iconsPath/welcome_wave.svg';
 
   // --- ملفات Lottie (JSON) ---
   static const String  scanDrugAnimation = '$_lottiePath/scan_drug_lottie.json';

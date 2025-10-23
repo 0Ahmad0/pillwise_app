@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CachedImageWidget extends StatelessWidget {
+class AppCachedImageWidget extends StatelessWidget {
   final String imageUrl;
   final double width;
   final double height;
   final BoxFit fit;
   final double clipRadius;
 
-  const CachedImageWidget({
+  const AppCachedImageWidget({
     super.key,
     required this.imageUrl,
     this.width = double.infinity,

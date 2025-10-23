@@ -6,6 +6,8 @@ abstract class  LocaleKeys {
   static const core_yes = 'core.yes';
   static const core_no = 'core.no';
   static const core_get_started = 'core.get_started';
+  static const core_skip = 'core.skip';
+  static const core_next = 'core.next';
   static const core = 'core';
   static const welcome_welcome_text_app = 'welcome.welcome_text_app';
   static const welcome_welcome_description = 'welcome.welcome_description';

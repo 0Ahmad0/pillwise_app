@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
+import 'package:pillwise_app/app/core/utils/app_validator.dart';
 import 'package:pillwise_app/app/core/widgets/app_app_bar_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_scaffold_widget.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
@@ -37,12 +38,17 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
               style: Get.textTheme.bodyMedium,
             ).fadeIn(),
             12.verticalSpace,
-            AppTextFormFieldWidget(
-              autofocus: true,
-              prefixIcon: Icons.email,
-              controller: controller.emailController,
-              hintText: tr(LocaleKeys.forgetPassword_email),
-            ).fadeIn(),
+            Form(
+              key: controller.formKey,
+              child: AppTextFormFieldWidget(
+                autofocus: true,
+                prefixIcon: Icons.email,
+                controller: controller.emailController,
+                hintText: tr(LocaleKeys.forgetPassword_email),
+                validator: AppValidator.validateEmail,
+                textInputAction: TextInputAction.send,
+              ).fadeIn(),
+            ),
             16.verticalSpace,
             AppButtonWidget(
               text: tr(LocaleKeys.core_reset),

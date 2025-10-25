@@ -3,11 +3,16 @@
     "yes": "Yes",
     "no": "No",
     "get_started": "Get Started",
-    "skip":"Skip",
-    "next": "Next"
+    "skip": "Skip",
+    "next": "Next",
+    "or": "OR"
+  },
+  "splash": {
+    "description": "Your first companion for organizing medication schedules and taking care of your health.",
+    "copyright": "Saudi Food and Drug Authority ©"
   },
   "welcome": {
-    "welcome_text_app":"Welcome To PillWise",
+    "welcome_text_app": "Welcome To PillWise",
     "welcome_description": "track, Scan, and find the right dosage for you"
   },
   "onboarding": {
@@ -20,19 +25,30 @@
   },
   "login": {
     "welcome_back": "Hi, Welcome Back! \uD83D\uDC4B",
-    "description": "",
-    "email_or_user_name": "",
-    "password": "",
-    "login":"Login"
+    "description": "Login to keep track of your appointments.",
+    "email_or_user_name": "User name or Email",
+    "password": "Password",
+    "forget_password": "Forgot Password ?",
+    "remember_me": "Remember Me",
+    "login": "Login",
+    "continue_with_apple": "Apple",
+    "continue_with_google": "Google",
+    "do_not_have_account": "Don’t have an account ? ",
+    "signup": "Sign Up"
   },
   "signup": {
-    "welcome": "Hi, Welcome Back! \uD83D\uDC4B",
-    "description": "",
-    "user_name": "",
-    "email": "",
-    "phone_number": "",
-    "password": "",
-    "confirm_password": "",
-    "signup":"Sign up"
+    "welcome": "Welcome! \uD83D\uDC8A",
+    "description": "Your first step towards commitment",
+    "name": "Name",
+    "user_name": "User name",
+    "email": "Email",
+    "phone_number": "Phone number",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "signup": "Sign up",
+    "continue_with_apple": "Apple",
+    "continue_with_google": "Google",
+    "hava_account": "Already have an account? ",
+    "login": "Login"
   }
 }

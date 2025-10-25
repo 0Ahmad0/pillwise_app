@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_colors.dart';
 import 'typography.dart';
 
@@ -6,14 +7,17 @@ class AppTheme {
   // --- الثيم الأبيض (Light) ---
   static ThemeData get lightTheme {
     return ThemeData(
+
       brightness: Brightness.light,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.lightScaffold,
 
       // تعريف TextTheme وتطبيق اللون الأسود عليه
       textTheme: AppTypography.textTheme.apply(
+        decorationColor: AppColors.primary,
         bodyColor: AppColors.lightText,
         displayColor: AppColors.lightText,
+
       ),
 
       colorScheme: const ColorScheme.light(
@@ -45,7 +49,7 @@ class AppTheme {
           textStyle: AppTypography.textTheme.labelLarge,
           minimumSize: Size(double.maxFinite, 54),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(8.r),
           ),
         ),
       ),
@@ -62,6 +66,7 @@ class AppTheme {
 
       // تعريف TextTheme وتطبيق اللون الأبيض عليه
       textTheme: AppTypography.textTheme.apply(
+        decorationColor: AppColors.primary,
         bodyColor: AppColors.darkText,
         displayColor: AppColors.darkText,
       ),
@@ -95,7 +100,7 @@ class AppTheme {
           textStyle: AppTypography.textTheme.labelLarge,
           minimumSize: Size(double.maxFinite, 54),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(8.r),
           ),
         ),
       ),

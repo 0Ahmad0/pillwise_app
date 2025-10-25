@@ -21,7 +21,6 @@ class AppScaffoldWidget extends StatelessWidget {
 
   static final EdgeInsets _defaultPadding = EdgeInsets.symmetric(
       horizontal: 14.w,
-      vertical: 10.h
   );
 
   @override

@@ -15,6 +15,9 @@ abstract class AppAssets {
   // --- الأيقونات (SVG) ---
   static const String splashHeartIcon = '$_iconsPath/splash_heart_icon.svg';
   static const String welcomeWaveIcon = '$_iconsPath/welcome_wave.svg';
+  static const String splashVectorIcon = '$_iconsPath/splash_vector.svg';
+  static const String googleLogoIcon = '$_iconsPath/google_logo.svg';
+  static const String appleLogoIcon = '$_iconsPath/apple_logo.svg';
 
   // --- ملفات Lottie (JSON) ---
   static const String  scanDrugAnimation = '$_lottiePath/scan_drug_lottie.json';

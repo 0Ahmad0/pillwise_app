@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AuthController extends GetxController {
-  final FocusNode emailFocus = FocusNode();
-  final FocusNode passwordFocus = FocusNode();
-
+class LoginController extends GetxController{
   final TextEditingController userNameOrEmailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final loginFormKey = GlobalKey<FormState>();
-  final signupFormKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   final RxBool rememberMe = false.obs;
 
   void toggleRememberMe(bool? newValue) {
     rememberMe.value = newValue ?? false;
+  }
+
+  @override
+  void onClose() {
+    userNameOrEmailController.dispose();
+    passwordController.dispose();
+    super.onClose();
   }
 }

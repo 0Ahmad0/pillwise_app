@@ -1,16 +1,20 @@
 import 'package:get/get.dart';
+import 'package:pillwise_app/app/routes/app_routes.dart';
+
+import '../../../../app/core/constants/app_constants.dart';
 
 class SplashController extends GetxController {
-  //TODO: Implement SplashController
-
-  final count = 0.obs;
   @override
   void onInit() {
-    super.onInit();
+super.onInit();
   }
 
   @override
   void onReady() {
+    print("READY");
+    Future.delayed(const Duration(seconds: AppConstants.splashDuration), () {
+      Get.offAllNamed(AppRoutes.welcome);
+    });
     super.onReady();
   }
 
@@ -18,6 +22,4 @@ class SplashController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

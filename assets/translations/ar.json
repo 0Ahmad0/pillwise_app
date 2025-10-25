@@ -14,7 +14,9 @@
     "password_short": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
     "password_complex": "كلمة المرور يجب أن تحتوي على حرف واحد ورقم واحد على الأقل",
     "confirmPassword_empty": "الرجاء تأكيد كلمة المرور",
-    "confirmPassword_noMatch": "كلمتا المرور غير متطابقتين"
+    "confirmPassword_noMatch": "كلمتا المرور غير متطابقتين",
+    "emailOrUsername_empty": "الرجاء إدخال البريد الإلكتروني أو اسم المستخدم",
+    "emailOrUsername_invalid": "الصيغة المدخلة غير صالحة"
   },
   "core": {
     "yes": "نعم",

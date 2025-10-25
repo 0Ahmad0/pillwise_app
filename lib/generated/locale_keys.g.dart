@@ -18,6 +18,8 @@ abstract class  LocaleKeys {
   static const validation_password_complex = 'validation.password_complex';
   static const validation_confirmPassword_empty = 'validation.confirmPassword_empty';
   static const validation_confirmPassword_noMatch = 'validation.confirmPassword_noMatch';
+  static const validation_emailOrUsername_empty = 'validation.emailOrUsername_empty';
+  static const validation_emailOrUsername_invalid = 'validation.emailOrUsername_invalid';
   static const validation = 'validation';
   static const core_yes = 'core.yes';
   static const core_no = 'core.no';

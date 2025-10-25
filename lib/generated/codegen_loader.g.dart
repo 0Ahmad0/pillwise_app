@@ -30,7 +30,9 @@ class CodegenLoader extends AssetLoader{
     "password_short": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
     "password_complex": "كلمة المرور يجب أن تحتوي على حرف واحد ورقم واحد على الأقل",
     "confirmPassword_empty": "الرجاء تأكيد كلمة المرور",
-    "confirmPassword_noMatch": "كلمتا المرور غير متطابقتين"
+    "confirmPassword_noMatch": "كلمتا المرور غير متطابقتين",
+    "emailOrUsername_empty": "الرجاء إدخال البريد الإلكتروني أو اسم المستخدم",
+    "emailOrUsername_invalid": "الصيغة المدخلة غير صالحة"
   },
   "core": {
     "yes": "نعم",
@@ -108,7 +110,9 @@ static const Map<String,dynamic> _en = {
     "password_short": "Password must be at least 8 characters",
     "password_complex": "Password must contain at least one letter and one number",
     "confirmPassword_empty": "Please confirm your password",
-    "confirmPassword_noMatch": "Passwords do not match"
+    "confirmPassword_noMatch": "Passwords do not match",
+    "emailOrUsername_empty": "Please enter your email or username",
+    "emailOrUsername_invalid": "The input format is invalid"
   },
   "core": {
     "yes": "Yes",

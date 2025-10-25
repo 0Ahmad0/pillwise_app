@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/app/routes/app_routes.dart';
 
 class LoginController extends GetxController{
   final TextEditingController userNameOrEmailController = TextEditingController();
@@ -19,6 +20,8 @@ class LoginController extends GetxController{
     if (!isValid) {
       Get.snackbar("خطأ", "الرجاء التأكد من جميع الحقول المدخلة");
       return;
+    }else{
+      Get.offAllNamed(AppRoutes.home);
     }
   }
 

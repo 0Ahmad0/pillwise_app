@@ -98,4 +98,29 @@ class AppValidator {
     }
     return null;
   }
+  // (داخل كلاس AppValidator)
+
+  /// التحقق من حقل يقبل (بريد إلكتروني أو اسم مستخدم)
+  static String? validateEmailOrUsername(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return tr(LocaleKeys.validation_emailOrUsername_empty);
+    }
+
+    final trimmedValue = value.trim();
+
+    // 1. هل هو بريد إلكتروني صالح؟
+    final bool isEmail = GetUtils.isEmail(trimmedValue);
+
+    // 2. هل هو اسم مستخدم صالح؟ (نستخدم نفس شروط دالة validateUsername)
+    final usernameRegex = RegExp(r'^[a-zA-Z0-9_]+$');
+    final bool isUsername = usernameRegex.hasMatch(trimmedValue) && trimmedValue.length >= 4;
+
+    // 3. إذا لم يكن أي منهما، أظهر الخطأ
+    if (!isEmail && !isUsername) {
+      return tr(LocaleKeys.validation_emailOrUsername_invalid);
+    }
+
+    // 4. إذا كان واحداً منهما على الأقل، فهو صالح
+    return null;
+  }
 }

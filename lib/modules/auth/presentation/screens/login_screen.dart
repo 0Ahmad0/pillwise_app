@@ -83,7 +83,7 @@ class LoginScreen extends GetView<LoginController> {
                 14.verticalSpace,
                 AppTextFormFieldWidget(
                   prefixIcon: Icons.person,
-                  controller: controller.passwordController,
+                  controller: controller.userNameOrEmailController,
                   hintText: tr(LocaleKeys.login_email_or_user_name),
                   validator: AppValidator.validateUsername,
                 ).fadeIn(),

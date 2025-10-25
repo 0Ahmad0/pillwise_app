@@ -35,7 +35,7 @@ class AppCachedImageWidget extends StatelessWidget {
               // color: AppColors.accent,
               ),
         ),
-        errorWidget: (context, url, error) => Container(
+        errorWidget: (context, url, error) => SizedBox(
           width: width,
           height: height,
           // color: AppColors.border,

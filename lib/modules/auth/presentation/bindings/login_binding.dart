@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:pillwise_app/modules/auth/presentation/controllers/login_controller.dart';
-import '../controllers/auth_controller.dart';
+
 
 class LoginBinding extends Bindings {
   @override

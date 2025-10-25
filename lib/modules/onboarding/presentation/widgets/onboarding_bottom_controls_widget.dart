@@ -1,9 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/widgets/app_padding_widget.dart';
-import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/onboarding/presentation/widgets/onboarding_dot_indicator_widget.dart';
+
 import '../controllers/onboarding_controller.dart';
 
 class OnboardingBottomControlsWidget extends GetView<OnboardingController> {

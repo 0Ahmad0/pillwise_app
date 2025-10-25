@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'app_colors.dart';
 import 'typography.dart';
 
@@ -22,9 +23,7 @@ class AppTheme {
 
       colorScheme: const ColorScheme.light(
         primary: AppColors.primary,
-        onPrimary: AppColors.white, // لون النص على الزر الأساسي
-        background: AppColors.lightScaffold,
-        onBackground: AppColors.lightText, // لون النص على الخلفية
+        onPrimary: AppColors.white, // لون النص على الخلفية
         surface: AppColors.lightCard, // لون الكروت
         onSurface: AppColors.lightText, // لون النص على الكروت
         error: AppColors.error,
@@ -47,7 +46,7 @@ class AppTheme {
           backgroundColor: AppColors.primary,
           foregroundColor: AppColors.white,
           textStyle: AppTypography.textTheme.labelLarge,
-          minimumSize: Size(double.maxFinite, 54),
+          minimumSize: const Size(double.maxFinite, 54),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.r),
           ),
@@ -74,8 +73,6 @@ class AppTheme {
       colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
         onPrimary: AppColors.white,
-        background: AppColors.darkScaffold,
-        onBackground: AppColors.darkText,
         surface: AppColors.darkCard,
         onSurface: AppColors.darkText,
         error: AppColors.error,
@@ -98,7 +95,7 @@ class AppTheme {
           backgroundColor: AppColors.primary,
           foregroundColor: AppColors.white,
           textStyle: AppTypography.textTheme.labelLarge,
-          minimumSize: Size(double.maxFinite, 54),
+          minimumSize: const Size(double.maxFinite, 54),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.r),
           ),

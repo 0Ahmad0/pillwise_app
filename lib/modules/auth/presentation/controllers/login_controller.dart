@@ -13,6 +13,15 @@ class LoginController extends GetxController{
     rememberMe.value = newValue ?? false;
   }
 
+  Future<void> processLogin() async {
+    final isValid = formKey.currentState!.validate();
+
+    if (!isValid) {
+      Get.snackbar("خطأ", "الرجاء التأكد من جميع الحقول المدخلة");
+      return;
+    }
+  }
+
   @override
   void onClose() {
     userNameOrEmailController.dispose();

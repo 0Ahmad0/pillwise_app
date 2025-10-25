@@ -3,12 +3,30 @@
 // ignore_for_file: constant_identifier_names
 
 abstract class  LocaleKeys {
+  static const validation_emptyField = 'validation.emptyField';
+  static const validation_name_empty = 'validation.name_empty';
+  static const validation_name_short = 'validation.name_short';
+  static const validation_username_empty = 'validation.username_empty';
+  static const validation_username_short = 'validation.username_short';
+  static const validation_username_invalid = 'validation.username_invalid';
+  static const validation_email_empty = 'validation.email_empty';
+  static const validation_email_invalid = 'validation.email_invalid';
+  static const validation_phone_empty = 'validation.phone_empty';
+  static const validation_phone_invalid = 'validation.phone_invalid';
+  static const validation_password_empty = 'validation.password_empty';
+  static const validation_password_short = 'validation.password_short';
+  static const validation_password_complex = 'validation.password_complex';
+  static const validation_confirmPassword_empty = 'validation.confirmPassword_empty';
+  static const validation_confirmPassword_noMatch = 'validation.confirmPassword_noMatch';
+  static const validation = 'validation';
   static const core_yes = 'core.yes';
   static const core_no = 'core.no';
   static const core_get_started = 'core.get_started';
   static const core_skip = 'core.skip';
   static const core_next = 'core.next';
   static const core_or = 'core.or';
+  static const core_send = 'core.send';
+  static const core_reset = 'core.reset';
   static const core = 'core';
   static const splash_description = 'splash.description';
   static const splash_copyright = 'splash.copyright';
@@ -49,5 +67,9 @@ abstract class  LocaleKeys {
   static const signup_hava_account = 'signup.hava_account';
   static const signup_login = 'signup.login';
   static const signup = 'signup';
+  static const forgetPassword_email = 'forgetPassword.email';
+  static const forgetPassword_welcome = 'forgetPassword.welcome';
+  static const forgetPassword_description = 'forgetPassword.description';
+  static const forgetPassword = 'forgetPassword';
 
 }

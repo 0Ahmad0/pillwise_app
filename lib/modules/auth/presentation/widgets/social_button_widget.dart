@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pillwise_app/app/core/theme/app_theme.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
 
 class SocialButtonWidget extends StatelessWidget {

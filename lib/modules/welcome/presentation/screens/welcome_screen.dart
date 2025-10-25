@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
+
 import '../controllers/welcome_controller.dart';
-import 'package:animate_do/animate_do.dart';
 
 class WelcomeScreen extends GetView<WelcomeController> {
   const WelcomeScreen({super.key});
@@ -22,7 +23,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                LanguageToggleWidget(),
+                const LanguageToggleWidget(),
                 20.verticalSpace,
                 Text(
                   tr(LocaleKeys.welcome_welcome_text_app),

@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/constants/app_constants.dart';
 import 'package:pillwise_app/app/routes/app_pages.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
-import 'package:pillwise_app/modules/splash/presentation/bindings/splash_binding.dart';
 
 import 'app/core/theme/app_theme.dart';
 import 'generated/codegen_loader.g.dart';
@@ -50,7 +49,7 @@ class PillWiseApp extends StatelessWidget {
           // <--- تطبيق الثيم الأبيض
           darkTheme: AppTheme.darkTheme,
           // <--- تطبيق الثيم الأسود
-          themeMode: ThemeMode.dark,
+          themeMode: ThemeMode.light,
           // (أو .light أو .dark)
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,

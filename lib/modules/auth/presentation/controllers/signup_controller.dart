@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignupController extends GetxController{
+class SignupController extends GetxController {
   final FocusNode passwordFocus = FocusNode();
   final FocusNode confirmPasswordFocus = FocusNode();
 
@@ -11,8 +11,17 @@ class SignupController extends GetxController{
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
+  Future<void> processSignup() async {
+    final isValid = formKey.currentState!.validate();
+
+    if (!isValid) {
+      Get.snackbar("خطأ", "الرجاء التأكد من جميع الحقول المدخلة");
+      return;
+    }
+  }
 
   @override
   void onClose() {

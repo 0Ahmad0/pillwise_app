@@ -7,8 +7,6 @@ import 'package:lottie/lottie.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
 import 'package:pillwise_app/app/core/widgets/app_padding_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
-import 'package:pillwise_app/main.dart';
-import 'package:pillwise_app/modules/splash/presentation/screens/splash_screen.dart';
 
 import '../../data/models/onboarding_item_model.dart';
 

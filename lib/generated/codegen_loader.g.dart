@@ -15,13 +15,32 @@ class CodegenLoader extends AssetLoader{
   }
 
   static const Map<String,dynamic> _ar = {
+  "validation": {
+    "emptyField": "هذا الحقل مطلوب",
+    "name_empty": "الرجاء إدخال اسمك",
+    "name_short": "الاسم قصير جداً",
+    "username_empty": "الرجاء إدخال اسم المستخدم",
+    "username_short": "اسم المستخدم يجب أن يكون 4 أحرف على الأقل",
+    "username_invalid": "اسم المستخدم يحتوي على رموز غير صالحة (استخدم أحرف، أرقام، و _ فقط)",
+    "email_empty": "الرجاء إدخال البريد الإلكتروني",
+    "email_invalid": "صيغة البريد الإلكتروني غير صحيحة",
+    "phone_empty": "الرجاء إدخال رقم الهاتف",
+    "phone_invalid": "صيغة الرقم غير صحيحة (مثال: 0512345678)",
+    "password_empty": "الرجاء إدخال كلمة المرور",
+    "password_short": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
+    "password_complex": "كلمة المرور يجب أن تحتوي على حرف واحد ورقم واحد على الأقل",
+    "confirmPassword_empty": "الرجاء تأكيد كلمة المرور",
+    "confirmPassword_noMatch": "كلمتا المرور غير متطابقتين"
+  },
   "core": {
     "yes": "نعم",
     "no": "لا",
     "get_started": "ابدأ الآن",
     "skip": "تخطي",
     "next": "التالي",
-    "or": "أو"
+    "or": "أو",
+    "send": "إرسال",
+    "reset": "إعادة تعيين"
   },
   "splash": {
     "description": "رفيقك الأول لتنظيم مواعيد الدواء والعناية بصحتك.",
@@ -66,16 +85,40 @@ class CodegenLoader extends AssetLoader{
     "continue_with_google": "جوجل",
     "hava_account": "لديك حساب بالفعل؟ ",
     "login": "تسجيل الدخول"
+  },
+  "forgetPassword": {
+    "email": "البريد الالكتروني",
+    "welcome": "لا مشكلة, هذا يحدث للجميع🙌",
+    "description": "أدخل بريدك الالكتروني لإعادة تعيين كلمة مرورك"
   }
 };
 static const Map<String,dynamic> _en = {
+  "validation": {
+    "emptyField": "This field is required",
+    "name_empty": "Please enter your name",
+    "name_short": "Name is too short",
+    "username_empty": "Please enter a username",
+    "username_short": "Username must be at least 4 characters",
+    "username_invalid": "Username contains invalid characters (use letters, numbers, and _ only)",
+    "email_empty": "Please enter your email",
+    "email_invalid": "Email format is incorrect",
+    "phone_empty": "Please enter your phone number",
+    "phone_invalid": "Phone format is incorrect (e.g., 0512345678)",
+    "password_empty": "Please enter a password",
+    "password_short": "Password must be at least 8 characters",
+    "password_complex": "Password must contain at least one letter and one number",
+    "confirmPassword_empty": "Please confirm your password",
+    "confirmPassword_noMatch": "Passwords do not match"
+  },
   "core": {
     "yes": "Yes",
     "no": "No",
     "get_started": "Get Started",
     "skip": "Skip",
     "next": "Next",
-    "or": "OR"
+    "or": "OR",
+    "send": "Send",
+    "reset": "Reset"
   },
   "splash": {
     "description": "Your first companion for organizing medication schedules and taking care of your health.",
@@ -120,6 +163,11 @@ static const Map<String,dynamic> _en = {
     "continue_with_google": "Google",
     "hava_account": "Already have an account? ",
     "login": "Login"
+  },
+  "forgetPassword": {
+    "email": "Email",
+    "welcome": "No problem, this happens to everyone🙌",
+    "description": "Enter your email below to reset your password"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

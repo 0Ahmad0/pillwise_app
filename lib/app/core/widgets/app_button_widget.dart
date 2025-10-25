@@ -26,7 +26,7 @@ class AppButtonWidget extends StatelessWidget {
   final Color? foregroundColor;
 
   const AppButtonWidget({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.icon,
@@ -34,7 +34,7 @@ class AppButtonWidget extends StatelessWidget {
     this.isFullWidth = true, // الافتراضي أن الزر يملأ العرض
     this.backgroundColor,
     this.foregroundColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

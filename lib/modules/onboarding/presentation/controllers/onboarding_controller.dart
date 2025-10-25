@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
+
 import '../../../../app/core/constants/app_assets.dart';
 import '../../../../app/routes/app_routes.dart';
 import '../../data/models/onboarding_item_model.dart';

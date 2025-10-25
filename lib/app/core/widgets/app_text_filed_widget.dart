@@ -16,6 +16,7 @@ class AppTextFormFieldWidget extends StatefulWidget {
   final IconData? prefixIcon;
   final int maxLines;
   final bool enabled;
+  final bool autofocus;
 
   const AppTextFormFieldWidget({
     super.key,
@@ -32,6 +33,7 @@ class AppTextFormFieldWidget extends StatefulWidget {
     this.prefixIcon,
     this.maxLines = 1,
     this.enabled = true,
+    this.autofocus = false,
   });
 
   @override
@@ -59,6 +61,7 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
     );
 
     return TextFormField(
+      autofocus: widget.autofocus,
       controller: widget.controller,
       focusNode: widget.currentFocusNode,
       obscureText: _isObscure,
@@ -67,6 +70,7 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
       textInputAction: widget.textInputAction,
       enabled: widget.enabled,
       maxLines: widget.maxLines,
+
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onFieldSubmitted: (value) {
         if (widget.textInputAction == TextInputAction.next &&
@@ -79,6 +83,7 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
         widget.onFieldSubmitted?.call();
       },
       decoration: InputDecoration(
+        errorMaxLines: 2,
         labelText: widget.labelText,
         hintText: widget.hintText,
         hintStyle: theme.textTheme.bodyMedium?.copyWith(

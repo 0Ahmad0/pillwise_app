@@ -4,16 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
-import 'package:pillwise_app/app/core/theme/typography.dart';
+import 'package:pillwise_app/app/core/widgets/app_app_bar_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_scaffold_widget.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
-import 'package:pillwise_app/modules/auth/presentation/controllers/auth_controller.dart';
 import 'package:pillwise_app/modules/auth/presentation/controllers/forget_password_controller.dart';
-import 'package:pillwise_app/modules/auth/presentation/controllers/login_controller.dart';
-import 'package:pillwise_app/modules/onboarding/presentation/widgets/onboarding_page_widget.dart';
 
 import '../../../../app/core/widgets/app_button_widget.dart';
-import '../../../../app/core/widgets/app_text_button_widget.dart';
 import '../../../../app/core/widgets/app_text_filed_widget.dart';
 
 class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
@@ -22,6 +18,39 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
   @override
   Widget build(BuildContext context) {
     return AppScaffoldWidget(
+      appBar: const AppAppBarWidget(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset(
+              AppAssets.forgetPasswordLogo,
+              width: 150.w,
+              height: 150.w,
+            ).heartBeat(),
+            Text(
+              tr(LocaleKeys.forgetPassword_welcome),
+              style: Get.textTheme.headlineMedium,
+            ).fadeIn(),
+            6.verticalSpace,
+            Text(
+              tr(LocaleKeys.forgetPassword_description),
+              style: Get.textTheme.bodyMedium,
+            ).fadeIn(),
+            12.verticalSpace,
+            AppTextFormFieldWidget(
+              autofocus: true,
+              prefixIcon: Icons.email,
+              controller: controller.emailController,
+              hintText: tr(LocaleKeys.forgetPassword_email),
+            ).fadeIn(),
+            16.verticalSpace,
+            AppButtonWidget(
+              text: tr(LocaleKeys.core_reset),
+              onPressed: controller.processForgetPassword,
+            ).fadeIn(),
+          ],
+        ),
+      ),
     );
   }
 }

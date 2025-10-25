@@ -1,15 +1,14 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
 import 'package:pillwise_app/app/core/widgets/app_padding_widget.dart';
-import 'package:pillwise_app/app/core/widgets/app_scaffold_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
-import 'package:pillwise_app/app/routes/app_routes.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
+
 import '../controllers/splash_controller.dart';
-import 'package:animate_do/animate_do.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -47,7 +46,7 @@ class SplashScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 20.verticalSpace,
-                CircularProgressIndicator(),
+                const CircularProgressIndicator(),
               ],
             ),
           ),

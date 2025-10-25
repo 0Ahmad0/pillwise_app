@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/widgets/app_scaffold_widget.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/onboarding/presentation/widgets/onboarding_bottom_controls_widget.dart';
+
 import '../controllers/onboarding_controller.dart';
 import '../widgets/onboarding_page_widget.dart';
 

@@ -6,10 +6,8 @@ abstract class AppRoutes {
   // المسار الأولي (يمكن أن يكون Splash أو Login)
   static const initial = '/';
 
-
   static const welcome = '/welcome';
   static const onboarding = '/onboarding';
-
 
   // --- ميزة المصادقة (Auth) ---
   static const login = '/login';
@@ -17,10 +15,15 @@ abstract class AppRoutes {
   static const forgetPassword = '/forgot-password';
 
   // --- ميزة الرئيسية (Home) ---
-  static const home = '/home';
 
   // --- ميزة البروفايل (Profile) ---
-  static const profile = '/profile';
-  static const editProfile = '/profile/edit';
+  static const editProfile = '/edit_profile';
   static const settings = '/settings';
+
+  static const navbar = '/navbar';
+  static const home = '/home';
+  static const addMedication = '/add_medication';
+  static const healthInformation = '/health_information';
+  static const profile = '/profile';
+  static const scanBarcode = '/scan_barcode';
 }

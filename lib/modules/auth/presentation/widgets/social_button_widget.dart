@@ -27,7 +27,7 @@ class SocialButtonWidget extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: backgroundColor ??
-                Get.theme.colorScheme.surface.withOpacity(.85),
+                Get.theme.colorScheme.surface.withOpacity(.8),
             borderRadius: BorderRadius.circular(8.r)
         ),
         child: isLoading ? _buildLoading() : _buildWidget(),

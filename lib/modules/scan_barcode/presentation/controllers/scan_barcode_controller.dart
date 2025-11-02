@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  //TODO: Implement HomeController
+class ScanBarcodeController extends GetxController {
+  //TODO: Implement ScanBarcodeController
 
   final count = 0.obs;
   @override

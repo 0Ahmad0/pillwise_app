@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/home_controller.dart';
+import '../controllers/scan_barcode_controller.dart';
 
-class HomeScreen extends GetView<HomeController> {
-  const HomeScreen({Key? key}) : super(key: key);
+class ScanBarcodeScreen extends GetView<ScanBarcodeController> {
+  const ScanBarcodeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomeScreen'),
+        title: Text('ScanBarcodeScreen'),
         centerTitle: true,
       ),
       body: Center(
         child: Text(
-          'HomeScreen is working',
+          'ScanBarcodeScreen is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

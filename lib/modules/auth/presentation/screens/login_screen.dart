@@ -41,25 +41,7 @@ class LoginScreen extends GetView<LoginController> {
                   tr(LocaleKeys.login_description),
                   style: Get.textTheme.bodyMedium,
                 ).fadeIn(),
-                6.verticalSpace,
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    const Divider(
-                      thickness: .2,
-                    ),
-                    Positioned(
-                      child: CircleAvatar(
-                        backgroundColor: Get.theme.scaffoldBackgroundColor,
-                        child: Text(
-                          tr(LocaleKeys.core_or),
-                          style: Get.textTheme.bodyMedium,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                4.verticalSpace,
+                14.verticalSpace,
                 Row(
                   children: [
                     Expanded(
@@ -78,6 +60,24 @@ class LoginScreen extends GetView<LoginController> {
 
                       ),
                     ),
+                  ],
+                ),
+                8.verticalSpace,
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    const Divider(
+                      thickness: .2,
+                    ),
+                    Positioned(
+                      child: CircleAvatar(
+                        backgroundColor: Get.theme.scaffoldBackgroundColor,
+                        child: Text(
+                          tr(LocaleKeys.core_or),
+                          style: Get.textTheme.bodyMedium,
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 14.verticalSpace,
@@ -127,7 +127,6 @@ class LoginScreen extends GetView<LoginController> {
                 AppButtonWidget(
                   text: tr(LocaleKeys.login_login),
                   onPressed: controller.processLogin,
-
                 ).fadeIn(),
                 6.verticalSpace,
                 TextButton(

@@ -21,7 +21,7 @@ class LoginController extends GetxController{
       Get.snackbar("خطأ", "الرجاء التأكد من جميع الحقول المدخلة");
       return;
     }else{
-      Get.offAllNamed(AppRoutes.home);
+      Get.offAllNamed(AppRoutes.navbar);
     }
   }
 

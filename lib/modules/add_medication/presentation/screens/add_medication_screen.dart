@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/home_controller.dart';
+import '../controllers/add_medication_controller.dart';
 
-class HomeScreen extends GetView<HomeController> {
-  const HomeScreen({Key? key}) : super(key: key);
+class AddMedicationScreen extends GetView<AddMedicationController> {
+  const AddMedicationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomeScreen'),
+        title: Text('AddMedicationScreen'),
         centerTitle: true,
       ),
       body: Center(
         child: Text(
-          'HomeScreen is working',
+          'AddMedicationScreen is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

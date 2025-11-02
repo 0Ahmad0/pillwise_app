@@ -19,6 +19,7 @@ dependencies:
   cached_network_image:
   lottie:
   easy_localization:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

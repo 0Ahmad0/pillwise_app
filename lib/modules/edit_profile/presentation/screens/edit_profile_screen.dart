@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/home_controller.dart';
+import '../controllers/edit_profile_controller.dart';
 
-class HomeScreen extends GetView<HomeController> {
-  const HomeScreen({Key? key}) : super(key: key);
+class EditProfileScreen extends GetView<EditProfileController> {
+  const EditProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomeScreen'),
+        title: Text('EditProfileScreen'),
         centerTitle: true,
       ),
       body: Center(
         child: Text(
-          'HomeScreen is working',
+          'EditProfileScreen is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

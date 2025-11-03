@@ -25,6 +25,8 @@ import '../../modules/profile/presentation/bindings/profile_binding.dart';
 import '../../modules/profile/presentation/screens/profile_screen.dart';
 import '../../modules/scan_barcode/presentation/bindings/scan_barcode_binding.dart';
 import '../../modules/scan_barcode/presentation/screens/scan_barcode_screen.dart';
+import '../../modules/settings/presentation/bindings/settings_binding.dart';
+import '../../modules/settings/presentation/screens/settings_screen.dart';
 import '../../modules/splash/presentation/screens/splash_screen.dart';
 import 'app_routes.dart';
 
@@ -100,6 +102,11 @@ class AppPages {
       name: AppRoutes.profile,
       page: () => const ProfileScreen(),
       binding: ProfileBinding(), // <-- يستخدم ForgetPasswordBinding
+    ),
+    GetPage(
+      name: AppRoutes.settings,
+      page: () => const SettingsScreen(),
+      binding: SettingsBinding(), // <-- يستخدم ForgetPasswordBinding
     ),
   ];
 }

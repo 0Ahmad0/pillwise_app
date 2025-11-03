@@ -49,7 +49,7 @@ class PillWiseApp extends StatelessWidget {
           // <--- تطبيق الثيم الأبيض
           darkTheme: AppTheme.darkTheme,
           // <--- تطبيق الثيم الأسود
-          themeMode: ThemeMode.dark,
+          themeMode: ThemeMode.system,
           // (أو .light أو .dark)
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,

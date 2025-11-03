@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pillwise_app/modules/add_medication/presentation/screens/add_medication_screen.dart';
 import 'package:pillwise_app/modules/home/presentation/screens/home_screen.dart';
 import 'package:pillwise_app/modules/profile/presentation/screens/profile_screen.dart';
+import 'package:pillwise_app/modules/settings/presentation/screens/settings_screen.dart';
 
 class NavbarController extends GetxController {
   late final screens;
@@ -14,12 +15,13 @@ class NavbarController extends GetxController {
   }
 
   @override
-  void onReady() {
+  void onInit() {
     screens  = [
       HomeScreen(),
       AddMedicationScreen(),
-      ProfileScreen(),
+      SettingsScreen(),
     ];
-    super.onReady();
+    super.onInit();
+
   }
 }

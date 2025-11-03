@@ -92,6 +92,25 @@ class CodegenLoader extends AssetLoader{
     "email": "البريد الالكتروني",
     "welcome": "لا مشكلة, هذا يحدث للجميع🙌",
     "description": "أدخل بريدك الالكتروني لإعادة تعيين كلمة مرورك"
+  },
+  "navbar": {
+    "home": "الرئيسية",
+    "me": "أنا"
+  },
+  "settings": {
+    "settings_title": "الإعدادات",
+    "settings_editProfile": "تعديل معلومات الملف الشخصي",
+    "settings_healthInfo": "المعلومات الصحية",
+    "settings_notifications": "الإشعارات",
+    "settings_theme": "الثيم (المظهر)",
+    "settings_help": "المساعدة والدعم",
+    "settings_contact": "تواصل معنا",
+    "settings_privacy": "سياسة الخصوصية",
+    "settings_logout": "تسجيل الخروج",
+    "settings_lightMode": "الوضع الفاتح",
+    "settings_darkMode": "الوضع الداكن",
+    "common_on": "يعمل",
+    "common_off": "متوقف"
   }
 };
 static const Map<String,dynamic> _en = {
@@ -172,6 +191,25 @@ static const Map<String,dynamic> _en = {
     "email": "Email",
     "welcome": "No problem, this happens to everyone🙌",
     "description": "Enter your email below to reset your password"
+  },
+  "navbar": {
+    "home": "Home",
+    "me": "Me"
+  },
+  "settings": {
+    "settings_title": "Settings",
+    "settings_editProfile": "Edit profile information",
+    "settings_healthInfo": "Health Information",
+    "settings_notifications": "Notifications",
+    "settings_theme": "Theme",
+    "settings_help": "Help & Support",
+    "settings_contact": "Contact us",
+    "settings_privacy": "Privacy policy",
+    "settings_logout": "Logout",
+    "settings_lightMode": "Light mode",
+    "settings_darkMode": "Dark mode",
+    "common_on": "ON",
+    "common_off": "OFF"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

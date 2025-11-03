@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/app/core/constants/app_assets.dart';
+import 'package:pillwise_app/app/core/widgets/app_padding_widget.dart';
+import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
+import 'package:pillwise_app/app/core/widgets/app_text_filed_widget.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileScreen extends GetView<ProfileController> {
@@ -8,16 +13,11 @@ class ProfileScreen extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ProfileScreen'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'ProfileScreen is working',
-          style: TextStyle(fontSize: 20),
+        appBar: AppBar(
+          title: Text('ProfileScreen'),
+          centerTitle: true,
         ),
-      ),
+
     );
   }
 }

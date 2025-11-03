@@ -73,5 +73,22 @@ abstract class  LocaleKeys {
   static const forgetPassword_welcome = 'forgetPassword.welcome';
   static const forgetPassword_description = 'forgetPassword.description';
   static const forgetPassword = 'forgetPassword';
+  static const navbar_home = 'navbar.home';
+  static const navbar_me = 'navbar.me';
+  static const navbar = 'navbar';
+  static const settings_settings_title = 'settings.settings_title';
+  static const settings_settings_editProfile = 'settings.settings_editProfile';
+  static const settings_settings_healthInfo = 'settings.settings_healthInfo';
+  static const settings_settings_notifications = 'settings.settings_notifications';
+  static const settings_settings_theme = 'settings.settings_theme';
+  static const settings_settings_help = 'settings.settings_help';
+  static const settings_settings_contact = 'settings.settings_contact';
+  static const settings_settings_privacy = 'settings.settings_privacy';
+  static const settings_settings_logout = 'settings.settings_logout';
+  static const settings_settings_lightMode = 'settings.settings_lightMode';
+  static const settings_settings_darkMode = 'settings.settings_darkMode';
+  static const settings_common_on = 'settings.common_on';
+  static const settings_common_off = 'settings.common_off';
+  static const settings = 'settings';
 
 }

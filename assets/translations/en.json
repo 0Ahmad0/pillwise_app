@@ -76,5 +76,24 @@
     "email": "Email",
     "welcome": "No problem, this happens to everyone\uD83D\uDE4C",
     "description": "Enter your email below to reset your password"
+  },
+  "navbar": {
+    "home": "Home",
+    "me": "Me"
+  },
+  "settings": {
+    "settings_title": "Settings",
+    "settings_editProfile": "Edit profile information",
+    "settings_healthInfo": "Health Information",
+    "settings_notifications": "Notifications",
+    "settings_theme": "Theme",
+    "settings_help": "Help & Support",
+    "settings_contact": "Contact us",
+    "settings_privacy": "Privacy policy",
+    "settings_logout": "Logout",
+    "settings_lightMode": "Light mode",
+    "settings_darkMode": "Dark mode",
+    "common_on": "ON",
+    "common_off": "OFF"
   }
 }

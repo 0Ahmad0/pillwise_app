@@ -76,6 +76,25 @@
     "email": "البريد الالكتروني",
     "welcome": "لا مشكلة, هذا يحدث للجميع\uD83D\uDE4C",
     "description": "أدخل بريدك الالكتروني لإعادة تعيين كلمة مرورك"
+  },
+  "navbar": {
+    "home": "الرئيسية",
+    "me": "أنا"
+  },
+  "settings": {
+    "settings_title": "الإعدادات",
+    "settings_editProfile": "تعديل معلومات الملف الشخصي",
+    "settings_healthInfo": "المعلومات الصحية",
+    "settings_notifications": "الإشعارات",
+    "settings_theme": "الثيم (المظهر)",
+    "settings_help": "المساعدة والدعم",
+    "settings_contact": "تواصل معنا",
+    "settings_privacy": "سياسة الخصوصية",
+    "settings_logout": "تسجيل الخروج",
+    "settings_lightMode": "الوضع الفاتح",
+    "settings_darkMode": "الوضع الداكن",
+    "common_on": "يعمل",
+    "common_off": "متوقف"
   }
 }
 

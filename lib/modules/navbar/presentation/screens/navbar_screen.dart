@@ -18,23 +18,26 @@ class NavbarScreen extends GetView<NavbarController> {
           children: controller.screens,
         ),
       ),
-
       bottomNavigationBar: Obx(
-        () => SizedBox(
-          height: 56.h,
-          child: BottomNavigationBar(
-            showUnselectedLabels: false,
-            iconSize: 24.sp,
-            type: BottomNavigationBarType.shifting,
-            useLegacyColorScheme: false,
-            currentIndex: controller.selectedIndex.value,
-            onTap: controller.changePage,
-            items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(Icons.add_circle),label: ''),
-              BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Profile'),
-            ],
+        () => BottomNavigationBar(
+          showUnselectedLabels: false,
+          iconSize: 24.sp,
+          type: BottomNavigationBarType.shifting,
+          selectedItemColor: Get.theme.primaryColor,
+          selectedLabelStyle: TextStyle(
+            color: Get.textTheme.bodyMedium?.color
           ),
+          useLegacyColorScheme: false,
+          currentIndex: controller.selectedIndex.value,
+          onTap: controller.changePage,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(icon: Icon(Icons.add_circle), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Me'),
+          ],
         ),
       ),
     );

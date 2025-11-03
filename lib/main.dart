@@ -9,6 +9,7 @@ import 'package:pillwise_app/app/routes/app_routes.dart';
 
 import 'app/core/theme/app_theme.dart';
 import 'generated/codegen_loader.g.dart';
+import 'modules/settings/presentation/controllers/settings_controller.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +40,8 @@ class PillWiseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SettingsController settingsController =
+    Get.put(SettingsController(), permanent: true);
     return ScreenUtilInit(
       designSize: const Size(AppConstants.designWidth, AppConstants.designHeight),
       minTextAdapt: true,
@@ -49,7 +52,7 @@ class PillWiseApp extends StatelessWidget {
           // <--- تطبيق الثيم الأبيض
           darkTheme: AppTheme.darkTheme,
           // <--- تطبيق الثيم الأسود
-          themeMode: ThemeMode.system,
+          themeMode: settingsController.themeMode.value,
           // (أو .light أو .dark)
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,

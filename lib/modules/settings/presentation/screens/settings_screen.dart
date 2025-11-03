@@ -60,11 +60,15 @@ class SettingsScreen extends GetView<SettingsController> {
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_theme),
                       icon: Icons.brightness_6_outlined,
-                      onTap: controller.changeTheme,
+                      onTap: (){
+                        // ToDO : Fix It
+                        controller.changeTheme(
+                          controller.themeMode.value == ThemeMode.dark?ThemeMode.light:ThemeMode.dark
+                        );
+                      },
                       trailing: Obx(() { // <-- مراقبة التغيير
-                        controller.notificationsEnabled.value;
                         return Text(
-                          Get.isDarkMode
+                          controller.themeMode.value == ThemeMode.dark
                               ? tr(LocaleKeys.settings_settings_darkMode)
                               : tr(LocaleKeys.settings_settings_lightMode),
                           style: Get.textTheme.bodySmall,

@@ -5,9 +5,11 @@ import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/theme/app_theme.dart';
 import 'package:pillwise_app/app/core/widgets/app_scaffold_widget.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
+import 'package:pillwise_app/modules/settings/presentation/widgets/language_toggle_widget.dart';
 import '../controllers/settings_controller.dart';
 import '../widgets/settings_group_widget.dart';
 import '../widgets/settings_item_widget.dart';
+import '../widgets/theme_toggle_widget.dart';
 
 class SettingsScreen extends GetView<SettingsController> {
   const SettingsScreen({super.key});
@@ -60,20 +62,23 @@ class SettingsScreen extends GetView<SettingsController> {
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_theme),
                       icon: Icons.brightness_6_outlined,
-                      onTap: (){
-                        // ToDO : Fix It
-                        controller.changeTheme(
-                          controller.themeMode.value == ThemeMode.dark?ThemeMode.light:ThemeMode.dark
-                        );
-                      },
-                      trailing: Obx(() { // <-- مراقبة التغيير
-                        return Text(
-                          controller.themeMode.value == ThemeMode.dark
-                              ? tr(LocaleKeys.settings_settings_darkMode)
-                              : tr(LocaleKeys.settings_settings_lightMode),
-                          style: Get.textTheme.bodySmall,
-                        );
-                      }),
+                     onTap: controller.changeTheme,
+                      trailing:  ThemeToggleWidget(),
+                    ),
+                    SettingsItemWidget(
+
+                      titleKey: 'اللغة',
+                      icon: Icons.translate,
+                     onTap: (){
+                       final String currentCode = controller.locale.value.languageCode;
+
+                       // تحديد الكود الجديد (التبديل بين عربي وانكليزي)
+                       final String newCode = (currentCode == 'ar') ? 'en' : 'ar';
+
+                       // استدعاء الكونترولر
+                       controller.changeLanguage(newCode,context);
+                     },
+                      trailing:  LanguageToggleWidget(),
                     ),
                   ],
                 ),

@@ -21,6 +21,7 @@ Future<void> main() async {
       DeviceOrientation.portraitDown,
     ]),
   ]);
+  Get.put(SettingsController(), permanent: true);
   runApp(
     EasyLocalization(
       supportedLocales: const [
@@ -40,28 +41,29 @@ class PillWiseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SettingsController settingsController =
-    Get.put(SettingsController(), permanent: true);
+    final SettingsController settingsController = Get.find();
     return ScreenUtilInit(
       designSize: const Size(AppConstants.designWidth, AppConstants.designHeight),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return GetMaterialApp(
-          theme: AppTheme.lightTheme,
-          // <--- تطبيق الثيم الأبيض
-          darkTheme: AppTheme.darkTheme,
-          // <--- تطبيق الثيم الأسود
-          themeMode: settingsController.themeMode.value,
-          // (أو .light أو .dark)
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          defaultTransition: Transition.leftToRightWithFade,
-          debugShowCheckedModeBanner: false,
-          getPages: AppPages.routes,
-          initialRoute: AppRoutes.initial,
-        );
+        return Obx((){
+          return GetMaterialApp(
+            theme: AppTheme.lightTheme,
+            // <--- تطبيق الثيم الأبيض
+            darkTheme: AppTheme.darkTheme,
+            // <--- تطبيق الثيم الأسود
+            themeMode: settingsController.themeMode.value,
+            // (أو .light أو .dark)
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            defaultTransition: Transition.leftToRightWithFade,
+            debugShowCheckedModeBanner: false,
+            getPages: AppPages.routes,
+            initialRoute: AppRoutes.initial,
+          );
+        });
       },
     );
   }

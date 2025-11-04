@@ -1,5 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/app/core/utils/app_validator.dart';
+import 'package:pillwise_app/modules/welcome/presentation/screens/welcome_screen.dart';
 
 class SettingsController extends GetxController {
 
@@ -13,28 +16,33 @@ class SettingsController extends GetxController {
   }
 
   // --- دوال تغيير اللغة ---
-  void changeLanguage(String languageCode) {
+  void changeLanguage(String languageCode,BuildContext context) {
     if (languageCode == locale.value.languageCode) return; // لا تغيير
 
     // 1. تحديث واجهة المستخدم (GetX)
     Locale newLocale = Locale(languageCode);
-
     Get.updateLocale(newLocale);
+    context.setLocale(newLocale);
     locale.value = newLocale; // تحديث المتغير التفاعلي
 
     // 2. حفظ الاختيار
   }
 
   // --- دوال تغيير الثيم ---
-  void changeTheme(ThemeMode newThemeMode) {
-    if (newThemeMode == themeMode.value) return; // لا تغيير
+  void changeTheme() {
+    // 1. التحقق من السطوع "الفعلي" (حتى لو كان system)
+    bool isCurrentlyDark = Get.isDarkMode;
 
-    // 1. تحديث واجهة المستخدم (GetX)
+    // 2. تحديد الوضع الجديد (التبديل)
+    ThemeMode newThemeMode = isCurrentlyDark ? ThemeMode.light : ThemeMode.dark;
+
+    // (لا حاجة للتحقق من التكرار، GetX يعالج ذلك)
+
+    // 3. تحديث واجهة المستخدم (GetX)
     Get.changeThemeMode(newThemeMode);
     themeMode.value = newThemeMode; // تحديث المتغير التفاعلي
-
-    // 2. حفظ الاختيار
-    bool isDark = (newThemeMode == ThemeMode.dark);
+    // 4. حفظ الاختيار
+    // bool isDark = (newThemeMode == ThemeMode.dark);
     // _storageService.saveTheme(isDark);
   }
 

@@ -11,7 +11,6 @@ class NavbarScreen extends GetView<NavbarController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
       body: Obx(
         () => IndexedStack(
           index: controller.selectedIndex.value,

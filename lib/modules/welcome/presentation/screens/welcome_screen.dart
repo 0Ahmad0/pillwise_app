@@ -23,8 +23,6 @@ class WelcomeScreen extends GetView<WelcomeController> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const LanguageToggleWidget(),
-                20.verticalSpace,
                 Text(
                   tr(LocaleKeys.welcome_welcome_text_app),
                   textAlign: TextAlign.center,
@@ -68,43 +66,3 @@ class WelcomeScreen extends GetView<WelcomeController> {
 }
 
 
-class LanguageToggleWidget extends StatelessWidget {
-  const LanguageToggleWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final currentLocale = context.locale;
-
-    final String targetLanguageCode =
-    (currentLocale == const Locale('ar')) ? 'EN' : 'AR';
-
-    final theme = Get.theme;
-
-    return InkWell(
-      onTap: () {
-        if (currentLocale == const Locale('ar')) {
-          context.setLocale(const Locale('en'));
-        } else {
-          context.setLocale(const Locale('ar'));
-        }
-      },
-      borderRadius: BorderRadius.circular(8.0), // لتأثير الضغطة
-      child: Container(
-        // padding لجعل الزر مريحاً للضغط
-        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          // نستخدم لون الحدود من الثيم
-          border: Border.all(color: theme.dividerColor.withOpacity(0.5), width: 1.5),
-        ),
-        child: Text(
-          targetLanguageCode, // النص الذي حددناه (AR أو EN)
-          style: theme.textTheme.labelLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0.5,
-          ),
-        ),
-      ),
-    );
-  }
-}

@@ -8,7 +8,7 @@ class AppColors {
   // --- ألوان الثيم الأبيض (Light) ---
   static const Color lightScaffold = Color(0xFFFAF9F6); // خلفية التطبيق
   static const Color lightText = Color(0xFF121212);     // لون النص الأساسي (أسود)
-  static const Color lightCard = Color(0xFFF5F5F5);      // لون الكروت أو الأسطح
+  static const Color lightCard = Color(0xffF3F4F6);      // لون الكروت أو الأسطح
 
   // --- ألوان الثيم الأسود (Dark) ---
   static const Color darkScaffold = Color(0xFF121212);  // <--- الخلفية
@@ -21,4 +21,6 @@ class AppColors {
   static const Color grey = Colors.grey;
   static const Color error = Colors.red;
   static const Color transparent = Colors.transparent;
+  static const Color greyColor = Color(0xff6C737F);      // لون الكروت أو الأسطح
+
 }

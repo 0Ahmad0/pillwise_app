@@ -34,6 +34,36 @@ class CodegenLoader extends AssetLoader{
     "emailOrUsername_empty": "الرجاء إدخال البريد الإلكتروني أو اسم المستخدم",
     "emailOrUsername_invalid": "الصيغة المدخلة غير صالحة"
   },
+  "countries": {
+    "EG": "مصر",
+    "SA": "المملكة العربية السعودية",
+    "AE": "الإمارات العربية المتحدة",
+    "QA": "قطر",
+    "KW": "الكويت",
+    "BH": "البحرين",
+    "OM": "عُمان",
+    "JO": "الأردن",
+    "LB": "لبنان",
+    "SY": "سوريا",
+    "IQ": "العراق",
+    "PS": "فلسطين",
+    "YE": "اليمن",
+    "LY": "ليبيا",
+    "TN": "تونس",
+    "DZ": "الجزائر",
+    "MA": "المغرب",
+    "MR": "موريتانيا",
+    "SD": "السودان",
+    "SO": "الصومال",
+    "DJ": "جيبوتي",
+    "KM": "جزر القمر"
+  },
+  "image_picker": {
+    "choose_image": "اختر صورة",
+    "gallery": "المعرض",
+    "camera": "الكاميرا",
+    "delete": "حذف الصورة"
+  },
   "core": {
     "yes": "نعم",
     "no": "لا",
@@ -42,7 +72,10 @@ class CodegenLoader extends AssetLoader{
     "next": "التالي",
     "or": "أو",
     "send": "إرسال",
-    "reset": "إعادة تعيين"
+    "reset": "إعادة تعيين",
+    "save": "حفظ",
+    "save_changes": "حفظ التغييرات",
+    "cancel": "إلغاء"
   },
   "splash": {
     "description": "رفيقك الأول لتنظيم مواعيد الدواء والعناية بصحتك.",
@@ -111,6 +144,15 @@ class CodegenLoader extends AssetLoader{
     "settings_darkMode": "الوضع الداكن",
     "common_on": "يعمل",
     "common_off": "متوقف"
+  },
+  "profile": {
+    "title_screen": "Edit Profile",
+    "full_name": "Full Name",
+    "nick_name": "Nick Name",
+    "email": "Email",
+    "phone_number": "Phone Number",
+    "country": "Country",
+    "delete_account": "Delete Account"
   }
 };
 static const Map<String,dynamic> _en = {
@@ -133,6 +175,36 @@ static const Map<String,dynamic> _en = {
     "emailOrUsername_empty": "Please enter your email or username",
     "emailOrUsername_invalid": "The input format is invalid"
   },
+  "countries": {
+    "EG": "Egypt",
+    "SA": "Saudi Arabia",
+    "AE": "United Arab Emirates",
+    "QA": "Qatar",
+    "KW": "Kuwait",
+    "BH": "Bahrain",
+    "OM": "Oman",
+    "JO": "Jordan",
+    "LB": "Lebanon",
+    "SY": "Syria",
+    "IQ": "Iraq",
+    "PS": "Palestine",
+    "YE": "Yemen",
+    "LY": "Libya",
+    "TN": "Tunisia",
+    "DZ": "Algeria",
+    "MA": "Morocco",
+    "MR": "Mauritania",
+    "SD": "Sudan",
+    "SO": "Somalia",
+    "DJ": "Djibouti",
+    "KM": "Comoros"
+  },
+  "image_picker": {
+    "choose_image": "Choose Image",
+    "gallery": "Gallery",
+    "camera": "Camera",
+    "delete": "Delete Image"
+  },
   "core": {
     "yes": "Yes",
     "no": "No",
@@ -141,7 +213,10 @@ static const Map<String,dynamic> _en = {
     "next": "Next",
     "or": "OR",
     "send": "Send",
-    "reset": "Reset"
+    "reset": "Reset",
+    "save": "Save",
+    "save_changes": "Save Changes",
+    "cancel": "Cancel"
   },
   "splash": {
     "description": "Your first companion for organizing medication schedules and taking care of your health.",
@@ -210,6 +285,15 @@ static const Map<String,dynamic> _en = {
     "settings_darkMode": "Dark mode",
     "common_on": "ON",
     "common_off": "OFF"
+  },
+  "profile": {
+    "title_screen": "Edit Profile",
+    "full_name": "Full Name",
+    "nick_name": "Nick Name",
+    "email": "Email",
+    "phone_number": "Phone Number",
+    "country": "Country",
+    "delete_account": "Delete Account"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

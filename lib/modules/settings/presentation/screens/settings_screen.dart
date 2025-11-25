@@ -6,6 +6,7 @@ import 'package:pillwise_app/app/core/theme/app_theme.dart';
 import 'package:pillwise_app/app/core/widgets/app_scaffold_widget.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/settings/presentation/widgets/language_toggle_widget.dart';
+import '../../../../app/routes/app_routes.dart';
 import '../controllers/settings_controller.dart';
 import '../widgets/settings_group_widget.dart';
 import '../widgets/settings_item_widget.dart';
@@ -16,13 +17,43 @@ class SettingsScreen extends GetView<SettingsController> {
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffoldWidget( // <-- استخدام الـ Scaffold المخصص (يحتوي على AppPadding)
+    return AppScaffoldWidget(
+      // <-- استخدام الـ Scaffold المخصص (يحتوي على AppPadding)
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                CircleAvatar(radius: 50.sp,),
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 40.sp,
+                      backgroundImage: NetworkImage('https://tse1.mm.bing.net/th/id/OIP.jhuU6q3Ob4zhSMl1gxJmbQHaE7?pid=ImgDet&w=184&h=122&c=7&dpr=1.3&o=7&rm=3'),
+
+                    ),
+                    20.horizontalSpace,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Maimounah Alharthi',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: Get.textTheme.displayLarge?.copyWith(
+                              fontSize: 22.sp
+                            ),
+                          ),
+                          4.verticalSpace,
+                          Text(
+                            'Maimounah.alh97@gmail.com',
+                            style: Get.textTheme.bodySmall,
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
                 20.verticalSpace,
                 SettingsGroupWidget(
                   items: [
@@ -30,14 +61,15 @@ class SettingsScreen extends GetView<SettingsController> {
                       titleKey: tr(LocaleKeys.settings_settings_editProfile),
                       icon: Icons.person_outline,
                       onTap: () {
-                        // TODO: Get.toNamed(AppRoutes.EDIT_PROFILE);
+                         Get.toNamed(AppRoutes.profile);
                       },
                     ),
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_healthInfo),
                       icon: Icons.medical_services_outlined,
+
                       onTap: () {
-                        // TODO: Get.toNamed(AppRoutes.HEALTH_INFO);
+                         Get.toNamed(AppRoutes.healthInformation);
                       },
                     ),
                   ],
@@ -51,8 +83,10 @@ class SettingsScreen extends GetView<SettingsController> {
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_notifications),
                       icon: Icons.notifications_outlined,
-                      onTap: () {}, // لا نحتاج onTap لأن الـ Switch سيتعامل مع الضغط
-                      trailing: Obx(() { // <-- مراقبة التغيير
+                      onTap: () {},
+                      // لا نحتاج onTap لأن الـ Switch سيتعامل مع الضغط
+                      trailing: Obx(() {
+                        // <-- مراقبة التغيير
                         return Switch(
                           value: controller.notificationsEnabled.value,
                           onChanged: controller.toggleNotifications,
@@ -62,23 +96,24 @@ class SettingsScreen extends GetView<SettingsController> {
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_theme),
                       icon: Icons.brightness_6_outlined,
-                     onTap: controller.changeTheme,
-                      trailing:  ThemeToggleWidget(),
+                      onTap: controller.changeTheme,
+                      trailing: ThemeToggleWidget(),
                     ),
                     SettingsItemWidget(
-
                       titleKey: 'اللغة',
                       icon: Icons.translate,
-                     onTap: (){
-                       final String currentCode = controller.locale.value.languageCode;
+                      onTap: () {
+                        final String currentCode =
+                            controller.locale.value.languageCode;
 
-                       // تحديد الكود الجديد (التبديل بين عربي وانكليزي)
-                       final String newCode = (currentCode == 'ar') ? 'en' : 'ar';
+                        // تحديد الكود الجديد (التبديل بين عربي وانكليزي)
+                        final String newCode =
+                            (currentCode == 'ar') ? 'en' : 'ar';
 
-                       // استدعاء الكونترولر
-                       controller.changeLanguage(newCode,context);
-                     },
-                      trailing:  LanguageToggleWidget(),
+                        // استدعاء الكونترولر
+                        controller.changeLanguage(newCode, context);
+                      },
+                      trailing: LanguageToggleWidget(),
                     ),
                   ],
                 ),
@@ -91,23 +126,31 @@ class SettingsScreen extends GetView<SettingsController> {
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_help),
                       icon: Icons.help_outline,
-                      onTap: () { /* ... */ },
+                      onTap: () {
+                        /* ... */
+                      },
                     ),
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_contact),
                       icon: Icons.support_agent_outlined,
-                      onTap: () { /* ... */ },
+                      onTap: () {
+                        /* ... */
+                      },
                     ),
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_privacy),
                       icon: Icons.lock_outline,
-                      onTap: () { /* ... */ },
+                      onTap: () {
+                        /* ... */
+                      },
                     ),
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_logout),
                       icon: Icons.logout,
-                      onTap: controller.logout, // <-- استدعاء دالة الخروج
-                      color: Colors.red, // <-- لون مميز
+                      onTap: controller.logout,
+                      // <-- استدعاء دالة الخروج
+                      color: Colors.red,
+                      // <-- لون مميز
                       trailing: const SizedBox.shrink(), // <-- إخفاء السهم
                     ),
                   ],

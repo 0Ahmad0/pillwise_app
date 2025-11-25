@@ -31,7 +31,9 @@ class SettingsItemWidget extends StatelessWidget {
     final effectiveColor = color ?? Get.theme.colorScheme.onSurface;
 
     return ListTile(
-
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.r),
+      ),
       onTap: onTap,
       leading: Icon(
         icon,
@@ -43,7 +45,7 @@ class SettingsItemWidget extends StatelessWidget {
           color: effectiveColor,
         ),
       ),
-      trailing: trailing??
+      trailing: trailing ??
           Icon(
             Icons.arrow_forward_ios,
             size: 14.sp,

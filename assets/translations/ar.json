@@ -18,6 +18,36 @@
     "emailOrUsername_empty": "الرجاء إدخال البريد الإلكتروني أو اسم المستخدم",
     "emailOrUsername_invalid": "الصيغة المدخلة غير صالحة"
   },
+  "countries": {
+    "EG": "مصر",
+    "SA": "المملكة العربية السعودية",
+    "AE": "الإمارات العربية المتحدة",
+    "QA": "قطر",
+    "KW": "الكويت",
+    "BH": "البحرين",
+    "OM": "عُمان",
+    "JO": "الأردن",
+    "LB": "لبنان",
+    "SY": "سوريا",
+    "IQ": "العراق",
+    "PS": "فلسطين",
+    "YE": "اليمن",
+    "LY": "ليبيا",
+    "TN": "تونس",
+    "DZ": "الجزائر",
+    "MA": "المغرب",
+    "MR": "موريتانيا",
+    "SD": "السودان",
+    "SO": "الصومال",
+    "DJ": "جيبوتي",
+    "KM": "جزر القمر"
+  },
+  "image_picker": {
+    "choose_image":"اختر صورة",
+    "gallery": "المعرض",
+    "camera": "الكاميرا",
+    "delete": "حذف الصورة"
+  },
   "core": {
     "yes": "نعم",
     "no": "لا",
@@ -26,7 +56,10 @@
     "next": "التالي",
     "or": "أو",
     "send": "إرسال",
-    "reset": "إعادة تعيين"
+    "reset": "إعادة تعيين",
+    "save": "حفظ",
+    "save_changes": "حفظ التغييرات",
+    "cancel": "إلغاء"
   },
   "splash": {
     "description": "رفيقك الأول لتنظيم مواعيد الدواء والعناية بصحتك.",
@@ -95,6 +128,16 @@
     "settings_darkMode": "الوضع الداكن",
     "common_on": "يعمل",
     "common_off": "متوقف"
+  },
+  "profile": {
+    "title_screen": "Edit Profile",
+    "full_name": "Full Name",
+    "nick_name": "Nick Name",
+    "email": "Email",
+    "phone_number": "Phone Number",
+    "country": "Country",
+    "delete_account" : "Delete Account"
   }
+
 }
 

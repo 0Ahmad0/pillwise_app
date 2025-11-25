@@ -20,7 +20,9 @@ dependencies:
   lottie:
   easy_localization:
   image_picker:
-
+  water_drop_nav_bar: 2.2.1
+#  permission_handler:
+#  simple_barcode_scanner: 0.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

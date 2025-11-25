@@ -12,12 +12,7 @@ class HomeScreen extends GetView<HomeController> {
         title: Text('HomeScreen'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          'HomeScreen is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Center(),
     );
   }
 }

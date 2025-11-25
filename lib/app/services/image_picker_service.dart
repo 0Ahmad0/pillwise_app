@@ -1,20 +1,42 @@
 import 'dart:io';
-import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-// نستخدم GetxService لتبقى في الذاكرة كـ Singleton
-class ImagePickerService extends GetxService {
-  final ImagePicker _picker = ImagePicker();
+class ImagePickerService {
+  final ImagePicker _imagePicker = ImagePicker();
 
-  Future<File?> pickFromGallery() async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if (image == null) return null;
-    return File(image.path);
+  Future<File?> pickImageFromGallery() async {
+    try {
+      final XFile? image = await _imagePicker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1800,
+        maxHeight: 1800,
+        imageQuality: 85,
+      );
+      if (image != null) {
+        return File(image.path);
+      }
+      return null;
+    } catch (e) {
+      print('Error picking image from gallery: $e');
+      return null;
+    }
   }
 
-  Future<File?> pickFromCamera() async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
-    if (image == null) return null;
-    return File(image.path);
+  Future<File?> pickImageFromCamera() async {
+    try {
+      final XFile? image = await _imagePicker.pickImage(
+        source: ImageSource.camera,
+        maxWidth: 1800,
+        maxHeight: 1800,
+        imageQuality: 85,
+      );
+      if (image != null) {
+        return File(image.path);
+      }
+      return null;
+    } catch (e) {
+      print('Error picking image from camera: $e');
+      return null;
+    }
   }
 }

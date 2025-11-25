@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/app/bindings/initial_binding.dart';
 import 'package:pillwise_app/app/core/constants/app_constants.dart';
 import 'package:pillwise_app/app/routes/app_pages.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
@@ -25,12 +26,12 @@ Future<void> main() async {
   runApp(
     EasyLocalization(
       supportedLocales: const [
-        Locale('ar'),
-        Locale('en'),
+        Locale(AppConstants.ar),
+        Locale(AppConstants.en),
       ],
-      path: 'assets/translations',
+      path: AppConstants.translationPath,
       assetLoader: const CodegenLoader(),
-      fallbackLocale: const Locale('ar'),
+      fallbackLocale: const Locale(AppConstants.ar),
       child: const PillWiseApp(),
     ),
   );
@@ -61,6 +62,7 @@ class PillWiseApp extends StatelessWidget {
             defaultTransition: Transition.leftToRightWithFade,
             debugShowCheckedModeBanner: false,
             getPages: AppPages.routes,
+            initialBinding: InitialBinding(),
             initialRoute: AppRoutes.initial,
           );
         });

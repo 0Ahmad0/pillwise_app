@@ -73,7 +73,8 @@ class OnboardingController extends GetxController {
 
   /// 9. دالة لتخطي كل الصفحات
   void skip() {
-    goToLogin();
+    // goToLogin();
+  Get.offNamed(AppRoutes.navbar);
   }
 
   /// 10. دالة الذهاب لصفحة الدخول (مع إغلاق شاشة الـ Onboarding)

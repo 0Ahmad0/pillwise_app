@@ -18,6 +18,36 @@
     "emailOrUsername_empty": "Please enter your email or username",
     "emailOrUsername_invalid": "The input format is invalid"
   },
+  "countries": {
+    "EG": "Egypt",
+    "SA": "Saudi Arabia",
+    "AE": "United Arab Emirates",
+    "QA": "Qatar",
+    "KW": "Kuwait",
+    "BH": "Bahrain",
+    "OM": "Oman",
+    "JO": "Jordan",
+    "LB": "Lebanon",
+    "SY": "Syria",
+    "IQ": "Iraq",
+    "PS": "Palestine",
+    "YE": "Yemen",
+    "LY": "Libya",
+    "TN": "Tunisia",
+    "DZ": "Algeria",
+    "MA": "Morocco",
+    "MR": "Mauritania",
+    "SD": "Sudan",
+    "SO": "Somalia",
+    "DJ": "Djibouti",
+    "KM": "Comoros"
+  },
+  "image_picker": {
+    "choose_image":"Choose Image",
+    "gallery": "Gallery",
+    "camera": "Camera",
+    "delete": "Delete Image"
+  },
   "core": {
     "yes": "Yes",
     "no": "No",
@@ -26,7 +56,10 @@
     "next": "Next",
     "or": "OR",
     "send": "Send",
-    "reset": "Reset"
+    "reset": "Reset",
+    "save": "Save",
+    "save_changes": "Save Changes",
+    "cancel": "Cancel"
   },
   "splash": {
     "description": "Your first companion for organizing medication schedules and taking care of your health.",
@@ -95,5 +128,15 @@
     "settings_darkMode": "Dark mode",
     "common_on": "ON",
     "common_off": "OFF"
+  },
+  "profile": {
+    "title_screen": "Edit Profile",
+    "full_name": "Full Name",
+    "nick_name": "Nick Name",
+    "email": "Email",
+    "phone_number": "Phone Number",
+    "country": "Country",
+    "delete_account" : "Delete Account"
+
   }
 }

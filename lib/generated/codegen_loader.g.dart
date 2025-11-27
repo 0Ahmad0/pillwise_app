@@ -75,7 +75,9 @@ class CodegenLoader extends AssetLoader{
     "reset": "إعادة تعيين",
     "save": "حفظ",
     "save_changes": "حفظ التغييرات",
-    "cancel": "إلغاء"
+    "cancel": "إلغاء",
+    "arabic": "العربية",
+    "english": "الانكليزية"
   },
   "splash": {
     "description": "رفيقك الأول لتنظيم مواعيد الدواء والعناية بصحتك.",
@@ -136,23 +138,36 @@ class CodegenLoader extends AssetLoader{
     "settings_healthInfo": "المعلومات الصحية",
     "settings_notifications": "الإشعارات",
     "settings_theme": "الثيم (المظهر)",
+    "settings_language": "اللغة",
     "settings_help": "المساعدة والدعم",
     "settings_contact": "تواصل معنا",
     "settings_privacy": "سياسة الخصوصية",
     "settings_logout": "تسجيل الخروج",
-    "settings_lightMode": "الوضع الفاتح",
-    "settings_darkMode": "الوضع الداكن",
+    "settings_lightMode": "الفاتح",
+    "settings_darkMode": "الداكن",
     "common_on": "يعمل",
     "common_off": "متوقف"
   },
   "profile": {
-    "title_screen": "Edit Profile",
-    "full_name": "Full Name",
-    "nick_name": "Nick Name",
-    "email": "Email",
-    "phone_number": "Phone Number",
-    "country": "Country",
-    "delete_account": "Delete Account"
+    "title_screen": "تعديل الملف الشخصي",
+    "full_name": "الاسم كاملاً",
+    "nick_name": "اسم المستخدم",
+    "email": "البريد الالكتروني",
+    "phone_number": "رقم الهاتف",
+    "country": "المنطقة",
+    "delete_account": "حذف الحساب"
+  },
+  "health_info": {
+    "title_screen": "المعلومات الصحية",
+    "gender": "الجنس",
+    "male_g": "ذكر",
+    "female_g": "أنثى",
+    "date_of_birth": "تاريخ الميلاد",
+    "weight": "الوزن (كجم)",
+    "height": "الطول (سم)",
+    "current_medications": "الأدوية الحالية",
+    "pregnant": "حامل (إذا ينطبق)",
+    "breastfeeding": "مرضعة (إذا ينطبق)"
   }
 };
 static const Map<String,dynamic> _en = {
@@ -216,7 +231,9 @@ static const Map<String,dynamic> _en = {
     "reset": "Reset",
     "save": "Save",
     "save_changes": "Save Changes",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "arabic": "Arabic",
+    "english": "English"
   },
   "splash": {
     "description": "Your first companion for organizing medication schedules and taking care of your health.",
@@ -277,12 +294,13 @@ static const Map<String,dynamic> _en = {
     "settings_healthInfo": "Health Information",
     "settings_notifications": "Notifications",
     "settings_theme": "Theme",
+    "settings_language": "Language",
     "settings_help": "Help & Support",
     "settings_contact": "Contact us",
     "settings_privacy": "Privacy policy",
     "settings_logout": "Logout",
-    "settings_lightMode": "Light mode",
-    "settings_darkMode": "Dark mode",
+    "settings_lightMode": "Light",
+    "settings_darkMode": "Dark",
     "common_on": "ON",
     "common_off": "OFF"
   },
@@ -294,6 +312,18 @@ static const Map<String,dynamic> _en = {
     "phone_number": "Phone Number",
     "country": "Country",
     "delete_account": "Delete Account"
+  },
+  "health_info": {
+    "title_screen": "Health Information",
+    "gender": "Gender",
+    "male_g": "Male",
+    "female_g": "Female",
+    "date_of_birth": "Date Of Birth",
+    "weight": "Weight (kg)",
+    "height": "Height (cm)",
+    "current_medications": "Current Medications",
+    "pregnant": "Pregnant (if applicable)",
+    "breastfeeding": "Breastfeeding (if applicable)"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

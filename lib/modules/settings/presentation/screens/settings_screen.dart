@@ -100,7 +100,7 @@ class SettingsScreen extends GetView<SettingsController> {
                       trailing: ThemeToggleWidget(),
                     ),
                     SettingsItemWidget(
-                      titleKey: 'اللغة',
+                      titleKey: tr(LocaleKeys.settings_settings_language),
                       icon: Icons.translate,
                       onTap: () {
                         final String currentCode =
@@ -113,7 +113,9 @@ class SettingsScreen extends GetView<SettingsController> {
                         // استدعاء الكونترولر
                         controller.changeLanguage(newCode, context);
                       },
-                      trailing: LanguageToggleWidget(),
+                      trailing: LanguageToggleWidget(
+                        
+                      ),
                     ),
                   ],
                 ),

@@ -20,6 +20,7 @@ class AppColors {
   static const Color black = Colors.black;
   static const Color grey = Colors.grey;
   static const Color error = Colors.red;
+  static const Color warning = Colors.orange;
   static const Color transparent = Colors.transparent;
   static const Color greyColor = Color(0xff6C737F);      // لون الكروت أو الأسطح
 

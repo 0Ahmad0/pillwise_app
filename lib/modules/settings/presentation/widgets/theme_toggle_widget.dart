@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/theme/app_theme.dart';
+import 'package:pillwise_app/generated/locale_keys.g.dart';
 import '../controllers/settings_controller.dart';
 
 class ThemeToggleWidget extends GetView<SettingsController> {
@@ -19,8 +21,8 @@ class ThemeToggleWidget extends GetView<SettingsController> {
       final IconData icon =
           isDark ? Icons.dark_mode_outlined : Icons.light_mode_outlined;
       final String text = isDark
-          ? 'dark' // LocaleKeys.settings_settings_darkMode
-          : 'light'; // LocaleKeys.settings_settings_lightMode
+          ? tr(LocaleKeys.settings_settings_darkMode) // LocaleKeys.settings_settings_darkMode
+          : tr(LocaleKeys.settings_settings_lightMode); // LocaleKeys.settings_settings_lightMode
 
       return Row(
         mainAxisSize: MainAxisSize.min,

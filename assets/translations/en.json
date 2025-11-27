@@ -43,7 +43,7 @@
     "KM": "Comoros"
   },
   "image_picker": {
-    "choose_image":"Choose Image",
+    "choose_image": "Choose Image",
     "gallery": "Gallery",
     "camera": "Camera",
     "delete": "Delete Image"
@@ -59,7 +59,9 @@
     "reset": "Reset",
     "save": "Save",
     "save_changes": "Save Changes",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "arabic": "Arabic",
+    "english": "English"
   },
   "splash": {
     "description": "Your first companion for organizing medication schedules and taking care of your health.",
@@ -120,12 +122,13 @@
     "settings_healthInfo": "Health Information",
     "settings_notifications": "Notifications",
     "settings_theme": "Theme",
+    "settings_language": "Language",
     "settings_help": "Help & Support",
     "settings_contact": "Contact us",
     "settings_privacy": "Privacy policy",
     "settings_logout": "Logout",
-    "settings_lightMode": "Light mode",
-    "settings_darkMode": "Dark mode",
+    "settings_lightMode": "Light",
+    "settings_darkMode": "Dark",
     "common_on": "ON",
     "common_off": "OFF"
   },
@@ -136,7 +139,22 @@
     "email": "Email",
     "phone_number": "Phone Number",
     "country": "Country",
-    "delete_account" : "Delete Account"
-
+    "delete_account": "Delete Account"
+  },
+  "health_info": {
+    "title_screen": "Health Information",
+    "gender": "Gender",
+    "male_g": "Male",
+    "female_g": "Female",
+    "date_of_birth": "Date Of Birth",
+    "weight": "Weight (kg)",
+    "height": "Height (cm)",
+    "current_medications": "Current Medications",
+    "pregnant": "Pregnant (if applicable)",
+    "breastfeeding": "Breastfeeding (if applicable)"
+  },
+  "home": {
+    "welcome_text": "",
+    "description_text": ""
   }
 }

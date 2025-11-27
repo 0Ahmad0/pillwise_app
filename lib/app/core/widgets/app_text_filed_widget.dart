@@ -13,6 +13,8 @@ class AppTextFormFieldWidget extends StatefulWidget {
   final FocusNode? currentFocusNode;
   final FocusNode? nextFocusNode;
   final VoidCallback? onFieldSubmitted;
+  final VoidCallback? onTap;
+  final bool readOnly;
   final IconData? prefixIcon;
   final int maxLines;
   final bool enabled;
@@ -34,6 +36,8 @@ class AppTextFormFieldWidget extends StatefulWidget {
     this.maxLines = 1,
     this.enabled = true,
     this.autofocus = false,
+    this.onTap,
+    this.readOnly = false,
   });
 
   @override
@@ -61,6 +65,8 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
     );
 
     return TextFormField(
+      onTap: widget.onTap,
+      readOnly: widget.readOnly,
       autofocus: widget.autofocus,
       controller: widget.controller,
       focusNode: widget.currentFocusNode,
@@ -70,7 +76,6 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
       textInputAction: widget.textInputAction,
       enabled: widget.enabled,
       maxLines: widget.maxLines,
-
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onFieldSubmitted: (value) {
         if (widget.textInputAction == TextInputAction.next &&

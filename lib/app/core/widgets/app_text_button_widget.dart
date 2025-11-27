@@ -30,6 +30,13 @@ class AppTextButtonWidget extends StatelessWidget {
     return TextButton(
       onPressed: isLoading ? null : onPressed,
       style: TextButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(isFullWidth ? 8.r : 0),
+          side: isFullWidth?BorderSide(
+            color: Get.theme.primaryColor,
+            width: .5
+          ):BorderSide.none,
+        ),
         backgroundColor: isFullWidth ? backGroundColor : null,
         fixedSize: isFullWidth ? const Size(double.maxFinite, 54) : null,
         padding: EdgeInsets.zero,
@@ -55,5 +62,3 @@ class AppTextButtonWidget extends StatelessWidget {
     );
   }
 }
-
-

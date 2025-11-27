@@ -60,6 +60,8 @@ abstract class  LocaleKeys {
   static const core_save = 'core.save';
   static const core_save_changes = 'core.save_changes';
   static const core_cancel = 'core.cancel';
+  static const core_arabic = 'core.arabic';
+  static const core_english = 'core.english';
   static const core = 'core';
   static const splash_description = 'splash.description';
   static const splash_copyright = 'splash.copyright';
@@ -112,6 +114,7 @@ abstract class  LocaleKeys {
   static const settings_settings_healthInfo = 'settings.settings_healthInfo';
   static const settings_settings_notifications = 'settings.settings_notifications';
   static const settings_settings_theme = 'settings.settings_theme';
+  static const settings_settings_language = 'settings.settings_language';
   static const settings_settings_help = 'settings.settings_help';
   static const settings_settings_contact = 'settings.settings_contact';
   static const settings_settings_privacy = 'settings.settings_privacy';
@@ -129,5 +132,16 @@ abstract class  LocaleKeys {
   static const profile_country = 'profile.country';
   static const profile_delete_account = 'profile.delete_account';
   static const profile = 'profile';
+  static const health_info_title_screen = 'health_info.title_screen';
+  static const health_info_gender = 'health_info.gender';
+  static const health_info_male_g = 'health_info.male_g';
+  static const health_info_female_g = 'health_info.female_g';
+  static const health_info_date_of_birth = 'health_info.date_of_birth';
+  static const health_info_weight = 'health_info.weight';
+  static const health_info_height = 'health_info.height';
+  static const health_info_current_medications = 'health_info.current_medications';
+  static const health_info_pregnant = 'health_info.pregnant';
+  static const health_info_breastfeeding = 'health_info.breastfeeding';
+  static const health_info = 'health_info';
 
 }

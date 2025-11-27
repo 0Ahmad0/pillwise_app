@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/generated/locale_keys.g.dart';
 import '../controllers/settings_controller.dart';
 
 class LanguageToggleWidget extends GetView<SettingsController> {
@@ -17,8 +19,8 @@ class LanguageToggleWidget extends GetView<SettingsController> {
       // 3. تحديد النص الذي سيعرض
       // (يفضل استخدام مفاتيح ترجمة "English", "العربية")
       final String text = (currentLangCode == 'ar')
-          ? 'العربية'
-          : 'English';
+          ? tr(LocaleKeys.core_arabic)
+          : tr(LocaleKeys.core_english);
 
       // 4. بناء الويدجت (نص + أيقونة)
       return Row(

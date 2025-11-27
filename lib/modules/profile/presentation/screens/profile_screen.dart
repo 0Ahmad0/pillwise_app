@@ -118,7 +118,7 @@ class ProfileScreen extends GetView<ProfileController> {
                 10.verticalSpace,
                 AppTextButtonWidget(
                   isFullWidth: true,
-                  backGroundColor: Get.theme.primaryColor.myOpacity(.1),
+                  backGroundColor: Get.theme.primaryColor.myOpacity(.075),
                   text: tr(LocaleKeys.profile_delete_account),
                   onPressed: () {},
                 ),

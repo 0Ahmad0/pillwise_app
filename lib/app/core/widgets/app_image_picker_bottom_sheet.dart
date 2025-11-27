@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/widgets/app_button_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_padding_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_text_button_widget.dart';
+import 'package:pillwise_app/app/extension/opacity_extension.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/profile/presentation/widgets/build_option_item_image_widget.dart';
 
@@ -52,8 +53,12 @@ class ImagePickerBottomSheet extends StatelessWidget {
               : const SizedBox.shrink()),
 
           AppPaddingWidget(
-            child: AppButtonWidget(
-                text: tr(LocaleKeys.core_cancel), onPressed: () => Get.back()),
+            child: AppTextButtonWidget(
+              text: tr(LocaleKeys.core_cancel),
+              onPressed: () => Get.back(),
+              isFullWidth: true,
+              backGroundColor: Get.theme.primaryColor.myOpacity(.075),
+            ),
           ),
         ],
       ),

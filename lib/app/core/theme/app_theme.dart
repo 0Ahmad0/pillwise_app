@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import 'app_colors.dart';
 import 'typography.dart';
@@ -8,7 +9,6 @@ class AppTheme {
   // --- الثيم الأبيض (Light) ---
   static ThemeData get lightTheme {
     return ThemeData(
-
       brightness: Brightness.light,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.lightScaffold,
@@ -18,26 +18,27 @@ class AppTheme {
         decorationColor: AppColors.primary,
         bodyColor: AppColors.lightText,
         displayColor: AppColors.lightText,
-
       ),
 
       colorScheme: const ColorScheme.light(
         primary: AppColors.primary,
-        onPrimary: AppColors.white, // لون النص على الخلفية
-        surface: AppColors.lightCard, // لون الكروت
-        onSurface: AppColors.lightText, // لون النص على الكروت
+        onPrimary: AppColors.white,
+        // لون النص على الخلفية
+        surface: AppColors.lightCard,
+        // لون الكروت
+        onSurface: AppColors.lightText,
+        // لون النص على الكروت
         error: AppColors.error,
         onError: AppColors.white,
       ),
 
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         elevation: 0,
         centerTitle: true,
         backgroundColor: AppColors.lightScaffold,
         iconTheme: IconThemeData(color: AppColors.lightText),
-        titleTextStyle: TextStyle(
-          color: AppColors.lightText,
-          fontSize: 20,
+        titleTextStyle: Get.textTheme.displayLarge?.copyWith(
+          fontSize: 16.sp,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -59,7 +60,6 @@ class AppTheme {
   // --- الثيم الأسود (Dark) ---
   static ThemeData get darkTheme {
     return ThemeData(
-
       brightness: Brightness.dark,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.darkScaffold,
@@ -80,14 +80,13 @@ class AppTheme {
         onError: AppColors.white,
       ),
 
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         elevation: 0,
         centerTitle: true,
         backgroundColor: AppColors.darkScaffold,
         iconTheme: IconThemeData(color: AppColors.darkText),
-        titleTextStyle: TextStyle(
-          color: AppColors.darkText,
-          fontSize: 20,
+        titleTextStyle: Get.textTheme.displayLarge?.copyWith(
+          fontSize: 16.sp,
           fontWeight: FontWeight.bold,
         ),
       ),

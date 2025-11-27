@@ -43,7 +43,7 @@
     "KM": "جزر القمر"
   },
   "image_picker": {
-    "choose_image":"اختر صورة",
+    "choose_image": "اختر صورة",
     "gallery": "المعرض",
     "camera": "الكاميرا",
     "delete": "حذف الصورة"
@@ -59,7 +59,9 @@
     "reset": "إعادة تعيين",
     "save": "حفظ",
     "save_changes": "حفظ التغييرات",
-    "cancel": "إلغاء"
+    "cancel": "إلغاء",
+    "arabic": "العربية",
+    "english": "الانكليزية"
   },
   "splash": {
     "description": "رفيقك الأول لتنظيم مواعيد الدواء والعناية بصحتك.",
@@ -120,24 +122,36 @@
     "settings_healthInfo": "المعلومات الصحية",
     "settings_notifications": "الإشعارات",
     "settings_theme": "الثيم (المظهر)",
+    "settings_language": "اللغة",
     "settings_help": "المساعدة والدعم",
     "settings_contact": "تواصل معنا",
     "settings_privacy": "سياسة الخصوصية",
     "settings_logout": "تسجيل الخروج",
-    "settings_lightMode": "الوضع الفاتح",
-    "settings_darkMode": "الوضع الداكن",
+    "settings_lightMode": "الفاتح",
+    "settings_darkMode": "الداكن",
     "common_on": "يعمل",
     "common_off": "متوقف"
   },
   "profile": {
-    "title_screen": "Edit Profile",
-    "full_name": "Full Name",
-    "nick_name": "Nick Name",
-    "email": "Email",
-    "phone_number": "Phone Number",
-    "country": "Country",
-    "delete_account" : "Delete Account"
+    "title_screen": "تعديل الملف الشخصي",
+    "full_name": "الاسم كاملاً",
+    "nick_name": "اسم المستخدم",
+    "email": "البريد الالكتروني",
+    "phone_number": "رقم الهاتف",
+    "country": "المنطقة",
+    "delete_account": "حذف الحساب"
+  },
+  "health_info": {
+    "title_screen": "المعلومات الصحية",
+    "gender": "الجنس",
+    "male_g": "ذكر",
+    "female_g": "أنثى",
+    "date_of_birth": "تاريخ الميلاد",
+    "weight": "الوزن (كجم)",
+    "height": "الطول (سم)",
+    "current_medications": "الأدوية الحالية",
+    "pregnant": "حامل (إذا ينطبق)",
+    "breastfeeding": "مرضعة (إذا ينطبق)"
   }
-
 }
 

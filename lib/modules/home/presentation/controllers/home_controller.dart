@@ -1,23 +1,58 @@
+// controllers/home_controller.dart
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  //TODO: Implement HomeController
+import '../../data/models/medication_model.dart';
 
-  final count = 0.obs;
+class HomeController extends GetxController {
+  var medications = <Medication>[].obs;
+  var isProfileComplete = false.obs;
+  var currentTime = ''.obs;
+
   @override
   void onInit() {
     super.onInit();
+    loadMedications();
+    updateCurrentTime();
+    // تحديث الوقت كل دقيقة
+    ever(medications, (_) => updateCurrentTime());
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void updateCurrentTime() {
+    final now = DateTime.now();
+    currentTime.value = '${now.hour}:${now.minute.toString().padLeft(2, '0')}';
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  void loadMedications() {
+    // بيانات تجريبية
+    medications.value = [
+      Medication(
+        id: '1',
+        name: 'Vitamin D',
+        dosage: '100 PM',
+        time: '1:00 PM',
+        intakeDays: 1,
+        pauseDays: 30,
+        nextIntake: '11:11',
+        isCyclic: true,
+      ),
+      Medication(
+        id: '2',
+        name: 'Panadol',
+        dosage: '500 mg',
+        time: '8:00 AM',
+        intakeDays: 2,
+        pauseDays: 0,
+        nextIntake: '10:10',
+        isCyclic: true,
+      ),
+    ];
   }
 
-  void increment() => count.value++;
+  void addMedication(Medication medication) {
+    medications.add(medication);
+  }
+
+  void updateProfileCompletion(bool complete) {
+    isProfileComplete.value = complete;
+  }
 }

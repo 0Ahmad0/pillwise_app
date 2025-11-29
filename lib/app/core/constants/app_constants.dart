@@ -7,4 +7,5 @@ class AppConstants {
   static const String translationPath = 'assets/translations';
   static const String appEmail = 'Norah.19nx@gmail.com';
   static const String appPhone = '+966 594044592';
+  static const String appName = 'Pillwise';
 }

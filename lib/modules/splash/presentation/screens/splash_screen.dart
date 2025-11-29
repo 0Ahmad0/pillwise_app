@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
+import 'package:pillwise_app/app/core/constants/app_constants.dart';
 import 'package:pillwise_app/app/core/widgets/app_padding_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
@@ -15,7 +16,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.find<SplashController>();
+    // Get.find<SplashController>();
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -24,8 +25,9 @@ class SplashScreen extends StatelessWidget {
           Positioned(
             top: 0,
             left: 0,
-            child: Image.asset(
-              AppAssets.logo,
+            child: AppSvgWidget(
+              assetsUrl: AppAssets.splashVectorIcon,
+              fit: BoxFit.cover,
               height: 90.h,
             ).slideDown(),
           ),
@@ -33,12 +35,16 @@ class SplashScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppSvgWidget(
-                  assetsUrl: AppAssets.splashHeartIcon,
-                  width: 80.w,
-                  height: 80.w,
+                Image.asset(
+                  AppAssets.logo,
+                  width: 150.w,
+                  height: 150.w,
                 ).heartBeat(infinite: true),
-                20.verticalSpace,
+                Text(
+                  AppConstants.appName,
+                  style: Get.textTheme.displayLarge,
+                ).zoomIn(),
+                10.verticalSpace,
                 Text(
                   tr(LocaleKeys.splash_description),
                   style: Get.textTheme.bodyMedium,

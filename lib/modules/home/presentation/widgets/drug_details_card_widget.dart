@@ -24,7 +24,7 @@ class DrugDetailsCardWidget extends StatelessWidget {
     return Theme(
       data: Get.theme.copyWith(dividerColor: AppColors.transparent),
       child: Card(
-        elevation: 4,
+        elevation: 0,
         margin: const EdgeInsets.all(12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
@@ -157,7 +157,6 @@ class DrugDetailsCardWidget extends StatelessWidget {
     return ExpansionTile(
       leading: Icon(
         icon,
-        color: Get.theme.primaryColor,
       ),
       title: Text(
         title,

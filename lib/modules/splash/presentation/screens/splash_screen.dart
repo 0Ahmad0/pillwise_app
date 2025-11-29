@@ -24,9 +24,8 @@ class SplashScreen extends StatelessWidget {
           Positioned(
             top: 0,
             left: 0,
-            child: AppSvgWidget(
-              assetsUrl: AppAssets.splashVectorIcon,
-              fit: BoxFit.cover,
+            child: Image.asset(
+              AppAssets.logo,
               height: 90.h,
             ).slideDown(),
           ),

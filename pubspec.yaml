@@ -25,6 +25,7 @@ dependencies:
   translator:
   url_launcher:
   flutter_html:
+  mobile_scanner: 6.0.3
 #  permission_handler:
 #  simple_barcode_scanner: 0.3.0
   #-- Firebase Packages (DB)--#
@@ -32,8 +33,13 @@ dependencies:
   cloud_firestore:
 
 dev_dependencies:
+  flutter_launcher_icons:
   flutter_test:
     sdk: flutter
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_logo.png"
 
   flutter_lints: ^4.0.0
 

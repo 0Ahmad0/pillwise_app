@@ -8,7 +8,7 @@ abstract class AppAssets {
   static const String _lottiePath = 'assets/lottie';
 
   // --- الصور (PNG / JPG) ---
-  static const String logo = '$_imagesPath/logo.png';
+  static const String logo = '$_imagesPath/app_logo.png';
   static const String loginLogo = '$_imagesPath/login_logo.png';
   static const String signupLogo = '$_imagesPath/signup_logo.png';
   static const String forgetPasswordLogo = '$_imagesPath/forget_password_logo.png';

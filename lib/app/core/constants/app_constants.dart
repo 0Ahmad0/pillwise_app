@@ -5,4 +5,6 @@ class AppConstants {
   static const String ar = 'ar';
   static const String en = 'en';
   static const String translationPath = 'assets/translations';
+  static const String appEmail = 'Norah.19nx@gmail.com';
+  static const String appPhone = '+966 594044592';
 }

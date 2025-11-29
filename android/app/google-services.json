@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "509780797338",
+    "project_id": "pillwisecom",
+    "storage_bucket": "pillwisecom.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509780797338:android:7ce87cc076bc848e817c23",
+        "android_client_info": {
+          "package_name": "com.example.pillwise_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsBm-smdtVqRh73qcaW_19d58hK1culSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

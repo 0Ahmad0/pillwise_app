@@ -26,4 +26,8 @@ abstract class AppRoutes {
   static const healthInformation = '/health_information';
   static const profile = '/profile';
   static const scanBarcode = '/scan_barcode';
+  static const helpAndSupport = '/help_and_support';
+  static const contactUs = '/contact_us';
+  static const privacyPolicy = '/privacy_policy';
+
 }

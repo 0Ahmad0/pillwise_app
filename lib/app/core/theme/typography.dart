@@ -7,6 +7,7 @@ class AppTypography {
       TextTheme(
         // --- للعناوين الكبيرة (مثال: شاشة البداية)
         displayLarge: TextStyle(
+
           fontSize: 32.sp,
           fontWeight: FontWeight.bold,
         ),

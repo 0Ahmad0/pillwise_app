@@ -129,21 +129,21 @@ class SettingsScreen extends GetView<SettingsController> {
                       titleKey: tr(LocaleKeys.settings_settings_help),
                       icon: Icons.help_outline,
                       onTap: () {
-                        /* ... */
+                        Get.toNamed(AppRoutes.helpAndSupport);
                       },
                     ),
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_contact),
                       icon: Icons.support_agent_outlined,
                       onTap: () {
-                        /* ... */
+                        Get.toNamed(AppRoutes.contactUs);
                       },
                     ),
                     SettingsItemWidget(
                       titleKey: tr(LocaleKeys.settings_settings_privacy),
                       icon: Icons.lock_outline,
                       onTap: () {
-                        /* ... */
+                        Get.toNamed(AppRoutes.privacyPolicy);
                       },
                     ),
                     SettingsItemWidget(

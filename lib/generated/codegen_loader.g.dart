@@ -168,6 +168,14 @@ class CodegenLoader extends AssetLoader{
     "current_medications": "الأدوية الحالية",
     "pregnant": "حامل (إذا ينطبق)",
     "breastfeeding": "مرضعة (إذا ينطبق)"
+  },
+  "home": {
+    "welcome_text": "مرحباً بعودتك",
+    "description_text": "إليك نظرة عامة على أدويتك الحالية.",
+    "medical_profile_is_incomplete": "ملفك الطبي غير مكتمل.",
+    "medical_profile_is_incomplete_desc": "يرجى إضافة معلوماتك الشخصية والصحية [إكمال الملف]",
+    "no_drugs_found": "لا توجد أدوية مضافة بعد.",
+    "no_drugs_found_desc": "يرجى إضافة أدويتك."
   }
 };
 static const Map<String,dynamic> _en = {
@@ -324,6 +332,14 @@ static const Map<String,dynamic> _en = {
     "current_medications": "Current Medications",
     "pregnant": "Pregnant (if applicable)",
     "breastfeeding": "Breastfeeding (if applicable)"
+  },
+  "home": {
+    "welcome_text": "Welcome back",
+    "description_text": "Here’s your current medication overview.",
+    "medical_profile_is_incomplete": "Your medical profile is incomplete.",
+    "medical_profile_is_incomplete_desc": "Please add your personal and health information [Cpmplete Profile]",
+    "no_drugs_found": "No medications added yet.",
+    "no_drugs_found_desc": "Please add your medications."
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

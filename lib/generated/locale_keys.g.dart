@@ -143,5 +143,12 @@ abstract class  LocaleKeys {
   static const health_info_pregnant = 'health_info.pregnant';
   static const health_info_breastfeeding = 'health_info.breastfeeding';
   static const health_info = 'health_info';
+  static const home_welcome_text = 'home.welcome_text';
+  static const home_description_text = 'home.description_text';
+  static const home_medical_profile_is_incomplete = 'home.medical_profile_is_incomplete';
+  static const home_medical_profile_is_incomplete_desc = 'home.medical_profile_is_incomplete_desc';
+  static const home_no_drugs_found = 'home.no_drugs_found';
+  static const home_no_drugs_found_desc = 'home.no_drugs_found_desc';
+  static const home = 'home';
 
 }

@@ -21,8 +21,16 @@ dependencies:
   easy_localization:
   image_picker:
   water_drop_nav_bar: 2.2.1
+  iconsax:
+  translator:
+  url_launcher:
+  flutter_html:
 #  permission_handler:
 #  simple_barcode_scanner: 0.3.0
+  #-- Firebase Packages (DB)--#
+  firebase_core:
+  cloud_firestore:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

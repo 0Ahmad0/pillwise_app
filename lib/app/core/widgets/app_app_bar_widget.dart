@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class AppAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -40,7 +41,10 @@ class AppAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
     // 4. بناء الـ AppBar
     return AppBar(
-      title: Text(title ?? ''),
+      title: Text(title ?? '',style: Get.textTheme.displayLarge?.copyWith(
+        fontWeight: FontWeight.bold,
+        fontSize: 18.sp
+      ),),
       centerTitle: centerTitle,
       automaticallyImplyLeading: false,
       leading: leadingWidget,

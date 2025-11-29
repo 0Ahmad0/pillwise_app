@@ -18,9 +18,15 @@ import '../../modules/auth/presentation/bindings/login_binding.dart';
 import '../../modules/auth/presentation/bindings/signup_binding.dart';
 import '../../modules/auth/presentation/screens/forget_password_screen.dart';
 import '../../modules/auth/presentation/screens/login_screen.dart';
+import '../../modules/contact_us/presentation/bindings/contact_us_binding.dart';
+import '../../modules/contact_us/presentation/screens/contact_us_screen.dart';
+import '../../modules/help_support/presentation/bindings/help_support_binding.dart';
+import '../../modules/help_support/presentation/screens/help_support_screen.dart';
 import '../../modules/home/presentation/bindings/home_binding.dart';
 import '../../modules/onboarding/presentation/bindings/onboarding_binding.dart';
 import '../../modules/onboarding/presentation/screens/onboarding_screen.dart';
+import '../../modules/privacy_policy/presentation/bindings/privacy_policy_binding.dart';
+import '../../modules/privacy_policy/presentation/screens/privacy_policy_screen.dart';
 import '../../modules/profile/presentation/bindings/profile_binding.dart';
 import '../../modules/profile/presentation/screens/profile_screen.dart';
 import '../../modules/scan_barcode/presentation/bindings/scan_barcode_binding.dart';
@@ -67,7 +73,6 @@ class AppPages {
       binding: ForgetPasswordBinding(), // <-- يستخدم ForgetPasswordBinding
     ),
 
-
     GetPage(
       name: AppRoutes.navbar,
       page: () => const NavbarScreen(),
@@ -108,5 +113,21 @@ class AppPages {
       page: () => const SettingsScreen(),
       binding: SettingsBinding(), // <-- يستخدم ForgetPasswordBinding
     ),
+    GetPage(
+      name: AppRoutes.helpAndSupport,
+      page: () => const HelpAndSupportScreen(),
+      binding: HelpSupportBinding(), // <-- يستخدم ForgetPasswordBinding
+    ),
+    GetPage(
+      name: AppRoutes.contactUs,
+      page: () => const ContactUsScreen(),
+      binding: ContactUsBinding(), // <-- يستخدم ForgetPasswordBinding
+    ),
+    GetPage(
+      name: AppRoutes.privacyPolicy,
+      page: () => const PrivacyPolicyScreen(),
+      binding: PrivacyPolicyBinding(), // <-- يستخدم ForgetPasswordBinding
+    ),
+
   ];
 }

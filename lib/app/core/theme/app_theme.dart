@@ -36,8 +36,8 @@ class AppTheme {
         elevation: 0,
         centerTitle: true,
         backgroundColor: AppColors.lightScaffold,
-        iconTheme: IconThemeData(color: AppColors.lightText),
-        titleTextStyle: Get.textTheme.displayLarge?.copyWith(
+        iconTheme: const IconThemeData(color: AppColors.lightText),
+        titleTextStyle: AppTypography.textTheme.displayLarge?.copyWith(
           fontSize: 16.sp,
           fontWeight: FontWeight.bold,
         ),
@@ -84,8 +84,8 @@ class AppTheme {
         elevation: 0,
         centerTitle: true,
         backgroundColor: AppColors.darkScaffold,
-        iconTheme: IconThemeData(color: AppColors.darkText),
-        titleTextStyle: Get.textTheme.displayLarge?.copyWith(
+        iconTheme: const IconThemeData(color: AppColors.darkText),
+        titleTextStyle: AppTypography.textTheme.displayLarge?.copyWith(
           fontSize: 16.sp,
           fontWeight: FontWeight.bold,
         ),

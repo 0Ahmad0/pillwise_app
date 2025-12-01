@@ -40,8 +40,13 @@ class AppStorage {
   static Future<dynamic> storageRead({key}) async =>
       await _storage.read(key);
 
-  static UserModel? getUserStorage()  =>
-      _storage.read(AppConstants.User);
+  static UserModel? getUserStorage()  {
+    final result = _storage.read(AppConstants.User);
+    if(result.runtimeType==UserModel.init().runtimeType)
+      return result;
+    return UserModel.fromJson(result);
+  }
+
 
   static Future<void> storageDelete({key}) async => await _storage
       .remove(key)

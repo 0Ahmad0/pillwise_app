@@ -46,7 +46,9 @@ class LoginScreen extends GetView<LoginController> {
                   children: [
                     Expanded(
                       child: SocialButtonWidget(
-                        onPressed: (){},
+                        onPressed: (){
+                          controller.signWithGoogle();
+                        },
                         text: tr(LocaleKeys.login_continue_with_google),
                         icon: AppAssets.googleLogoIcon,
                       ),
@@ -100,6 +102,7 @@ class LoginScreen extends GetView<LoginController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+
                     AppTextButtonWidget(
                       onPressed: ()=> Get.toNamed(AppRoutes.forgetPassword),
                       text: tr(LocaleKeys.login_forget_password),

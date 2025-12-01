@@ -21,6 +21,8 @@ class ProfileScreen extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
+    controller.onInit();
+
     return Scaffold(
       appBar: AppAppBarWidget(
         title: tr(LocaleKeys.profile_title_screen),
@@ -99,7 +101,10 @@ class ProfileScreen extends GetView<ProfileController> {
                 20.verticalSpace,
                 AppDropdownButtonWidget<String>(
                   hintText: tr(LocaleKeys.profile_country),
-                  onChanged: (String? value) {},
+                  value: controller.country.value,
+                  onChanged: (String? value) {
+                    controller.country.value=value;
+                  },
                   prefixIcon: Icons.flag_outlined,
                   items: controller.countries
                       .map(
@@ -113,14 +118,18 @@ class ProfileScreen extends GetView<ProfileController> {
                 40.verticalSpace,
                 AppButtonWidget(
                   text: tr(LocaleKeys.core_save_changes),
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.updateUser();
+                  },
                 ),
                 10.verticalSpace,
                 AppTextButtonWidget(
                   isFullWidth: true,
                   backGroundColor: Get.theme.primaryColor.myOpacity(.075),
                   text: tr(LocaleKeys.profile_delete_account),
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.processDeleteAccount();
+                  },
                 ),
               ],
             ),

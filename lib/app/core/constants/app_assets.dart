@@ -5,10 +5,11 @@ abstract class AppAssets {
   // --- المسارات الأساسية ---
   static const String _imagesPath = 'assets/images';
   static const String _iconsPath = 'assets/icons';
+  static const String _iconPath = 'assets/icon';
   static const String _lottiePath = 'assets/lottie';
 
   // --- الصور (PNG / JPG) ---
-  static const String logo = '$_imagesPath/icon.png';
+  static const String logo = '$_iconPath/icon.png';
   static const String loginLogo = '$_imagesPath/login_logo.png';
   static const String signupLogo = '$_imagesPath/signup_logo.png';
   static const String forgetPasswordLogo = '$_imagesPath/forget_password_logo.png';

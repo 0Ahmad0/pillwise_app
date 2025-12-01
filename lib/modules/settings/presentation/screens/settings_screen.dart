@@ -6,7 +6,11 @@ import 'package:pillwise_app/app/core/theme/app_theme.dart';
 import 'package:pillwise_app/app/core/widgets/app_scaffold_widget.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/settings/presentation/widgets/language_toggle_widget.dart';
+import '../../../../app/controllers/image_picker_controller.dart';
+import '../../../../app/core/local/storage.dart';
+import '../../../../app/core/models/user_model.dart';
 import '../../../../app/routes/app_routes.dart';
+import '../../../profile/presentation/controllers/profile_controller.dart';
 import '../controllers/settings_controller.dart';
 import '../widgets/settings_group_widget.dart';
 import '../widgets/settings_item_widget.dart';
@@ -17,6 +21,7 @@ class SettingsScreen extends GetView<SettingsController> {
 
   @override
   Widget build(BuildContext context) {
+
     return AppScaffoldWidget(
       // <-- استخدام الـ Scaffold المخصص (يحتوي على AppPadding)
       body: SafeArea(
@@ -24,36 +29,59 @@ class SettingsScreen extends GetView<SettingsController> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 40.sp,
-                      backgroundImage: NetworkImage('https://tse1.mm.bing.net/th/id/OIP.jhuU6q3Ob4zhSMl1gxJmbQHaE7?pid=ImgDet&w=184&h=122&c=7&dpr=1.3&o=7&rm=3'),
-
-                    ),
-                    20.horizontalSpace,
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Maimounah Alharthi',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: Get.textTheme.displayLarge?.copyWith(
+            GetBuilder<ProfileController>(
+            init: Get.put(ProfileController()),
+              builder: (controller){
+                UserModel? currentUser= AppStorage.getUserStorage();
+              return  Row(
+                children: [
+                  CircleAvatar(
+                    radius: 40.sp,
+                    backgroundImage:
+                    (currentUser?.photoUrl?.isNotEmpty??false)?
+                    // (controller.currentUser.value?.photoUrl?.isNotEmpty??false)?
+                    NetworkImage(   currentUser?.photoUrl??'')
+                    // NetworkImage(   controller.currentUser.value?.photoUrl??'')
+                    //     :null,
+                    // NetworkImage('https://tse1.mm.bing.net/th/id/OIP.jhuU6q3Ob4zhSMl1gxJmbQHaE7?pid=ImgDet&w=184&h=122&c=7&dpr=1.3&o=7&rm=3'),
+                    :Get.find<ImagePickerController>()
+                        .selectedImage
+                        .value !=
+                        null
+                        ? FileImage(Get.find<ImagePickerController>()
+                        .selectedImage
+                        .value!)
+                        : null
+                  ),
+                  20.horizontalSpace,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          currentUser?.name??
+                          // controller.currentUser.value?.name??
+                              'Maimounah Alharthi',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Get.textTheme.displayLarge?.copyWith(
                               fontSize: 22.sp
-                            ),
                           ),
-                          4.verticalSpace,
-                          Text(
-                            'Maimounah.alh97@gmail.com',
-                            style: Get.textTheme.bodySmall,
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                        ),
+                        4.verticalSpace,
+                        Text(
+                          currentUser?.email??
+                          // controller.currentUser.value?.email??
+                              'Maimounah.alh97@gmail.com',
+                          style: Get.textTheme.bodySmall,
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              );
+              }
+               ),
                 20.verticalSpace,
                 SettingsGroupWidget(
                   items: [

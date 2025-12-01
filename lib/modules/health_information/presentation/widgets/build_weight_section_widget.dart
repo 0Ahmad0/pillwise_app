@@ -23,15 +23,20 @@ class BuildWeightSectionWidget extends GetView<HealthInformationController> {
           ),
         ),
         10.verticalSpace,
-        Obx(() =>
+
             AppTextFormFieldWidget(
               prefixIcon: Icons.scale,
               keyboardType: TextInputType.number,
               hintText: tr(LocaleKeys.health_info_weight),
-              controller: TextEditingController(
+              controller:
+              controller.weightController??
+              TextEditingController(
                 text: controller.healthInfo.value.weight?.toString() ?? '',
               ),
-            )),
+
+            )
+
+
       ],
     );
   }

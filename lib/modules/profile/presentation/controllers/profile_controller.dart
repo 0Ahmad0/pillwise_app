@@ -237,8 +237,7 @@ class ProfileController extends GetxController {
         await AppStorage.storageWrite(
             key: AppConstants.User, value: UserModel.fromJson(value));
 
-        UserModel? currentUser= AppStorage.getUserStorage();
-        print(currentUser);
+
         // currentUser.value=UserModel.fromJson(value);
         update();
         // Get.snackbar(

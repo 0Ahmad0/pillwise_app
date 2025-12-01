@@ -150,6 +150,11 @@ abstract class  LocaleKeys {
   static const home_no_drugs_found = 'home.no_drugs_found';
   static const home_no_drugs_found_desc = 'home.no_drugs_found_desc';
   static const home = 'home';
+  static const searchAndScan_search_text = 'searchAndScan.search_text';
+  static const searchAndScan_search_text_hint = 'searchAndScan.search_text_hint';
+  static const searchAndScan_search_desc = 'searchAndScan.search_desc';
+  static const searchAndScan_scan = 'searchAndScan.scan';
+  static const searchAndScan = 'searchAndScan';
   static const help_support_title = 'help_support_title';
   static const how_to_add_medication_q = 'how_to_add_medication_q';
   static const how_to_add_medication_a = 'how_to_add_medication_a';

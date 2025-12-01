@@ -161,6 +161,12 @@
     "no_drugs_found": "No medications added yet.",
     "no_drugs_found_desc": "Please add your medications."
   },
+  "searchAndScan": {
+    "search_text": "Looking for a medication?",
+    "search_text_hint": "medication name..",
+    "search_desc": "OR scan the code using your camera.",
+    "scan": "Scan"
+  },
   "help_support_title": "Help & Support",
   "how_to_add_medication_q": "How do I add a medication?",
   "how_to_add_medication_a": "Tap the “+” button on the main screen. You can: <ul><li>Scan the medication barcode using your camera, or</li><li>Search for the medication name using the built-in database.</li></ul>",

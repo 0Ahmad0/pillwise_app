@@ -177,6 +177,12 @@ class CodegenLoader extends AssetLoader{
     "no_drugs_found": "لا توجد أدوية مضافة بعد.",
     "no_drugs_found_desc": "يرجى إضافة أدويتك."
   },
+  "searchAndScan": {
+    "search_text": "تبحث عن دواء معين؟",
+    "search_text_hint": "اسم الدواء..",
+    "search_desc": "أو امسح الرمز باستخدام الكاميرا للعثور عليه فوراً",
+    "scan": "مسح الرمز"
+  },
   "help_support_title": "المساعدة والدعم",
   "how_to_add_medication_q": "كيف أُضيف دواء؟",
   "how_to_add_medication_a": "اضغط على زر '+' في الشاشة الرئيسية. يمكنك: <ul><li>مسح الرمز الشريطي (الباركود) للدواء باستخدام الكاميرا، أو</li><li>البحث عن اسم الدواء باستخدام قاعدة البيانات المدمجة.</li></ul>",
@@ -373,6 +379,12 @@ static const Map<String,dynamic> _en = {
     "medical_profile_is_incomplete_desc": "Please add your personal and health information [Cpmplete Profile]",
     "no_drugs_found": "No medications added yet.",
     "no_drugs_found_desc": "Please add your medications."
+  },
+  "searchAndScan": {
+    "search_text": "Looking for a medication?",
+    "search_text_hint": "medication name..",
+    "search_desc": "OR scan the code using your camera.",
+    "scan": "Scan"
   },
   "help_support_title": "Help & Support",
   "how_to_add_medication_q": "How do I add a medication?",

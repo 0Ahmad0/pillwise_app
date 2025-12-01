@@ -9,6 +9,7 @@ import 'package:pillwise_app/modules/health_information/presentation/screens/hea
 import 'package:pillwise_app/modules/home/presentation/screens/home_screen.dart';
 import 'package:pillwise_app/modules/navbar/presentation/bindings/navbar_binding.dart';
 import 'package:pillwise_app/modules/navbar/presentation/screens/navbar_screen.dart';
+import 'package:pillwise_app/modules/search/presentation/screens/search_screen.dart';
 import 'package:pillwise_app/modules/splash/presentation/bindings/splash_binding.dart';
 import 'package:pillwise_app/modules/welcome/presentation/bindings/welcome_binding.dart';
 import 'package:pillwise_app/modules/welcome/presentation/screens/welcome_screen.dart';
@@ -31,6 +32,7 @@ import '../../modules/profile/presentation/bindings/profile_binding.dart';
 import '../../modules/profile/presentation/screens/profile_screen.dart';
 import '../../modules/scan_barcode/presentation/bindings/scan_barcode_binding.dart';
 import '../../modules/scan_barcode/presentation/screens/scan_barcode_screen.dart';
+import '../../modules/search/presentation/bindings/search_binding.dart';
 import '../../modules/settings/presentation/bindings/settings_binding.dart';
 import '../../modules/settings/presentation/screens/settings_screen.dart';
 import '../../modules/splash/presentation/screens/splash_screen.dart';
@@ -127,6 +129,11 @@ class AppPages {
       name: AppRoutes.privacyPolicy,
       page: () => const PrivacyPolicyScreen(),
       binding: PrivacyPolicyBinding(), // <-- يستخدم ForgetPasswordBinding
+    ),
+    GetPage(
+      name: AppRoutes.search,
+      page: () => const SearchScreen(),
+      binding: SearchBinding(), // <-- يستخدم ForgetPasswordBinding
     ),
 
   ];

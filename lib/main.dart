@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pillwise_app/app/bindings/initial_binding.dart';
 import 'package:pillwise_app/app/core/constants/app_constants.dart';
 import 'package:pillwise_app/app/routes/app_pages.dart';
@@ -31,10 +31,10 @@ Future<void> main() async {
       DeviceOrientation.portraitDown,
     ]),
 
-    GoogleSignIn.instance.initialize(
-      clientId: "509780797338-rdnopskiakoavqam554l8t5mvm0r7j8e.apps.googleusercontent.com",
-      serverClientId: "509780797338-rdnopskiakoavqam554l8t5mvm0r7j8e.apps.googleusercontent.com",
-    )
+    // GoogleSignIn.instance.initialize(
+    //   clientId: "509780797338-rdnopskiakoavqam554l8t5mvm0r7j8e.apps.googleusercontent.com",
+    //   serverClientId: "509780797338-rdnopskiakoavqam554l8t5mvm0r7j8e.apps.googleusercontent.com",
+    // )
   ]);
   Get.put(SettingsController(), permanent: true);
   runApp(
@@ -77,7 +77,7 @@ class PillWiseApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             getPages: AppPages.routes,
             initialBinding: InitialBinding(),
-            initialRoute: AppRoutes.initial,
+            initialRoute: AppRoutes.login,
           );
         });
       },

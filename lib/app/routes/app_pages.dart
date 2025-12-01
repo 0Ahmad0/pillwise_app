@@ -24,6 +24,8 @@ import '../../modules/contact_us/presentation/screens/contact_us_screen.dart';
 import '../../modules/help_support/presentation/bindings/help_support_binding.dart';
 import '../../modules/help_support/presentation/screens/help_support_screen.dart';
 import '../../modules/home/presentation/bindings/home_binding.dart';
+import '../../modules/medication_details/presentation/bindings/medication_details_binding.dart';
+import '../../modules/medication_details/presentation/screens/medication_details_screen.dart';
 import '../../modules/onboarding/presentation/bindings/onboarding_binding.dart';
 import '../../modules/onboarding/presentation/screens/onboarding_screen.dart';
 import '../../modules/privacy_policy/presentation/bindings/privacy_policy_binding.dart';
@@ -134,6 +136,10 @@ class AppPages {
       name: AppRoutes.search,
       page: () => const SearchScreen(),
       binding: SearchBinding(), // <-- يستخدم ForgetPasswordBinding
+    ), GetPage(
+      name: AppRoutes.medicationDetails,
+      page: () => const MedicationDetailsScreen(),
+      binding: MedicationDetailsBinding(), // <-- يستخدم ForgetPasswordBinding
     ),
 
   ];

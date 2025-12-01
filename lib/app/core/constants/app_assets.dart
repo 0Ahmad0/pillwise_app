@@ -9,7 +9,7 @@ abstract class AppAssets {
   static const String _lottiePath = 'assets/lottie';
 
   // --- الصور (PNG / JPG) ---
-  static const String logo = '$_iconPath/icon.png';
+  static const String logo = '$_imagesPath/app_logo.png';
   static const String loginLogo = '$_imagesPath/login_logo.png';
   static const String signupLogo = '$_imagesPath/signup_logo.png';
   static const String forgetPasswordLogo = '$_imagesPath/forget_password_logo.png';
@@ -23,6 +23,7 @@ abstract class AppAssets {
   static const String notCompleteInfoIcon = '$_iconsPath/not_complete_info.svg';
   static const String emptyDrugsIcon = '$_iconsPath/empty_drugs.svg';
   static const String capsuleIcon = '$_iconsPath/capsule.svg';
+  static const String swirlyArrowIcon = '$_iconsPath/swirly_arrow.svg';
 
   // --- ملفات Lottie (JSON) ---
   static const String  scanDrugAnimation = '$_lottiePath/scan_drug_lottie.json';

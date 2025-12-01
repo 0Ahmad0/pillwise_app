@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:pillwise_app/app/controllers/image_picker_controller.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
-import 'package:pillwise_app/app/core/widgets/app_padding_widget.dart';
+import 'package:pillwise_app/app/core/widgets/app_image_picker_bottom_sheet.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
+import 'package:pillwise_app/app/extension/opacity_extension.dart';
+import 'package:pillwise_app/app/routes/app_routes.dart';
 
 class MedicationSearchWidget extends StatelessWidget {
   const MedicationSearchWidget(
@@ -16,29 +17,36 @@ class MedicationSearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.symmetric(
-        horizontal: 8.w,
-        vertical: 4.h
-      ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
-      elevation: 0.0,
-      child: ListTile(
-        onTap: (){},
-        leading: AppSvgWidget(
-          assetsUrl: AppAssets.capsuleIcon,
-          color: Get.theme.primaryColor,
-        ),
-        title: Text(
-          title,
-          style:
-              Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
-        ),
-        subtitle: Text(
-          subTitle,
-          style: Get.textTheme.bodyMedium?.copyWith(fontSize: 12.sp),
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
+    return GestureDetector(
+      onTap: ()=> Get.toNamed(AppRoutes.medicationDetails),
+      child: Card(
+        elevation: 0,
+        child: Row(
+          children: [
+            10.horizontalSpace,
+            Container(
+              padding: EdgeInsets.all(6.sp),
+              decoration: BoxDecoration(
+                color: Get.theme.primaryColor.myOpacity(0.1),
+                borderRadius: BorderRadius.circular(8.r)
+              ),
+              child: AppSvgWidget(
+                assetsUrl: AppAssets.capsuleIcon,
+                color: Get.theme.primaryColor,
+              ),
+            ),
+            Flexible(
+              child: ListTile(
+                trailing: Icon(Icons.keyboard_double_arrow_left),
+                title: Text(
+                  title,
+                ),
+                subtitle: Text(
+                  subTitle,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

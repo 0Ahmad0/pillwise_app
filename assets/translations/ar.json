@@ -59,6 +59,9 @@
     "reset": "إعادة تعيين",
     "save": "حفظ",
     "save_changes": "حفظ التغييرات",
+    "delete": "إزالة الدواء",
+    "add": "إضافة الدواء",
+    "next_intake": "الموعد التالي للدواء",
     "cancel": "إلغاء",
     "arabic": "العربية",
     "english": "الانكليزية"
@@ -167,6 +170,25 @@
     "search_desc": "أو امسح الرمز باستخدام الكاميرا للعثور عليه فوراً",
     "scan": "مسح الرمز"
   },
+  "medicationDetails": {
+    "details": "التفاصيل",
+    "manufacturer_country": "بلد المنشأ",
+    "manufacturer_name": "الشركة المصنعة",
+    "shelf_life": "مدة الصلاحية",
+    "form": "الشكل الدوائي",
+    "usage": "طريقة الاستخدام",
+    "package": "العبوة",
+    "storage": "التخزين",
+    "legal_status_rx": "وصفة طبية فقط (Rx)",
+    "legal_status_otc": "متاح بدون وصفة (OTC)",
+    "manufacturer_details": "تفاصيل الشركة المصنعة والمنشأ",
+    "add_reminder": "إضافة تذكير",
+    "daily": "يوميا",
+    "weekly": "أسبوعيا",
+    "monthly": "شهريا",
+    "reminder_time": "وقت التذكير"
+  },
+
   "help_support_title": "المساعدة والدعم",
   "how_to_add_medication_q": "كيف أُضيف دواء؟",
   "how_to_add_medication_a": "اضغط على زر '+' في الشاشة الرئيسية. يمكنك: <ul><li>مسح الرمز الشريطي (الباركود) للدواء باستخدام الكاميرا، أو</li><li>البحث عن اسم الدواء باستخدام قاعدة البيانات المدمجة.</li></ul>",

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -5,8 +6,14 @@ import 'package:iconsax/iconsax.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
 import 'package:pillwise_app/app/core/theme/app_colors.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
+import 'package:pillwise_app/app/core/widgets/app_text_button_widget.dart';
+import 'package:pillwise_app/generated/locale_keys.g.dart';
+import 'package:pillwise_app/modules/home/presentation/widgets/medication_card_widget.dart';
+import 'package:pillwise_app/modules/medication_details/presentation/controllers/medication_details_controller.dart';
 
-class DrugDetailsCardWidget extends StatelessWidget {
+import '../../../medication_details/presentation/screens/medication_details_screen.dart';
+
+class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
   final Map<String, dynamic> drug;
 
   const DrugDetailsCardWidget({super.key, required this.drug});
@@ -33,28 +40,24 @@ class DrugDetailsCardWidget extends StatelessWidget {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              // TITLE + Icon
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  AppSvgWidget(
-                    assetsUrl: AppAssets.capsuleIcon,
-                    color: Get.theme.primaryColor,
-                    width: 30.w,
-                    height: 30.w,
-                  ),
-                  10.horizontalSpace,
-                  Expanded(
-                    child: Text(
-                      drug["trade_name"] ?? "",
-                      style:
-                      Get.textTheme.displayLarge?.copyWith(fontSize: 18.sp),
-                    ),
-                  ),
-                ],
+              ListTile(
+                dense: true,
+                leading: AppSvgWidget(
+                  assetsUrl: AppAssets.capsuleIcon,
+                  color: Get.theme.primaryColor,
+                  width: 26.w,
+                  height: 26.w,
+                ),
+                title: Text(
+                  drug["trade_name"] ?? "",
+                  style: Get.textTheme.displayLarge?.copyWith(fontSize: 18.sp),
+                ),
+                subtitle: Text(
+                  drug["scientific_name"] ?? "",
+                  style: Get.textTheme.bodyMedium,
+                ),
               ),
-              10.verticalSpace,
-              // --- General Info ---
+
               _buildTile(
                 icon: Iconsax.document_text,
                 // ⬅️ تم استخدام دالة الترجمة هنا
@@ -141,6 +144,13 @@ class DrugDetailsCardWidget extends StatelessWidget {
                       drug["ids"]["last_update"].toString()),
                 ],
               ),
+              AppTextButtonWidget(
+                text: tr(LocaleKeys.core_add),
+                onPressed: () {
+                  controller.showReminderMedicationBottomSheet();
+                },
+                isFullWidth: true,
+              )
             ],
           ),
         ),
@@ -170,7 +180,8 @@ class DrugDetailsCardWidget extends StatelessWidget {
   Widget _info(String label, String? value) {
     return ListTile(
       title: Text(label,
-          style: Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold)),
+          style:
+              Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold)),
       subtitle: Text(value ?? "—"),
     );
   }

@@ -30,5 +30,6 @@ abstract class AppRoutes {
   static const contactUs = '/contact_us';
   static const privacyPolicy = '/privacy_policy';
   static const search = '/search';
+  static const medicationDetails = '/medication_details';
 
 }

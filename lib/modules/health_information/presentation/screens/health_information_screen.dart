@@ -69,11 +69,13 @@ class HealthInformationScreen extends GetView<HealthInformationController> {
             20.verticalSpace,
             BuildCurrentMedicationsWidget(),
             20.verticalSpace,
+        Obx(() =>
+
             AppButtonWidget(
               text: tr(LocaleKeys.core_save_changes),
               onPressed:
                   controller.hasAllRequiredInfo ? controller.saveChanges : null,
-            )
+            ))
           ],
         ),
       ),

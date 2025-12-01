@@ -19,6 +19,7 @@ class AppTextFormFieldWidget extends StatefulWidget {
   final int maxLines;
   final bool enabled;
   final bool autofocus;
+  final void Function(String)? onChanged;
 
   const AppTextFormFieldWidget({
     super.key,
@@ -37,6 +38,7 @@ class AppTextFormFieldWidget extends StatefulWidget {
     this.enabled = true,
     this.autofocus = false,
     this.onTap,
+    this.onChanged,
     this.readOnly = false,
   });
 
@@ -87,6 +89,7 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
         }
         widget.onFieldSubmitted?.call();
       },
+      onChanged: widget.onChanged,
       decoration: InputDecoration(
         errorMaxLines: 2,
         labelText: widget.labelText,

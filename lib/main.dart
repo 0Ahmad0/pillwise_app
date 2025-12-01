@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pillwise_app/app/bindings/initial_binding.dart';
 import 'package:pillwise_app/app/core/constants/app_constants.dart';
 import 'package:pillwise_app/app/routes/app_pages.dart';
@@ -12,6 +14,7 @@ import 'package:pillwise_app/app/routes/app_routes.dart';
 import 'app/core/theme/app_theme.dart';
 import 'firebase_options.dart';
 import 'generated/codegen_loader.g.dart';
+import 'modules/profile/presentation/controllers/profile_controller.dart';
 import 'modules/settings/presentation/controllers/settings_controller.dart';
 
 Future<void> main() async {
@@ -20,12 +23,18 @@ Future<void> main() async {
     Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     ),
+    GetStorage.init(),
     EasyLocalization.ensureInitialized(),
     ScreenUtil.ensureScreenSize(),
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]),
+
+    GoogleSignIn.instance.initialize(
+      clientId: "509780797338-rdnopskiakoavqam554l8t5mvm0r7j8e.apps.googleusercontent.com",
+      serverClientId: "509780797338-rdnopskiakoavqam554l8t5mvm0r7j8e.apps.googleusercontent.com",
+    )
   ]);
   Get.put(SettingsController(), permanent: true);
   runApp(

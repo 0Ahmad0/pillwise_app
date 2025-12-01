@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class HealthInfo {
   String? gender;
   DateTime? dateOfBirth;
-  double? height;
-  double? weight;
+  num? height;
+  num? weight;
   bool isPregnant;
   bool isBreastfeeding;
   String currentMedications;
@@ -16,6 +18,34 @@ class HealthInfo {
     this.isBreastfeeding = false,
     this.currentMedications = '',
   });
+
+  factory HealthInfo.fromJson( json){
+    var data = ['_JsonDocumentSnapshot','_JsonQueryDocumentSnapshot'].contains(json.runtimeType.toString())?json.data():json;
+    return HealthInfo(
+      gender: json['gender'],
+      height: data['height'],
+      weight: data['weight'],
+      isPregnant: data['isPregnant']??false,
+      isBreastfeeding: data['isBreastfeeding']??false,
+      currentMedications: data['currentMedications']??'',
+
+      dateOfBirth: (json["dateOfBirth"] is Timestamp)?json["dateOfBirth"].toDate():json["dateOfBirth"],
+    );
+  }
+
+  Map<String,dynamic> toJson(){
+
+    return {
+      'gender':gender,
+      'dateOfBirth':dateOfBirth,
+      'height':height,
+      'weight':weight,
+      'isPregnant':isPregnant,
+      'isBreastfeeding':isBreastfeeding,
+      'currentMedications':currentMedications,
+    };
+  }
+
 
   int? get age {
     if (dateOfBirth == null) return null;

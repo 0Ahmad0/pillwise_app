@@ -22,15 +22,17 @@ class BuildHeightSectionWidget extends GetView<HealthInformationController> {
               Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         10.verticalSpace,
-        Obx(
-          () => AppTextFormFieldWidget(
-            controller: TextEditingController(
+        AppTextFormFieldWidget(
+            controller:
+            controller.heightController??
+                TextEditingController(
               text: controller.healthInfo.value.height?.toString() ?? '',
             ),
+
             keyboardType: TextInputType.number,
             prefixIcon: Icons.height,
             hintText: tr(LocaleKeys.health_info_height),
-          ),
+
         ),
       ],
     );

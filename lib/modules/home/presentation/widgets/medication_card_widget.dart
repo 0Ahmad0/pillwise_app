@@ -6,10 +6,15 @@ import 'package:iconsax/iconsax.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
+import 'package:pillwise_app/modules/home/presentation/controllers/home_controller.dart';
 
+import '../../../../app/controllers/firebase/firebase_fun.dart';
+import '../../../../app/core/local/storage.dart';
+import '../../../../app/core/models/medicine_model.dart';
 import '../../../../app/core/theme/app_colors.dart';
 import '../../../../app/core/widgets/app_padding_widget.dart';
 import '../../../../app/core/widgets/app_text_button_widget.dart';
+import '../../../../app/core/widgets/constants_widgets.dart';
 import '../../../../generated/locale_keys.g.dart';
 import '../../../medication_details/presentation/screens/medication_details_screen.dart';
 import 'build_detail_row_widget.dart';
@@ -17,14 +22,16 @@ import 'info_icon_widget.dart';
 
 class MedicationCardWidget extends StatelessWidget {
   final Drug drug;
+  final MedicineModel medicine;
 
-  const MedicationCardWidget({super.key, required this.drug});
+  const MedicationCardWidget({super.key, required this.drug, required this.medicine});
 
   @override
   Widget build(BuildContext context) {
-    final isOTC = drug.legalStatus == 'OTC';
+    final isOTC = medicine.technicalDetails?.legalStatus == 'OTC';
+    // final isOTC = drug.legalStatus == 'OTC';
     return GestureDetector(
-      onTap: ()=> Get.toNamed(AppRoutes.medicationDetails),
+      onTap: ()=> Get.toNamed(AppRoutes.medicationDetails,arguments: {"medicine":medicine}),
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
         elevation: 0,
@@ -38,14 +45,14 @@ class MedicationCardWidget extends StatelessWidget {
                 color: Get.theme.primaryColor,
               ),
               title: Text(
-                drug.tradeName,
+                medicine.tradeName??drug.tradeName,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Get.textTheme.bodyMedium
                     ?.copyWith(fontSize: 16.sp, fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
-                drug.scientificName.split(',')[0],
+                (medicine.scientificName?? drug.scientificName).split(',')[0],
                 // عرض أول اسم علمي فقط للاختصار
                 style: Get.textTheme.bodySmall?.copyWith(
                     fontStyle: FontStyle.italic, color: AppColors.greyColor),
@@ -105,22 +112,24 @@ class MedicationCardWidget extends StatelessWidget {
                   InfoIconWidget(
                     icon: Icons.medication_liquid_rounded,
                     label: tr(LocaleKeys.medicationDetails_form),
-                    value: drug.form.split(' ')[0], // اختصار الشكل
+                    // value: (drug.form).split(' ')[0], // اختصار الشكل
+                    value: (medicine.pharmaceuticalForm??drug.form).split(' ')[0], // اختصار الشكل
                   ),
                   InfoIconWidget(
                     icon: Icons.face,
                     label: tr(LocaleKeys.medicationDetails_usage),
-                    value: drug.route.replaceAll(' use', ''),
+                    // value: (drug.route).replaceAll(' use', ''),
+                    value: (medicine.administrationRoute??drug.route).replaceAll(' use', ''),
                   ),
                   InfoIconWidget(
                     icon: Icons.inventory_2_outlined,
                     label: tr(LocaleKeys.medicationDetails_package),
-                    value: "${drug.packageSize}",
+                    value: "${medicine.packageDetails?.packageSize??drug.packageSize}",
                   ),
                   InfoIconWidget(
                     icon: Icons.thermostat,
                     label: tr(LocaleKeys.medicationDetails_storage),
-                    value: "< 25°C", // اختصار للعرض
+                    value: medicine.storageConditionArabic?.toLowerCase()?.replaceAll('store below', '<')??"< 25°C", // اختصار للعرض
                   ),
                 ],
               ),
@@ -128,7 +137,20 @@ class MedicationCardWidget extends StatelessWidget {
             AppPaddingWidget(
               child: AppTextButtonWidget(
                 text: tr(LocaleKeys.core_delete),
-                onPressed: () {},
+                onPressed: () {
+                  Get.defaultDialog(
+                    title: "Confirm Delete",
+                    middleText: "Are you sure you want to delete medication?",
+                    textConfirm: "Delete",
+                    textCancel: "Cancel",
+                    onConfirm: () async {
+                      Get.close(1);
+                      await   deleteFromInventory();
+
+                    },
+                  );
+
+                },
                 isFullWidth: true,
               ),
             ),
@@ -136,5 +158,28 @@ class MedicationCardWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  deleteFromInventory() async{
+    final uid= AppStorage.getUserStorage()?.uid;
+    if((uid?.isEmpty??true)||medicine==null)
+      return;
+
+    final tempMedicine= medicine?.removeById(uid??'');
+    if(tempMedicine==null)
+      return;
+    // medicine?.idUsers.remove(uid);
+    ConstantsWidgets.showLoading();
+    var result =await FirebaseFun
+        .UpdateMedication(medicine: medicine!);
+    ConstantsWidgets.closeDialog();
+    if(!result['status']){
+      medicine?.idUsers.add(tempMedicine);
+      // medicine?.setIdUsers=uid!;
+    }
+    Get.find<HomeController>().update();
+    ConstantsWidgets.TOAST(null,textToast: FirebaseFun.findTextToast(result['message'].toString()),state:result['status'] );
+
+    return result;
   }
 }

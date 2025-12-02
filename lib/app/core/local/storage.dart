@@ -44,6 +44,8 @@ class AppStorage {
     final result = _storage.read(AppConstants.User);
     if(result.runtimeType==UserModel.init().runtimeType)
       return result;
+    if(result==null)
+      return result;
     return UserModel.fromJson(result);
   }
 

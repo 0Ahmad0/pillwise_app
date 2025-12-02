@@ -1,11 +1,8 @@
-class FirebaseConstants{
+class FirebaseConstants {
 
   ///--- Firebase Collections
   static String collectionUser = "Users";
+  static String collectionDrug = "drugs";
 
-  static String collectionReview = "Reviews";
-  static String collectionNotification = "Notifications";
-
-  static String collectionChat = "Chats";
-  static String collectionMessage = "Messages";
+  // static String collectionMedicine = "Medicines";
 }

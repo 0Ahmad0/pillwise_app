@@ -7,6 +7,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pillwise_app/app/core/models/medicine_model.dart';
 import 'package:pillwise_app/app/core/theme/app_colors.dart';
 
 import '../../core/models/user_model.dart';
@@ -187,6 +188,27 @@ class FirebaseFun {
 
     return result;
   }
+
+
+  static UpdateMedication( {required MedicineModel medicine,}) async {
+    final result =await FirebaseFirestore.instance
+        .collection(FirebaseConstants.collectionDrug)
+        .doc(medicine.id).update(
+        medicine.toJson()
+    ).then(onValueMedication)
+        .catchError(onError);
+    return result;
+  }
+
+  static fetchMedication({required String id})  async {
+
+    final result=await FirebaseFirestore.instance.collection(FirebaseConstants.collectionDrug)
+        .doc(id).get()
+        .then((onValueFetchMedication))
+        .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+
 
   static Future<Map<String,dynamic>>  onError(error) async {
     return {
@@ -425,11 +447,27 @@ class FirebaseFun {
       'body':{}
     };
   }
-  static Future<Map<String,dynamic>> onValueFetchLastMessage(value) async{
+  static Future<Map<String,dynamic>> onValueFetchMedication(value) async{
     return {
       'status':true,
-      'message':'Last message successfully fetch',
-      'body':value.docs
+      'message':'Medication successfully fetch',
+      'body':value.data()
+    };
+  }
+  static Future<Map<String,dynamic>> onValueMedication(value) async{
+    return {
+      'status':true,
+      'message':'Medication successfully fetch',
+      'body': {}
+    };
+  }
+
+
+  static Future<Map<String,dynamic>>onValueDeleteMedication(value) async{
+    return {
+      'status':true,
+      'message':'Medication successfully delete',
+      'body':{}
     };
   }
 

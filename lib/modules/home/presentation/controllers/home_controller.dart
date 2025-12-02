@@ -1,12 +1,21 @@
 // controllers/home_controller.dart
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
+import '../../../../app/controllers/firebase/firebase_constants.dart';
+import '../../../../app/core/local/storage.dart';
+import '../../../../app/core/models/medicine_model.dart';
+import '../../../../app/core/models/user_model.dart';
 import '../../data/models/medication_model.dart';
 
 class HomeController extends GetxController {
   var medications = <Medication>[].obs;
   var isProfileComplete = false.obs;
   var currentTime = ''.obs;
+  Medicines medicines=Medicines(items: []);
+  Medicines medicinesWithFilter=Medicines(items: []);
+  String? uid;
+  var getMedicines;
 
   @override
   void onInit() {
@@ -14,8 +23,38 @@ class HomeController extends GetxController {
     loadMedications();
     updateCurrentTime();
     // تحديث الوقت كل دقيقة
+    UserModel? currentUser= AppStorage.getUserStorage();
+    uid= currentUser?.uid;
+    getMedicinesFun();
     ever(medications, (_) => updateCurrentTime());
   }
+
+
+
+  getMedicinesFun() async {
+    getMedicines =_fetchMedicinesStream();
+    return getMedicines;
+  }
+  _fetchMedicinesStream() {
+
+    final result = FirebaseFirestore.instance.collection(FirebaseConstants.collectionDrug)
+        .snapshots()
+    ;
+    return result;
+  }
+  filterMedicines() async {
+
+    medicinesWithFilter.items=[];
+
+    medicines.items.forEach((element) {
+
+      if(element.userIsAdd(uid??''))
+        medicinesWithFilter.items.add(element);
+    });
+    // update();
+  }
+
+
 
   void updateCurrentTime() {
     final now = DateTime.now();

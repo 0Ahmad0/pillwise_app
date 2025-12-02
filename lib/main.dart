@@ -16,6 +16,11 @@ import 'firebase_options.dart';
 import 'generated/codegen_loader.g.dart';
 import 'modules/profile/presentation/controllers/profile_controller.dart';
 import 'modules/settings/presentation/controllers/settings_controller.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+FlutterLocalNotificationsPlugin();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,8 +39,26 @@ Future<void> main() async {
     GoogleSignIn.instance.initialize(
       clientId: "509780797338-rdnopskiakoavqam554l8t5mvm0r7j8e.apps.googleusercontent.com",
       serverClientId: "509780797338-rdnopskiakoavqam554l8t5mvm0r7j8e.apps.googleusercontent.com",
-    )
+    ),
+
+
   ]);
+
+
+  // // TimeZone setup
+  tz.initializeTimeZones();
+  // final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
+  // tz.setLocalLocation(tz.getLocation(timeZoneName));
+
+  const AndroidInitializationSettings androidSettings =
+  AndroidInitializationSettings('@mipmap/ic_launcher');
+
+  const InitializationSettings settings =
+  InitializationSettings(android: androidSettings);
+
+  await flutterLocalNotificationsPlugin.initialize(settings);
+
+
   Get.put(SettingsController(), permanent: true);
   runApp(
     EasyLocalization(

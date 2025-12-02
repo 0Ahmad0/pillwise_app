@@ -5,9 +5,14 @@ import 'package:get/get.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/medication_details/presentation/widgets/reminder_medication_bottom_sheet.dart';
 
+import '../../../../app/controllers/firebase/firebase_fun.dart';
+import '../../../../app/core/local/storage.dart';
+import '../../../../app/core/models/medicine_model.dart';
 import '../../../../app/core/widgets/app_image_picker_bottom_sheet.dart';
+import '../../../../app/core/widgets/constants_widgets.dart';
 
 class MedicationDetailsController extends GetxController {
+  final MedicineModel? medicine =Get.arguments['medicine'];
   final selectedPeriod = tr(LocaleKeys.medicationDetails_daily).obs;
   // TimeOfDay? هو نوع قابل للقيمة الفارغة
   final selectedTime = Rx<TimeOfDay?>(null);
@@ -36,6 +41,27 @@ class MedicationDetailsController extends GetxController {
     }
   }
 
+
+
+  addToInventory() async{
+    final uid= AppStorage.getUserStorage()?.uid;
+    if((uid?.isEmpty??true)||medicine==null)
+      return;
+
+    medicine?.setIdUsers=uid!;
+    ConstantsWidgets.showLoading();
+    var result =await FirebaseFun
+        .UpdateMedication(medicine: medicine!);
+    ConstantsWidgets.closeDialog();
+    if(!result['status']){
+      medicine?.removeById(uid??'');
+      // medicine?.idUsers.remove(uid);
+    }
+    update();
+    ConstantsWidgets.TOAST(null,textToast: FirebaseFun.findTextToast(result['message'].toString()),state:result['status'] );
+
+    return result;
+  }
   void showReminderMedicationBottomSheet() {
     Get.bottomSheet(
 

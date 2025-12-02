@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:pillwise_app/app/core/constants/app_assets.dart';
+import 'package:pillwise_app/app/core/local/storage.dart';
 import 'package:pillwise_app/app/core/theme/app_colors.dart';
 import 'package:pillwise_app/app/core/widgets/app_svg_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_text_button_widget.dart';
@@ -49,11 +50,11 @@ class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
                   height: 26.w,
                 ),
                 title: Text(
-                  drug["trade_name"] ?? "",
+                 controller.medicine?.tradeName?? drug["trade_name"] ?? "",
                   style: Get.textTheme.displayLarge?.copyWith(fontSize: 18.sp),
                 ),
                 subtitle: Text(
-                  drug["scientific_name"] ?? "",
+                  controller.medicine?.scientificName??drug["scientific_name"] ?? "",
                   style: Get.textTheme.bodyMedium,
                 ),
               ),
@@ -64,18 +65,18 @@ class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
                 title: _translate("General Information", "المعلومات العامة"),
                 children: [
                   _info(_translate("Scientific Name", "الاسم العلمي"),
-                      drug["scientific_name"]),
+                      controller.medicine?.scientificName??drug["scientific_name"]),
                   _info(_translate("Strength", "التركيز"),
-                      "${drug["strength"]} ${drug["strength_unit"]}"),
+                      "${controller.medicine?.strength??drug["strength"]} ${controller.medicine?.strengthUnit??drug["strength_unit"]}"),
                   _info(_translate("Form", "الشكل الصيدلي"),
-                      drug["pharmaceutical_form"]),
+                      controller.medicine?.pharmaceuticalForm??drug["pharmaceutical_form"]),
                   _info(_translate("Route", "طريق الإعطاء"),
-                      drug["administration_route"]),
+                      controller.medicine?.administrationRoute??drug["administration_route"]),
                   _info(_translate("Shelf Life", "مدة الصلاحية"),
-                      "${drug["shelf_life"]} months"),
+                      "${controller.medicine?.shelfLife??drug["shelf_life"]} months"),
                   // ⬅️ تم استخدام حقل الشرط العربي مباشرة من البيانات
                   _info(_translate("Storage", "شروط التخزين"),
-                      drug["storage_condition_arabic"]),
+                      controller.medicine?.storageConditionArabic??drug["storage_condition_arabic"]),
                 ],
               ),
 
@@ -85,11 +86,11 @@ class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
                 title: _translate("Package Details", "تفاصيل العبوة"),
                 children: [
                   _info(_translate("Package Type", "نوع العبوة"),
-                      drug["package_details"]["package_types"]),
+                      controller.medicine?.packageDetails?.packageTypes??drug["package_details"]["package_types"]),
                   _info(_translate("Size", "الحجم"),
-                      drug["package_details"]["size"]?.toString() ?? "—"),
+                      controller.medicine?.packageDetails?.size??drug["package_details"]["size"]?.toString() ?? "—"),
                   _info(_translate("Package Size", "حجم العبوة"),
-                      drug["package_details"]["package_size"].toString()),
+                      controller.medicine?.packageDetails?.packageSize?.toString()??drug["package_details"]["package_size"].toString()),
                 ],
               ),
 
@@ -99,15 +100,15 @@ class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
                 title: _translate("Technical Details", "التفاصيل الفنية"),
                 children: [
                   _info(_translate("Product Type", "نوع المنتج"),
-                      drug["technical_details"]["product_type"]),
+                      controller.medicine?.technicalDetails?.productType?? drug["technical_details"]["product_type"]),
                   _info(_translate("Drug Type", "نوع الدواء"),
-                      drug["technical_details"]["drug_type"]),
+                      controller.medicine?.technicalDetails?.drugType?? drug["technical_details"]["drug_type"]),
                   _info(_translate("ATC Code", "رمز ATC"),
-                      drug["technical_details"]["atc_code1"]),
+                      controller.medicine?.technicalDetails?.atcCode1??   drug["technical_details"]["atc_code1"]),
                   _info(_translate("Legal Status", "الحالة القانونية"),
-                      drug["technical_details"]["legal_status"]),
+                      controller.medicine?.technicalDetails?.legalStatus?? drug["technical_details"]["legal_status"]),
                   _info(_translate("Authorization", "حالة التصريح"),
-                      drug["technical_details"]["authorization_status"]),
+                      controller.medicine?.technicalDetails?.authorizationStatus??  drug["technical_details"]["authorization_status"]),
                 ],
               ),
 
@@ -117,17 +118,17 @@ class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
                 title: _translate("Logistics", "اللوجستيات"),
                 children: [
                   _info(_translate("Marketing Company", "الشركة المسوّقة"),
-                      drug["logistics"]["marketing_company"]),
+                      controller.medicine?.logistics?.marketingCompany??   drug["logistics"]["marketing_company"]),
                   _info(_translate("Marketing Country", "دولة التسويق"),
-                      drug["logistics"]["marketing_country"]),
+                      controller.medicine?.logistics?.manufacturerCountry?? drug["logistics"]["marketing_country"]),
                   _info(_translate("Manufacturer", "الشركة المصنعة"),
-                      drug["logistics"]["manufacturer_name"]),
+                      controller.medicine?.logistics?.manufacturerName?? drug["logistics"]["manufacturer_name"]),
                   _info(_translate("Manufacturer Country", "دولة التصنيع"),
-                      drug["logistics"]["manufacturer_country"]),
+                      controller.medicine?.logistics?.manufacturerCountry??drug["logistics"]["manufacturer_country"]),
                   _info(_translate("Main Agent", "الوكيل الرئيسي"),
-                      drug["logistics"]["main_agent"]),
+                      controller.medicine?.logistics?.mainAgent??drug["logistics"]["main_agent"]),
                   _info(_translate("Area", "منطقة التوزيع"),
-                      drug["logistics"]["distribute_area"]),
+                      controller.medicine?.logistics?.distributeArea??drug["logistics"]["distribute_area"]),
                 ],
               ),
 
@@ -137,20 +138,37 @@ class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
                 title: _translate("Registration Info", "معلومات التسجيل"),
                 children: [
                   _info(_translate("Register Number", "رقم التسجيل"),
-                      drug["ids"]["register_number"]),
+                      controller.medicine?.ids?.registerNumber??drug["ids"]["register_number"]),
                   _info(_translate("Description Code", "رمز الوصف"),
-                      drug["ids"]["description_code"]),
+                      controller.medicine?.ids?.descriptionCode?? drug["ids"]["description_code"]),
                   _info(_translate("Last Update", "آخر تحديث"),
-                      drug["ids"]["last_update"].toString()),
+                      controller.medicine?.ids?.lastUpdate?.toString()??drug["ids"]["last_update"].toString()),
                 ],
               ),
-              AppTextButtonWidget(
-                text: tr(LocaleKeys.core_add),
-                onPressed: () {
-                  controller.showReminderMedicationBottomSheet();
-                },
-                isFullWidth: true,
-              )
+            GetBuilder<MedicationDetailsController>(
+                init: controller,
+                builder: (controller){
+                  if(!(controller.medicine?.userIsAdd(AppStorage.getUserStorage()?.uid??'')??false))
+                   return AppTextButtonWidget(
+                      text: tr(LocaleKeys.core_add),
+                      onPressed: () {
+                        controller.addToInventory();
+                        // controller.showReminderMedicationBottomSheet();
+                      },
+                      isFullWidth: true,
+                    );
+                  else
+                    return AppTextButtonWidget(
+                      text: tr(LocaleKeys.core_next_intake),
+                      onPressed: () {
+
+                        controller.showReminderMedicationBottomSheet();
+                      },
+                      isFullWidth: true,
+                    );
+                }),
+
+
             ],
           ),
         ),

@@ -7,6 +7,9 @@ import 'package:pillwise_app/app/core/widgets/app_text_filed_widget.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
 
+import '../../../../app/core/local/storage.dart';
+import '../../../../app/core/widgets/constants_widgets.dart';
+
 class SearchSectionWidget extends StatelessWidget {
   const SearchSectionWidget({super.key});
 
@@ -28,7 +31,12 @@ class SearchSectionWidget extends StatelessWidget {
           hintText: tr(LocaleKeys.searchAndScan_search_text_hint),
           prefixIcon: Iconsax.search_normal,
           readOnly: true,
-          onTap: ()=> Get.toNamed(AppRoutes.search),
+          onTap: ()=>
+          (AppStorage.getUserStorage()?.healthInfo!=null)?
+              Get.toNamed(AppRoutes.search)
+          :  ConstantsWidgets.TOAST(null, textToast:  tr(LocaleKeys.home_medical_profile_is_incomplete), state: false)
+
+          ,
         ),
       ],
     );

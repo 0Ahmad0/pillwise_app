@@ -12,7 +12,8 @@ import '../../../../app/core/widgets/app_svg_widget.dart';
 import '../../../../app/routes/app_routes.dart';
 
 class IncompleteProfileWidget extends StatelessWidget {
-  const IncompleteProfileWidget({super.key});
+  final VoidCallback? onBack;
+  const IncompleteProfileWidget({super.key,  this.onBack});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,9 @@ class IncompleteProfileWidget extends StatelessWidget {
       children: [
         AppPaddingWidget(
           child: GestureDetector(
-            onTap: (){
-              Get.toNamed(AppRoutes.healthInformation);
+            onTap: () async {
+              await Get.toNamed(AppRoutes.healthInformation);
+              onBack?.call();
             },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 14.w),

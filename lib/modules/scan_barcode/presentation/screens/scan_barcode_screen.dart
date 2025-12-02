@@ -15,25 +15,40 @@ import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/scan_barcode/presentation/widgets/scan_code_section_widget.dart';
 import 'package:pillwise_app/modules/scan_barcode/presentation/widgets/search_section_widget.dart';
 
-class ScanBarcodeScreen extends StatelessWidget {
+import '../../../../app/core/local/storage.dart';
+import '../../../home/presentation/widgets/incomplete_profile_widget.dart';
+
+class ScanBarcodeScreen extends StatefulWidget {
   const ScanBarcodeScreen({super.key});
 
+  @override
+  State<ScanBarcodeScreen> createState() => _ScanBarcodeScreenState();
+}
+
+class _ScanBarcodeScreenState extends State<ScanBarcodeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
+        child:
+        // (AppStorage.getUserStorage()?.healthInfo!=null)?
+        SingleChildScrollView(
           padding: EdgeInsets.symmetric(
             horizontal: 14.w,
             vertical: 14.h
           ),
-          child: Column(
+          child:
+          Column(
             children: [
-              SearchSectionWidget(),
-              ScanCodeSectionWidget(),
-            ],
-          ),
-        ),
+                SearchSectionWidget(),
+                ScanCodeSectionWidget(),
+          ]
+          )
+        )
+        //       :
+        // IncompleteProfileWidget(
+           // onBack: ()=>setState(() {}),
+        // ),
       ),
     );
   }

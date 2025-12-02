@@ -22,7 +22,8 @@ class EmptyDrugsWidget extends StatelessWidget {
         AppPaddingWidget(
           child: GestureDetector(
             onTap: (){
-              Get.toNamed(AppRoutes.addMedication);
+              Get.toNamed(AppRoutes.search);
+              // Get.toNamed(AppRoutes.addMedication);
             },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 16.h),

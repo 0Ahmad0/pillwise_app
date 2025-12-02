@@ -3,12 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pillwise_app/app/core/models/medicine_model.dart';
 import 'package:pillwise_app/app/core/widgets/app_button_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_padding_widget.dart';
 import 'package:pillwise_app/app/core/widgets/app_text_filed_widget.dart';
 import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/medication_details/presentation/controllers/medication_details_controller.dart';
 import 'package:pillwise_app/modules/medication_details/presentation/widgets/period_selector_widget.dart';
+
+import '../../../../app/core/local/storage.dart';
+import '../../../../app/core/services/notification_service.dart';
 
 class ReminderMedicationBottomSheet
     extends GetView<MedicationDetailsController> {
@@ -63,6 +67,16 @@ class ReminderMedicationBottomSheet
               text: tr(LocaleKeys.medicationDetails_add_reminder),
               onPressed: () {
                 Get.back();
+                final uid= AppStorage.getUserStorage()?.uid;
+                final  currentUserMedicine= controller.medicine?.getById(uid??'');
+                NotificationService.scheduleDaily(
+                  id: 900,
+                  hour: DateTime.now().hour,
+                  minute: DateTime.now().minute + 1,
+                  title: "Test",
+                  body: "App is closed but notification works!",
+                );
+
                 //TODO : Delete This
                 Get.snackbar(
                   "Success",

@@ -47,7 +47,7 @@ class HealthInformationController extends GetxController {
     // healthInfo.value=Get.find<ProfileController>().currentUser?.value?.healthInfo??HealthInfo();
     weightController.text=  healthInfo.value?.weight?.toString()??'';
     heightController.text=  healthInfo.value?.height?.toString()??'';
-    if(healthInfo.value!=null)
+    if(healthInfo.value.dateOfBirth!=null)
     updateDateOfBirth(healthInfo.value.dateOfBirth!);
     weightController.addListener((){
       updateWeight(weightController.value.text);
@@ -129,7 +129,7 @@ class HealthInformationController extends GetxController {
 
 
       UserModel? currentUser= AppStorage.getUserStorage();
-      healthInfo.value=currentUser?.healthInfo??HealthInfo();
+
       UserModel? userModel=currentUser?.copyWith(healthInfo: healthInfo.value);
       // UserModel? userModel=Get.find<ProfileController>().currentUser?.value?.copyWith(healthInfo: healthInfo.value);
       var data=userModel?.toJson()??{};
@@ -142,6 +142,7 @@ class HealthInformationController extends GetxController {
           .update(data).timeout(timeLimit)
           .then((value) async {
 
+        await AppStorage.storageDelete(key: AppConstants.User);
         await AppStorage.storageWrite(
             key: AppConstants.User, value: userModel);
         // Get.find<ProfileController>().currentUser?.value=userModel;

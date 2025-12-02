@@ -2,7 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
 import 'package:pillwise_app/modules/auth/presentation/controllers/signup_controller.dart';
 import 'package:pillwise_app/modules/profile/presentation/controllers/profile_controller.dart';
@@ -90,78 +90,7 @@ class LoginController extends GetxController{
     }
   }
 
-  Future<void> signWithGoogle() async {
-
-    ConstantsWidgets.showLoading();
-    try {
-      if (GoogleSignIn.instance.supportsAuthenticate()) {
-        final googleSignInAccount = await GoogleSignIn.instance.authenticate();
-
-        if (googleSignInAccount != null) {
-          final auth = await googleSignInAccount.authentication;
-
-
-          if(googleSignInAccount?.email ==null)
-            throw ( "فشلت العملية، حاول مرة أخرى"??'Failed Auth');
-
-          print("UID: ${googleSignInAccount.id}");
-          print("Email: ${googleSignInAccount.email}");
-          print("Access Token: ${auth.idToken}");
-          print(googleSignInAccount!.displayName);
-          print(googleSignInAccount!.photoUrl);
-
-
-
-          var result = await FirebaseFun.fetchUserByEmail(email: googleSignInAccount!.email);
-
-          ///handling
-          // !result['status']?throw FirebaseAuthException(code: result['message']):'';
-          UserModel? userModel;
-
-          if (result['status'] && result['body'] != null) {
-            userModel = UserModel.fromJson(result['body']);
-            userModel.photoUrl=(userModel.googleId?.isEmpty??true)?userModel.photoUrl:googleSignInAccount.photoUrl;
-            userModel.googleId=googleSignInAccount.id;
-            processLogin(userSign: userModel);
-          }
-          else{
-            userModel=UserModel(
-
-              email: googleSignInAccount.email,
-              name: googleSignInAccount.displayName,
-              userName:await _getUserNameByName(googleSignInAccount.displayName??googleSignInAccount.email??""),
-              password: "112233aaAA@@",
-              typeUser: AppConstants.collectionUser,
-              googleId: googleSignInAccount.id,
-              photoUrl: googleSignInAccount.photoUrl,
-            );
-            Get.put(SignupController()).processSignup(userSign: userModel,);
-          }
-
-        }else{
-          throw ( "فشلت العملية، حاول مرة أخرى"??'Failed Auth');
-        }
-      }
-
-
-
-
-
-
-
-
-
-    } catch (error) {
-      print("error $error");
-      ConstantsWidgets.TOAST(null, textToast: "فشلت العملية، حاول مرة أخرى", state: false);
-
-    }finally{
-      ConstantsWidgets.closeDialog();
-    }
-
-
-
-  }
+  Future<void> signWithGoogle() async {}
 
   _getUserNameByName(String name) async {
     String genUserName = _generateUserNameByName(name);

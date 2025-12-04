@@ -69,13 +69,7 @@ class ReminderMedicationBottomSheet
                 Get.back();
                 final uid= AppStorage.getUserStorage()?.uid;
                 final  currentUserMedicine= controller.medicine?.getById(uid??'');
-                NotificationService.scheduleDaily(
-                  id: 900,
-                  hour: DateTime.now().hour,
-                  minute: DateTime.now().minute + 1,
-                  title: "Test",
-                  body: "App is closed but notification works!",
-                );
+
 
                 //TODO : Delete This
                 Get.snackbar(

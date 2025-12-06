@@ -236,7 +236,14 @@ class CodegenLoader extends AssetLoader{
   "your_rights_data": "<ul><li>يمكنك حذف بياناتك في أي وقت.</li><li>يمكنك طلب نسخة من بياناتك المخزنة.</li><li>يمكنك إزالة الأدوية في أي وقت من داخل التطبيق.</li></ul>",
   "analytics_title": "التحليلات",
   "analytics_text": "نحن نستخدم تحليلات مجهولة المصدر فقط لتحسين الأداء وإصلاح المشكلات. لا يتم مشاركة أو بيع أي معلومات شخصية.",
-  "privacy_contact_label": "جهة الاتصال للخصوصية"
+  "privacy_contact_label": "جهة الاتصال للخصوصية",
+    "success": "نجاح",
+    "error": "خطأ",
+    "please_select_time": "الرجاء اختيار الوقت",
+    "enter_disease_description": "أدخل وصف حالتك المرضية",
+    "write_your_health_description": "اكتب وصف حالتك الصحية بالتفصيل...",
+    "delete_medication_question": "هل أنت متأكد أنك تريد حذف الدواء؟",
+    "confirm_delete": "تأكيد الحذف"
 };
 static const Map<String,dynamic> _en = {
   "validation": {
@@ -460,7 +467,14 @@ static const Map<String,dynamic> _en = {
   "your_rights_data": "<ul><li>You can delete your data at any time.</li><li>You can request a copy of your stored data.</li><li>You can remove medications anytime within the app.</li></ul>",
   "analytics_title": "Analytics",
   "analytics_text": "We use anonymous analytics solely to improve performance and fix issues. No personal information is shared or sold.",
-  "privacy_contact_label": "Privacy Contact"
+  "privacy_contact_label": "Privacy Contact",
+  "success": "Success",
+  "error": "Error",
+  "please_select_time": "Please select the time",
+  "enter_disease_description": "Enter your medical condition description",
+  "write_your_health_description": "Write your health condition in detail...",
+  "delete_medication_question": "Are you sure you want to delete medication?",
+  "confirm_delete": "Confirm Delete"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

@@ -12,6 +12,7 @@ import 'package:pillwise_app/generated/locale_keys.g.dart';
 import 'package:pillwise_app/modules/home/presentation/widgets/medication_card_widget.dart';
 import 'package:pillwise_app/modules/medication_details/presentation/controllers/medication_details_controller.dart';
 
+import '../../../../app/core/widgets/app_padding_widget.dart';
 import '../../../medication_details/presentation/screens/medication_details_screen.dart';
 
 class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
@@ -149,15 +150,15 @@ class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
                 init: controller,
                 builder: (controller){
                   if(!(controller.medicine?.userIsAdd(AppStorage.getUserStorage()?.uid??'')??false))
-                   return AppTextButtonWidget(
-                      text: tr(LocaleKeys.core_add),
-                      onPressed: () {
-                        controller.addToInventory();
-                        // controller.showReminderMedicationBottomSheet();
-                      },
-                      isFullWidth: true,
-                    );
-                  else
+                   // return AppTextButtonWidget(
+                   //    text: tr(LocaleKeys.core_add),
+                   //    onPressed: () {
+                   //      controller.showConditionDescriptionDialog();
+                   //      // controller.addToInventory();
+                   //      // controller.showReminderMedicationBottomSheet();
+                   //    },
+                   //    isFullWidth: true,
+                   //  );
                     return AppTextButtonWidget(
                       text: tr(LocaleKeys.core_next_intake),
                       onPressed: () {
@@ -165,6 +166,28 @@ class DrugDetailsCardWidget extends GetView<MedicationDetailsController> {
                         controller.showReminderMedicationBottomSheet();
                       },
                       isFullWidth: true,
+                    );
+                  else
+                    return AppPaddingWidget(
+                      child: AppTextButtonWidget(
+                        text: tr(LocaleKeys.core_delete),
+                        onPressed: () {
+                          Get.defaultDialog(
+                            title: tr(LocaleKeys.confirm_delete)??"Confirm Delete",
+                            middleText:tr(LocaleKeys.delete_medication_question)?? "Are you sure you want to delete medication?",
+                            textConfirm:tr(LocaleKeys.core_delete)?? "Delete",
+                            textCancel:tr(LocaleKeys.core_cancel)?? "Cancel",
+                            onConfirm: () async {
+
+                              Get.close(1);
+                              await   deleteFromInventory(controller.medicine!);
+
+                            },
+                          );
+
+                        },
+                        isFullWidth: true,
+                      ),
                     );
                 }),
 

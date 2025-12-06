@@ -16,6 +16,7 @@ import '../../../../app/core/widgets/app_padding_widget.dart';
 import '../../../../app/core/widgets/app_text_button_widget.dart';
 import '../../../../app/core/widgets/constants_widgets.dart';
 import '../../../../generated/locale_keys.g.dart';
+import '../../../medication_details/presentation/controllers/medication_details_controller.dart';
 import '../../../medication_details/presentation/screens/medication_details_screen.dart';
 import 'build_detail_row_widget.dart';
 import 'info_icon_widget.dart';
@@ -29,6 +30,7 @@ class MedicationCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isOTC = medicine.technicalDetails?.legalStatus == 'OTC';
+     final userMedicine= medicine.getById(AppStorage.getUserStorage()?.uid??"");
     // final isOTC = drug.legalStatus == 'OTC';
     return GestureDetector(
       onTap: ()=> Get.toNamed(AppRoutes.medicationDetails,arguments: {"medicine":medicine}),
@@ -94,7 +96,11 @@ class MedicationCardWidget extends StatelessWidget {
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
-                DateFormat.jm().format(DateTime.now()),
+                (userMedicine?.selectedTime?.isEmpty??true)?
+                DateFormat.jm().format(DateTime.now())
+
+                :"${userMedicine?.periods??''} at ${userMedicine?.selectedTime??''} ",
+
                 style: Get.textTheme.bodyMedium,
               ),
             ),
@@ -134,6 +140,17 @@ class MedicationCardWidget extends StatelessWidget {
                 ],
               ),
             ),
+            if(userMedicine?.strength?.isNotEmpty??false)
+            AppPaddingWidget(
+              padding: EdgeInsets.symmetric(
+                  horizontal: 12.w,
+                  vertical: 2.h
+              ),
+              child: Text(
+                userMedicine!.strength!,
+                style: Get.textTheme.bodyMedium,
+              ),
+            ),
             AppPaddingWidget(
               child: AppTextButtonWidget(
                 text: tr(LocaleKeys.core_delete),
@@ -145,7 +162,7 @@ class MedicationCardWidget extends StatelessWidget {
                     textCancel: "Cancel",
                     onConfirm: () async {
                       Get.close(1);
-                      await   deleteFromInventory();
+                      await   deleteFromInventory(medicine);
 
                     },
                   );
@@ -160,26 +177,29 @@ class MedicationCardWidget extends StatelessWidget {
     );
   }
 
-  deleteFromInventory() async{
-    final uid= AppStorage.getUserStorage()?.uid;
-    if((uid?.isEmpty??true)||medicine==null)
-      return;
 
-    final tempMedicine= medicine?.removeById(uid??'');
-    if(tempMedicine==null)
-      return;
-    // medicine?.idUsers.remove(uid);
-    ConstantsWidgets.showLoading();
-    var result =await FirebaseFun
-        .UpdateMedication(medicine: medicine!);
-    ConstantsWidgets.closeDialog();
-    if(!result['status']){
-      medicine?.idUsers.add(tempMedicine);
-      // medicine?.setIdUsers=uid!;
-    }
-    Get.find<HomeController>().update();
-    ConstantsWidgets.TOAST(null,textToast: FirebaseFun.findTextToast(result['message'].toString()),state:result['status'] );
+}
+deleteFromInventory(MedicineModel medicine) async{
+  final uid= AppStorage.getUserStorage()?.uid;
+  if((uid?.isEmpty??true)||medicine==null)
+    return;
 
-    return result;
+  final tempMedicine= medicine?.removeById(uid??'');
+  if(tempMedicine==null)
+    return;
+  // medicine?.idUsers.remove(uid);
+  ConstantsWidgets.showLoading();
+  var result =await FirebaseFun
+      .UpdateMedication(medicine: medicine!);
+  ConstantsWidgets.closeDialog();
+  if(!result['status']){
+    medicine?.idUsers.add(tempMedicine);
+    // medicine?.setIdUsers=uid!;
   }
+  Get.find<HomeController>().update();
+  if(Get.isRegistered<MedicationDetailsController>())
+     Get.find<MedicationDetailsController>().update();
+  ConstantsWidgets.TOAST(null,textToast: FirebaseFun.findTextToast(result['message'].toString()),state:result['status'] );
+
+  return result;
 }

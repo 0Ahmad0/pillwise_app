@@ -17,71 +17,86 @@ import '../../../../app/core/services/notification_service.dart';
 class ReminderMedicationBottomSheet
     extends GetView<MedicationDetailsController> {
   const ReminderMedicationBottomSheet({super.key});
-
   @override
   Widget build(BuildContext context) {
     return AppPaddingWidget(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          10.verticalSpace,
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              tr(LocaleKeys.medicationDetails_add_reminder),
-              style: Get.textTheme.displayMedium?.copyWith(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.bold
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            10.verticalSpace,
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                tr(LocaleKeys.medicationDetails_add_reminder),
+                style: Get.textTheme.displayMedium?.copyWith(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.bold
+                ),
               ),
             ),
-          ),
-          24.verticalSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: controller.periods
-                .map((period) =>
-                    PeriodSelectorWidget(controller: controller, label: period))
-                .toList(),
-          ),
-          20.verticalSpace,
-
-          Text(
-            tr(LocaleKeys.medicationDetails_reminder_time),
-            style:
-                Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
-          ),
-          10.verticalSpace,
-          Obx(
-            () => AppTextFormFieldWidget(
-              readOnly: true,
-              onTap: () => controller.showAppTimePicker(context),
-              hintText: controller.selectedTime.value == null
-                  ? tr(LocaleKeys.medicationDetails_reminder_time)
-                  : controller.selectedTime.value!.format(context),
-              prefixIcon: Icons.access_time_outlined,
+            24.verticalSpace,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: controller.periods
+                  .map((period) =>
+                      PeriodSelectorWidget(controller: controller, label: period))
+                  .toList(),
             ),
-          ),
-          40.verticalSpace,
-          AppButtonWidget(
-              text: tr(LocaleKeys.medicationDetails_add_reminder),
-              onPressed: () {
-                Get.back();
-                final uid= AppStorage.getUserStorage()?.uid;
-                final  currentUserMedicine= controller.medicine?.getById(uid??'');
+            20.verticalSpace,
 
+            Text(
+              tr(LocaleKeys.medicationDetails_reminder_time),
+              style:
+                  Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            10.verticalSpace,
+            Obx(
+              () => AppTextFormFieldWidget(
+                readOnly: true,
+                onTap: () => controller.showAppTimePicker(context),
+                hintText: controller.selectedTime.value == null
+                    ? tr(LocaleKeys.medicationDetails_reminder_time)
+                    : controller.selectedTime.value!.format(context),
+                prefixIcon: Icons.access_time_outlined,
+              ),
+            ),
+            20.verticalSpace,
 
-                //TODO : Delete This
-                Get.snackbar(
-                  "Success",
-                  'Reminder set for ${controller.selectedPeriod.value} at ${controller.selectedTime.value?.format(context) ?? 'N/A'}',
-                  snackPosition: SnackPosition.BOTTOM,
-                  backgroundColor: Colors.green,
-                  colorText: Colors.white,
-                );
-              })
-          // 4. Button
-        ],
+            Text(
+              tr(LocaleKeys.enter_disease_description)??"أدخل وصف حالتك المرضية",
+              style:
+              Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            10.verticalSpace,
+            AppTextFormFieldWidget(
+              controller: controller.descriptionController,
+              maxLines: 5,
+              hintText: tr(LocaleKeys.write_your_health_description)??"اكتب وصف حالتك الصحية بالتفصيل...",
+              prefixIcon: Icons.description_outlined,
+            ),
+            40.verticalSpace,
+            AppButtonWidget(
+                text: tr(LocaleKeys.medicationDetails_add_reminder),
+                onPressed: () {
+                  Get.back();
+                  final uid= AppStorage.getUserStorage()?.uid;
+                  final  currentUserMedicine= controller.medicine?.getById(uid??'');
+
+                  controller.addToInventory();
+                  //TODO : Delete This
+                  // Get.snackbar(
+                  //   "Success",
+                  //   'Reminder set for ${controller.selectedPeriod.value} at ${controller.selectedTime.value?.format(context) ?? 'N/A'}',
+                  //   snackPosition: SnackPosition.BOTTOM,
+                  //   backgroundColor: Colors.green,
+                  //   colorText: Colors.white,
+                  // );
+                })
+            // 4. Button
+          ],
+        ),
       ),
     );
   }

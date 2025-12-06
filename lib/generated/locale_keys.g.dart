@@ -208,5 +208,17 @@ abstract class  LocaleKeys {
   static const analytics_title = 'analytics_title';
   static const analytics_text = 'analytics_text';
   static const privacy_contact_label = 'privacy_contact_label';
+  static const success = 'success';
+  static const error = 'error';
+  static const please_select_time = 'please_select_time';
+  static const enter_disease_description = 'enter_disease_description';
+  static const write_your_health_description = 'write_your_health_description';
+  static const delete_medication_question = 'delete_medication_question';
+  static const confirm_delete = 'confirm_delete';
+
+
+
+
+
 
 }

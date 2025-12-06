@@ -221,6 +221,13 @@
   "your_rights_data": "<ul><li>يمكنك حذف بياناتك في أي وقت.</li><li>يمكنك طلب نسخة من بياناتك المخزنة.</li><li>يمكنك إزالة الأدوية في أي وقت من داخل التطبيق.</li></ul>",
   "analytics_title": "التحليلات",
   "analytics_text": "نحن نستخدم تحليلات مجهولة المصدر فقط لتحسين الأداء وإصلاح المشكلات. لا يتم مشاركة أو بيع أي معلومات شخصية.",
-  "privacy_contact_label": "جهة الاتصال للخصوصية"
+  "privacy_contact_label": "جهة الاتصال للخصوصية",
+  "success": "نجاح",
+  "error": "خطأ",
+  "please_select_time": "الرجاء اختيار الوقت",
+  "enter_disease_description": "أدخل وصف حالتك المرضية",
+  "write_your_health_description": "اكتب وصف حالتك الصحية بالتفصيل...",
+  "delete_medication_question": "هل أنت متأكد أنك تريد حذف الدواء؟",
+  "confirm_delete": "تأكيد الحذف"
 }
 

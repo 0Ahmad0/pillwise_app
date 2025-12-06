@@ -220,5 +220,12 @@
   "your_rights_data": "<ul><li>You can delete your data at any time.</li><li>You can request a copy of your stored data.</li><li>You can remove medications anytime within the app.</li></ul>",
   "analytics_title": "Analytics",
   "analytics_text": "We use anonymous analytics solely to improve performance and fix issues. No personal information is shared or sold.",
-  "privacy_contact_label": "Privacy Contact"
+  "privacy_contact_label": "Privacy Contact",
+  "success": "Success",
+  "error": "Error",
+  "please_select_time": "Please select the time",
+  "enter_disease_description": "Enter your medical condition description",
+  "write_your_health_description": "Write your health condition in detail...",
+  "delete_medication_question": "Are you sure you want to delete medication?",
+  "confirm_delete": "Confirm Delete"
 }

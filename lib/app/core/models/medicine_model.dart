@@ -61,6 +61,7 @@ class MedicineModel {
   }
 
   set setIdUsers(String id)=>userIsAdd(id)?'':idUsers.add(UserMedicineModel(idUser: id));
+  set setUserMedicine(UserMedicineModel userMedicine)=>userIsAdd(userMedicine.idUser!)?'':idUsers.add(userMedicine);
   // set setIdUsers(String id)=>userIsAdd(id)?'':idUsers.add(id);
   factory MedicineModel.fromJson( json) {
     var data = ['_JsonDocumentSnapshot','_JsonQueryDocumentSnapshot'].contains(json.runtimeType.toString())?json.data():json;

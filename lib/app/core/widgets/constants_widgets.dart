@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/app/core/theme/app_colors.dart';
+import '../../../generated/locale_keys.g.dart';
 import '../constants/strings.dart';
 
 
@@ -112,7 +114,9 @@ class ConstantsWidgets {
     // );
   }
   static TOAST(BuildContext? context, {String? title,String textToast = "This Is Toast",bool? state}) {
-    title??=state==null?Strings.message_success:state?Strings.message_success:Strings.message_failure;
+    title??=state==null?tr(LocaleKeys.success):state?tr(LocaleKeys.success):tr(LocaleKeys.error);
+
+    // title??=state==null?Strings.message_success:state?Strings.message_success:Strings.message_failure;
     Get.snackbar(title, textToast,
         backgroundColor: state==null?null:state?Colors.green:Colors.redAccent,
         colorText:  AppColors.white);

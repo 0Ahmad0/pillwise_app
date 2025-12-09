@@ -131,15 +131,14 @@ class ProfileController extends GetxController {
         currentUser=userModel;
         await AppStorage.storageDelete(key: AppConstants.User);
         await AppStorage.storageWrite(
-            key: AppConstants.User, value: userModel);
+            key: AppConstants.User, value: userModel?.toJson());
         update();
 
         ConstantsWidgets.closeDialog();
         // Get.back();
         Get.dialog(
             DialogWithShadowWidget(
-              text: Strings
-                  .saveInformationSuccessfulText,
+              text:   tr(LocaleKeys.saved_successfully_full),
             ));
         Timer(Duration(seconds: 2), (){
           Get.back();
@@ -159,23 +158,24 @@ class ProfileController extends GetxController {
     } catch (e) {
       String errorMessage;
       // errorMessage = "An unexpected error occurred. Please try again later.";
-      errorMessage = "An unexpected error occurred. Please try again later.";
+      errorMessage = tr(LocaleKeys.unexpected_error)??"An unexpected error occurred. Please try again later.";
       ConstantsWidgets.closeDialog();
       // Get.back();
       Get.snackbar(
-          Strings.message_failure,
+          tr(LocaleKeys.operation_failed),
           errorMessage,
           backgroundColor: AppColors.error
       );
     }
   }
 
+
   Future<void> processDeleteAccount() async {
     Get.defaultDialog(
-      title: "Confirm Delete",
-      middleText: "Are you sure you want to delete account?",
-      textConfirm: "Delete",
-      textCancel: "Cancel",
+      title: tr(LocaleKeys.confirm_delete)??"Confirm Delete",
+      middleText: tr(LocaleKeys.delete_account_confirm)??"Are you sure you want to delete account?",
+      textConfirm:tr(LocaleKeys.core_delete)?? "Delete",
+      textCancel: tr(LocaleKeys.core_cancel)??"Cancel",
       onConfirm: () async {
         Get.back();
         deleteAccount();
@@ -193,8 +193,9 @@ class ProfileController extends GetxController {
           .doc(await AppStorage.storageRead(key: AppConstants.uidKEY))
           .delete();
       ConstantsWidgets.closeDialog();
+
       Get.dialog(
-        DialogWithShadowWidget(text: Strings.successfulDeleteAccountText),
+        DialogWithShadowWidget(text:   tr(LocaleKeys.account_deleted_successfully)),
       );
       Timer(Duration(seconds: 3), () {
         Get.back();
@@ -233,9 +234,9 @@ class ProfileController extends GetxController {
           .get()
           .then((value) async {
 
-        await AppStorage.storageDelete(key: AppConstants.User);
+        // await AppStorage.storageDelete(key: AppConstants.User);
         await AppStorage.storageWrite(
-            key: AppConstants.User, value: UserModel.fromJson(value));
+            key: AppConstants.User, value: UserModel.fromJson(value).toMap());
 
 
         // currentUser.value=UserModel.fromJson(value);
@@ -259,9 +260,9 @@ class ProfileController extends GetxController {
       // currentUser.value= null;
       String errorMessage;
       // errorMessage = "An unexpected error occurred. Please try again later.";
-      errorMessage = "An unexpected error occurred. Please try again later.";
+      errorMessage =tr(LocaleKeys.unexpected_error)?? "An unexpected error occurred. Please try again later.";
       Get.snackbar(
-          Strings.message_failure,
+          tr(LocaleKeys.operation_failed),
           errorMessage,
           backgroundColor: Colors.redAccent
       );
@@ -270,7 +271,6 @@ class ProfileController extends GetxController {
       Get.offAll(()=>LoginScreen());
     }
   }
-
 
   // Validation Methods
   // String? validateUsername(String? value) {

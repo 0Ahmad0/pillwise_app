@@ -29,40 +29,72 @@ class ReminderMedicationBottomSheet
             Align(
               alignment: Alignment.center,
               child: Text(
-                tr(LocaleKeys.medicationDetails_add_reminder),
+                tr(LocaleKeys.core_add),
+                // tr(LocaleKeys.medicationDetails_add_reminder),
                 style: Get.textTheme.displayMedium?.copyWith(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.bold
                 ),
               ),
             ),
-            24.verticalSpace,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: controller.periods
-                  .map((period) =>
-                      PeriodSelectorWidget(controller: controller, label: period))
-                  .toList(),
-            ),
-            20.verticalSpace,
-
-            Text(
-              tr(LocaleKeys.medicationDetails_reminder_time),
-              style:
-                  Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
-            ),
-            10.verticalSpace,
-            Obx(
-              () => AppTextFormFieldWidget(
-                readOnly: true,
-                onTap: () => controller.showAppTimePicker(context),
-                hintText: controller.selectedTime.value == null
-                    ? tr(LocaleKeys.medicationDetails_reminder_time)
-                    : controller.selectedTime.value!.format(context),
-                prefixIcon: Icons.access_time_outlined,
+            if(false)...[
+              24.verticalSpace,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: controller.periods
+                    .map((period) =>
+                    PeriodSelectorWidget(controller: controller, label: period))
+                    .toList(),
               ),
-            ),
-            20.verticalSpace,
+              20.verticalSpace,
+
+              Text(
+                tr(LocaleKeys.medicationDetails_reminder_time),
+                style:
+                Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              10.verticalSpace,
+              Obx(
+                    () => AppTextFormFieldWidget(
+                  readOnly: true,
+                  onTap: () => controller.showAppTimePicker(context),
+                  hintText: controller.selectedTime.value == null
+                      ? tr(LocaleKeys.medicationDetails_reminder_time)
+                      : controller.selectedTime.value!.format(context),
+                  prefixIcon: Icons.access_time_outlined,
+                ),
+              ),
+              24.verticalSpace,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: controller.periods
+                    .map((period) =>
+                    PeriodSelectorWidget(controller: controller, label: period))
+                    .toList(),
+              ),
+              20.verticalSpace,
+
+              Text(
+                tr(LocaleKeys.medicationDetails_reminder_time),
+                style:
+                Get.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              10.verticalSpace,
+              Obx(
+                    () => AppTextFormFieldWidget(
+                  readOnly: true,
+                  onTap: () => controller.showAppTimePicker(context),
+                  hintText: controller.selectedTime.value == null
+                      ? tr(LocaleKeys.medicationDetails_reminder_time)
+                      : controller.selectedTime.value!.format(context),
+                  prefixIcon: Icons.access_time_outlined,
+                ),
+              ),
+              20.verticalSpace,
+            ],
+            10.verticalSpace,
+
+
 
             Text(
               tr(LocaleKeys.enter_disease_description)??"أدخل وصف حالتك المرضية",

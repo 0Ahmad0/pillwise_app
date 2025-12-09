@@ -1,3 +1,6 @@
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
 class AppConstants {
   static const double designWidth = 360.0;
   static const double designHeight = 690.0;
@@ -20,9 +23,16 @@ class AppConstants {
   static const PASSWORD_KEY = "passwordKey";
   static const User = "user";
   static const NOTIFICATION_ENABLED = "notificationsEnabled";
+  static const IS_DARK_THEME = "isDarkTheme";
 
   //collection
   static String collection = "";
   static String collectionUser = "User";
   static String collectionAdmin = "Admin";
+}
+
+
+String translate(String english, String arabic) {
+  bool isArabic = Get.locale?.languageCode == 'ar';
+  return isArabic ? arabic : english;
 }

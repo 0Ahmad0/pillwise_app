@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:firebase_storage/firebase_storage.dart';
@@ -10,6 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:pillwise_app/app/core/models/medicine_model.dart';
 import 'package:pillwise_app/app/core/theme/app_colors.dart';
 
+import '../../../generated/locale_keys.g.dart';
 import '../../core/models/user_model.dart';
 import 'firebase_constants.dart';
 
@@ -278,7 +280,7 @@ class FirebaseFun {
       value) async {
     return {
       'status': true,
-      'message': 'تم التحقق من الرمز',
+      'message': tr(LocaleKeys.code_verified_successfully)??'تم التحقق من الرمز',
       'body': {}
     };
   }
@@ -286,167 +288,9 @@ class FirebaseFun {
 
 
 
-  static Future<Map<String,dynamic>>onValueAddReport(value) async{
-    return {
-      'status':true,
-      'message':'Report successfully add',
-      'body':{},//{'id':value.id}
-    };
-  }
-  static Future<Map<String,dynamic>>onValueUpdateReport(value) async{
-    return {
-      'status':true,
-      'message':'Report successfully update',
-      'body':{}
-    };
-  }
-  static Future<Map<String,dynamic>> onValueFetchReports(value) async{
-    return {
-      'status':true,
-      'message':'Reports successfully fetch',
-      'body':value.docs
-    };
-  }
-  static Future<Map<String,dynamic>>onValueDeleteReport(value) async{
-    return {
-      'status':true,
-      'message':'Report successfully delete',
-      'body':{}
-    };
-  }
-
-  static Future<Map<String,dynamic>>onValueAddReview(value) async{
-    return {
-      'status':true,
-      'message':'Review successfully add',
-      'body':{},//{'id':value.id}
-    };
-  }
-  static Future<Map<String,dynamic>>onValueUpdateProject(value) async{
-    return {
-      'status':true,
-      'message':'Project successfully update',
-      'body':{}
-    };
-  }
-  static Future<Map<String,dynamic>> onValueFetchProjects(value) async{
-    return {
-      'status':true,
-      'message':'Projects successfully fetch',
-      'body':value.docs
-    };
-  }
-  static Future<Map<String,dynamic>>onValueDeleteProject(value) async{
-    return {
-      'status':true,
-      'message':'Project successfully delete',
-      'body':{}
-    };
-  }
 
 
-  static Future<Map<String, dynamic>> onValueUpdateRobotModel(value) async {
-    return {
-      'status': true,
-      'message': 'Robot successfully update',
-      'body': {}
-    };
-  }
 
-  static Future<Map<String,dynamic>>onValueAddNotification(value) async{
-    return {
-      'status':true,
-      'message':'Notification successfully add',
-      'body':{}
-    };
-  }
-  static Future<Map<String, dynamic>> onValueUpdateNotification(value) async {
-    return {
-      'status': true,
-      'message': 'Notification successfully update',
-      'body': {}
-    };
-  }
-  static Future<Map<String,dynamic>>onValueAddActivity(value) async{
-    return {
-      'status':true,
-      'message':'Activity successfully add',
-      'body':{}
-    };
-  }
-
-  static Future<Map<String,dynamic>>onValueAddAppointment(value) async{
-    return {
-      'status':true,
-      'message':'Appointment successfully add',
-      'body':{},//{'id':value.id}
-    };
-  }
-  static Future<Map<String,dynamic>>onValueUpdateAppointment(value) async{
-    return {
-      'status':true,
-      'message':'Appointment successfully update',
-      'body':{}
-    };
-  }
-  static Future<Map<String,dynamic>> onValueFetchAppointments(value) async{
-    return {
-      'status':true,
-      'message':'Appointment successfully fetch',
-      'body':value.docs
-    };
-  }
-  static Future<Map<String,dynamic>>onValueDeleteAppointment(value) async{
-    return {
-      'status':true,
-      'message':'Appointment successfully delete',
-      'body':{}
-    };
-  }
-
-
-  static Future<Map<String,dynamic>>onValueAddChat(value) async{
-    return {
-      'status':true,
-      'message':'Chat successfully add',
-      'body':{'id':value.id}
-    };
-  }
-  static Future<Map<String,dynamic>>onValueUpdateChat(value) async{
-    return {
-      'status':true,
-      'message':'Chat successfully update',
-      'body':{}
-    };
-  }
-  static Future<Map<String,dynamic>> onValueFetchChats(value) async{
-    return {
-      'status':true,
-      'message':'Chats successfully fetch',
-      'body':value.docs
-    };
-  }
-  static Future<Map<String,dynamic>>onValueAddMessage(value) async{
-    return {
-      'status':true,
-      'message':'Message successfully add',
-      'body':{}
-    };
-  }
-  static Future<Map<String,dynamic>>onValueDeleteChat(value) async{
-    return {
-      'status':true,
-      'message':'Chat successfully delete',
-      'body':{}
-    };
-  }
-  static Future<Map<String,dynamic>>onValueDeleteMessage(value) async{
-    return {
-      'status':true,
-      'message':'Message successfully delete',
-      'body':{}
-    };
-  }
   static Future<Map<String,dynamic>> onValueFetchMedication(value) async{
     return {
       'status':true,
@@ -482,47 +326,57 @@ class FirebaseFun {
       case "user-not-found":
         errorMessage = "No user found with this email.";
         errorMessage = "لا يوجد مستخدم لهذا البريد.";
+        errorMessage = tr(LocaleKeys.no_user_for_this_email);
         break;
       case "wrong-password":
         errorMessage = "Incorrect password.";
         errorMessage = "كلمة السر غير صحيحة.";
+    errorMessage = tr(LocaleKeys.incorrect_password);
         break;
       case "invalid-email":
         errorMessage = "البريد الالكتروني البدخل غير صالح";
+    errorMessage = tr(LocaleKeys.invalid_email);
         break;
       case "user-disabled":
         errorMessage = "المستخدم غير مفعل.";
+    errorMessage = tr(LocaleKeys.user_not_activated);
         break;
       case "too-many-requests":
         errorMessage =
             errorMessage="Too many requests";
         ".حاولت تسجيل الدخول مرات عديدة، حاول لاحقاً";
+    errorMessage = tr(LocaleKeys.too_many_login_attempts);
 
         break;
       // register
       case "email-already-in-use":
         errorMessage="email already in use";
         errorMessage = ".هذا البريد موجود مسبقاً";
+    errorMessage = tr(LocaleKeys.email_already_exists);
 
         break;
       case "invalid-email":
         errorMessage = "Invalid email";
         errorMessage = "البريد الالكتروني غير صالح.";
+    errorMessage = tr(LocaleKeys.invalid_email);
 
         break;
       case "weak-password":
         errorMessage = "Password is too weak. It must be at least 6 characters long, including at least one uppercase letter, one lowercase letter, and one digit.";
         errorMessage = "كلمة المرور ضعيفة، يجب أن تحوي 6 محارف، وتتضمن حرف كبير وحرف صغير، وأيضا علامة ترقيم";
+        errorMessage = tr(LocaleKeys.weak_password);
         break;
       case "invalid email":
 
         errorMessage = "Invalid email";
         errorMessage = "البريد الالكتروني غير صالح.";
+    errorMessage = tr(LocaleKeys.invalid_email);
         break;
       case "invalid-credential":
 
         errorMessage = "Invalid credential";
         errorMessage = "المستخدم غير صحيح.";
+    errorMessage = tr(LocaleKeys.invalid_user);
         break;
 
       case "account successfully logged":
@@ -530,39 +384,23 @@ class FirebaseFun {
         errorMessage = "Account successfully logged";
         errorMessage =
         "تم تسجيل الدخول بنجاح";
+    errorMessage = tr(LocaleKeys.account_logged_successfully);
         break;
       case "users successfully fetch":
         errorMessage =
         "تم جلب معلومات المستخدمين بنجاح";
         errorMessage = "Users successfully fetch";
+    errorMessage = tr(LocaleKeys.users_info_fetched_successfully);
         break;
-      case "Report successfully add":
-        errorMessage =
-        "تمت إضافة مشكلة بنجاح";
-        break;
-      case "Report successfully update":
-        errorMessage =
-        "تم تحديث المشكلة بنجاح";
-        break;
-      case "Report successfully fetch":
-        errorMessage =
-        "تم جلب المشكلة بنجاح";
-        break;
-      case "account successfully created":
-        errorMessage =
-        "تم انشاء الحساب بنجاح";
-        break;
-      case "Report successfully delete":
-        errorMessage =
-        "تم حذف المشكلة بنجاح";
-        break;
-      case "":
+      case "Medication successfully delete":
         errorMessage =
         "";
+    errorMessage = tr(LocaleKeys.medication_deleted_successfully);
         break;
-      case "":
+      case "Medication successfully fetch":
         errorMessage =
         "";
+    errorMessage = tr(LocaleKeys.medication_fetched_successfully);
         break;
       case "":
         errorMessage =
@@ -570,7 +408,7 @@ class FirebaseFun {
         break;
       default:
         errorMessage = "حصل خطأ، الرجاء المحاولة لاحقاً";
-        errorMessage = "An unexpected error occurred. Please try again later.";
+        errorMessage = tr(LocaleKeys.unexpected_error)??"An unexpected error occurred. Please try again later.";
 
         errorMessage = text;
     }

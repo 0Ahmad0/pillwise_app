@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../app/controllers/firebase/firebase_fun.dart';
 import '../../../../app/core/models/user_model.dart';
 import '../../../../app/core/widgets/constants_widgets.dart';
+import '../../../../generated/locale_keys.g.dart';
 
 class ForgetPasswordController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -13,7 +15,8 @@ class ForgetPasswordController extends GetxController {
     final isValid = formKey.currentState!.validate();
 
     if (!isValid) {
-      Get.snackbar("خطأ", "الرجاء التأكد من جميع الحقول المدخلة");
+
+    Get.snackbar(tr(LocaleKeys.error)??"خطأ",tr(LocaleKeys.please_check_all_fields)?? "الرجاء التأكد من جميع الحقول المدخلة");
       return;
     }
     ConstantsWidgets.showLoading();

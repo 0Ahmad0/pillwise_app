@@ -45,6 +45,30 @@ class HealthInfo {
       'currentMedications':currentMedications,
     };
   }
+  factory HealthInfo.fromMap( data){
+    return HealthInfo(
+      gender: data['gender'],
+      height: data['height'],
+      weight: data['weight'],
+      isPregnant: data['isPregnant']??false,
+      isBreastfeeding: data['isBreastfeeding']??false,
+      currentMedications: data['currentMedications']??'',
+
+      dateOfBirth:data["dateOfBirth"]==null?null:DateTime.parse (data["dateOfBirth"]),
+    );
+  }
+  Map<String,dynamic> toMap(){
+
+    return {
+      'gender':gender,
+      'dateOfBirth':dateOfBirth?.toIso8601String(),
+      'height':height,
+      'weight':weight,
+      'isPregnant':isPregnant,
+      'isBreastfeeding':isBreastfeeding,
+      'currentMedications':currentMedications,
+    };
+  }
 
 
   int? get age {

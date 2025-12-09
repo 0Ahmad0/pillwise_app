@@ -140,14 +140,16 @@ class MedicationCardWidget extends StatelessWidget {
                 ],
               ),
             ),
-            if(userMedicine?.strength?.isNotEmpty??false)
+            if(userMedicine?.strengthDesc?.text?.isNotEmpty??false)
+            // if(userMedicine?.strength?.isNotEmpty??false)
             AppPaddingWidget(
               padding: EdgeInsets.symmetric(
                   horizontal: 12.w,
                   vertical: 2.h
               ),
               child: Text(
-                userMedicine!.strength!,
+                userMedicine!.strengthDesc!.text,
+                // userMedicine!.strength!,
                 style: Get.textTheme.bodyMedium,
               ),
             ),
@@ -156,10 +158,10 @@ class MedicationCardWidget extends StatelessWidget {
                 text: tr(LocaleKeys.core_delete),
                 onPressed: () {
                   Get.defaultDialog(
-                    title: "Confirm Delete",
-                    middleText: "Are you sure you want to delete medication?",
-                    textConfirm: "Delete",
-                    textCancel: "Cancel",
+                    title: tr(LocaleKeys.core_delete)??"Confirm Delete",
+                    middleText: tr(LocaleKeys.delete_medication_question)??"Are you sure you want to delete medication?",
+                    textConfirm: tr(LocaleKeys.core_delete)??"Delete",
+                    textCancel: tr(LocaleKeys.core_cancel)??"Cancel",
                     onConfirm: () async {
                       Get.close(1);
                       await   deleteFromInventory(medicine);

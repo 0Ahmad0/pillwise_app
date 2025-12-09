@@ -53,6 +53,18 @@ class UserModel {
     );
   }
 
+  factory UserModel.fromMap(json) {
+
+    var data = ['_JsonDocumentSnapshot','_JsonQueryDocumentSnapshot'].contains(json.runtimeType.toString())?json.data():json;
+    final healthInfo=data["healthInfo"];
+    data["healthInfo"]=null;
+
+    UserModel user=UserModel.fromJson(json);
+    user.healthInfo=healthInfo==null?null:HealthInfo.fromMap(healthInfo);
+
+   return user;
+  }
+
   factory UserModel.init() {
     return UserModel(
       id: "",
@@ -81,6 +93,16 @@ class UserModel {
     // 'state':state,
     // 'password': password,
       };
+
+  Map<String, dynamic> toMap() {
+    final map=toJson();
+
+    map['healthInfo']=healthInfo?.toMap();
+
+    return map;
+  }
+
+
   /// Function to check if the password matches the hashed password
   bool checkPassword(String plainPassword) {
     if(password?.isEmpty??true)

@@ -21,17 +21,20 @@ class SettingsScreen extends GetView<SettingsController> {
 
   @override
   Widget build(BuildContext context) {
-
+print("object1");
     return AppScaffoldWidget(
       // <-- استخدام الـ Scaffold المخصص (يحتوي على AppPadding)
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
+            child:
+
+            Column(
               children: [
             GetBuilder<ProfileController>(
             init: Get.put(ProfileController()),
-              builder: (controller){
+              builder: (profileController){
+
                 UserModel? currentUser= AppStorage.getUserStorage();
               return  Row(
                 children: [
@@ -39,9 +42,9 @@ class SettingsScreen extends GetView<SettingsController> {
                     radius: 40.sp,
                     backgroundImage:
                     (currentUser?.photoUrl?.isNotEmpty??false)?
-                    // (controller.currentUser.value?.photoUrl?.isNotEmpty??false)?
+                    // (profileController.currentUser.value?.photoUrl?.isNotEmpty??false)?
                     NetworkImage(   currentUser?.photoUrl??'')
-                    // NetworkImage(   controller.currentUser.value?.photoUrl??'')
+                    // NetworkImage(   profileController.currentUser.value?.photoUrl??'')
                     //     :null,
                     // NetworkImage('https://tse1.mm.bing.net/th/id/OIP.jhuU6q3Ob4zhSMl1gxJmbQHaE7?pid=ImgDet&w=184&h=122&c=7&dpr=1.3&o=7&rm=3'),
                     :Get.find<ImagePickerController>()

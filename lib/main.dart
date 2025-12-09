@@ -11,6 +11,7 @@ import 'package:pillwise_app/app/core/constants/app_constants.dart';
 import 'package:pillwise_app/app/routes/app_pages.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
 
+import 'app/core/local/storage.dart';
 import 'app/core/theme/app_theme.dart';
 import 'firebase_options.dart';
 import 'generated/codegen_loader.g.dart';
@@ -29,6 +30,7 @@ Future<void> main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     ),
     GetStorage.init(),
+
     EasyLocalization.ensureInitialized(),
     ScreenUtil.ensureScreenSize(),
     SystemChrome.setPreferredOrientations([
@@ -79,13 +81,17 @@ class PillWiseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final SettingsController settingsController = Get.find();
+
     return ScreenUtilInit(
       designSize: const Size(AppConstants.designWidth, AppConstants.designHeight),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return Obx((){
+        return
+
+          Obx((){
           return GetMaterialApp(
             theme: AppTheme.lightTheme,
             // <--- تطبيق الثيم الأبيض

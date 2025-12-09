@@ -56,7 +56,7 @@ class ScanCodeSectionWidget extends StatelessWidget {
                 await  Get.put(ScanBarcodeController()).searchMedication(result);
               }
               else {
-                ConstantsWidgets.TOAST(null,textToast:"لم يقرأ اي شيء",state:false );
+                ConstantsWidgets.TOAST(null,textToast:tr(LocaleKeys.nothing_scanned)??"لم يقرأ اي شيء",state:false );
                 // showInfoToast(
                 //   message: LocaleKeys.you_didnt_scan_anything.tr,
                 //   gravity: ToastGravity.TOP,
@@ -65,9 +65,7 @@ class ScanCodeSectionWidget extends StatelessWidget {
             }
 
             else
-            ConstantsWidgets.TOAST(null, title: "اجراء مطلوب",textToast:  tr(LocaleKeys.home_medical_profile_is_incomplete), state: false);
-
-
+            ConstantsWidgets.TOAST(null, title:tr(LocaleKeys.action_required)?? "اجراء مطلوب",textToast:  tr(LocaleKeys.home_medical_profile_is_incomplete), state: false);
           },
         ),
       ],

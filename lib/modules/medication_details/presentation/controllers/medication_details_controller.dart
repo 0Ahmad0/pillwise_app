@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -98,18 +100,71 @@ class MedicationDetailsController extends GetxController {
   // """;
 
 
-    final prompt = """
-أريد منك إنشاء *قيمة رقمية بال غرام تدريبية غير طبية وممكن مع بعض الارشادات* فقط لغرض اختبار تطبيق جامعي.
-هذه القيمة لا تمثل جرعة دواء حقيقية ولا تُستخدم للعلاج.
+//     final prompt = """
+// أريد منك إنشاء *قيمة رقمية بال غرام تدريبية غير طبية وممكن مع بعض الارشادات* فقط لغرض اختبار تطبيق جامعي.
+// هذه القيمة لا تمثل جرعة دواء حقيقية ولا تُستخدم للعلاج.
+//
+// اسم العنصر: ${medicine?.scientificName ?? ''}
+// معلومات العنصر: ${medicine?.toJson() ?? ''}
+// معلومات الشخص: ${AppStorage.getUserStorage()?.healthInfo?.toJson()?? ''}
+// الوصف: $description
+//
+//
+// الرجاء الرد لا يتجاوز ال٣ اسطر. وبدون ذكر أي شيء عن انها قيمة تدريبية او تقديرية
+// """;
 
-اسم العنصر: ${medicine?.scientificName ?? ''}
-معلومات العنصر: ${medicine?.toJson() ?? ''}
-معلومات الشخص: ${AppStorage.getUserStorage()?.healthInfo?.toJson()?? ''}
+//     final prompt = """
+// أنت مساعد صيدلي. بناءً على المعلومات التالية، اكتب توجيهات بسيطة للجرعة والمواعيد:
+//
+// الدواء: ${medicine?.scientificName ?? 'غير محدد'}
+// معلومات الشخص: ${(AppStorage.getUserStorage()?.healthInfo ?? {})}
+// الوصف: $description
+//
+// الرد يجب أن يكون قصيراً ويحتوي على:
+// 1. الجرعة (كمية الدواء في المرة الواحدة)
+// 2. عدد المرات في اليوم
+// 3. الفترة بين الجرعات (مثال: كل 6/8/12 ساعة)
+// 4. أي نصائح خاصة
+//
+// مثال: "خذ حبة واحدة كل 8 ساعات (3 مرات يومياً) بعد الطعام"
+//
+// ملاحظة مهمة: هذه المعلومات للاختبار الجامعي فقط وليست تعليمات طبية حقيقية.
+// """;
+    final prompt = """
+أنت مساعد صيدلي. بناءً على المعلومات التالية، اكتب توجيهات بسيطة للجرعة والمواعيد.
+
+الدواء: ${medicine?.scientificName ?? 'غير محدد'}
+معلومات الشخص: ${(AppStorage.getUserStorage()?.healthInfo ?? {})}
 الوصف: $description
 
+⚠️ مهم جداً:
+- الرد يجب أن يكون بصيغة JSON فقط بدون أي شرح إضافي.
+- الرد يجب أن يحتوي على مفتاحين: "ar" و "en".
+- كل قيمة يجب أن تكون نصًا قصيراً وواضحًا.
 
-الرجاء الرد لا يتجاوز ال٣ اسطر. وبدون ذكر أي شيء عن انها قيمة تدريبية او تقديرية
+صيغة الرد المطلوبة (التزم بها حرفياً):
+
+{
+  "ar": "نص الجرعة باللغة العربية",
+  "en": "Dose text in English"
+}
+
+المحتوى المطلوب في كل نص:
+1. الجرعة (الكمية في كل مرة)
+2. عدد المرات يومياً
+3. الفترة بين الجرعات (مثال: كل 6/8/12 ساعة)
+4. نصائح مختصرة
+
+مثال على شكل الرد فقط:
+
+{
+  "ar": "خذ حبة واحدة كل 8 ساعات (3 مرات يومياً) بعد الطعام",
+  "en": "Take one tablet every 8 hours (3 times daily) after meals"
+}
+
+ملاحظة: هذا للاختبار الجامعي فقط، وليس نصيحة طبية حقيقية.
 """;
+
     final aiResponse = await AIClient.send(
       prompt: prompt,
     );
@@ -145,22 +200,34 @@ class MedicationDetailsController extends GetxController {
     );
   }
 
+  Map<String, dynamic> _parseAiResponse(String response) {
+    // حذف ```json و ```
+    String clean = response
+        .replaceAll('```json', '')
+        .replaceAll('```', '')
+        .trim();
 
+    return jsonDecode(clean);
+  }
 
   addToInventory() async{
     final uid= AppStorage.getUserStorage()?.uid;
     if((uid?.isEmpty??true)||medicine==null)
       return;
-    if(selectedTime.value==null||selectedPeriod.value==null){
-      Get.snackbar(tr(LocaleKeys.error)??"خطأ", tr(LocaleKeys.please_select_time)??"الرجاء اختيار الوقت");
-
-      return;
-    }
+    // if(selectedTime.value==null||selectedPeriod.value==null){
+    //   Get.snackbar(tr(LocaleKeys.error)??"خطأ", tr(LocaleKeys.please_select_time)??"الرجاء اختيار الوقت");
+    //
+    //   return;
+    // }
     final strengthDesc= await getDoseFromAI(descriptionController.value.text);
-
+    Map<String, dynamic>? map;
+    try{
+       map = _parseAiResponse(strengthDesc!);
+    }catch(e){
+    }
 
     // medicine?.setIdUsers=uid!;
-    medicine?.setUserMedicine=UserMedicineModel(idUser:uid!,strength:strengthDesc,selectedTime: selectedTime.value?.format(Get.context!),periods: selectedPeriod.value  );
+    medicine?.setUserMedicine=UserMedicineModel(idUser:uid!,strengthDesc:LocalizedTextModel.fromJson(map) ,selectedTime: selectedTime.value?.format(Get.context!),periods: selectedPeriod.value  );
     ConstantsWidgets.showLoading();
     var result =await FirebaseFun
         .UpdateMedication(medicine: medicine!);
@@ -170,14 +237,15 @@ class MedicationDetailsController extends GetxController {
       // medicine?.idUsers.remove(uid);
     }
     update();
-    if(result['status'])
-    Get.snackbar(
-      "Success",
-      'Reminder set for ${selectedPeriod.value} at ${selectedTime.value?.format(Get.context!) ?? 'N/A'}',
-      snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: Colors.green,
-      colorText: Colors.white,
-    );else
+    // if(result['status'])
+    // Get.snackbar(
+    //
+    //   tr(LocaleKeys.success)??"Success",
+    //   'Reminder set for ${selectedPeriod.value} at ${selectedTime.value?.format(Get.context!) ?? 'N/A'}',
+    //   snackPosition: SnackPosition.BOTTOM,
+    //   backgroundColor: Colors.green,
+    //   colorText: Colors.white,
+    // );else
     ConstantsWidgets.TOAST(null,textToast: FirebaseFun.findTextToast(result['message'].toString()),state:result['status'] );
 
     return result;
@@ -240,12 +308,16 @@ class AIClient {
 
       print(response.text);
 
+
+
+
+
       if(response.text?.isEmpty??true)
-        return {"statue":true,"message":"لم يصل أي رد من المجيب الآلي."};
+        return {"statue":true,"message":tr(LocaleKeys.no_ai_response)??"لم يصل أي رد من المجيب الآلي."};
       return {"statue":true,"result":response.text };
     } catch (e) {
     print("حدث خطأ أثناء الاتصال بالذكاء الاصطناعي: $e");
-    return {"statue":false,"message":"حدث خطأ أثناء الاتصال بالمجيب الآلي: $e"};
+    return {"statue":false,"message":"${tr(LocaleKeys.ai_connection_error)}: $e"};
     }
   }
 

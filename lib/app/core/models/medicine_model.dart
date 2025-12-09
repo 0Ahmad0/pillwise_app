@@ -1,3 +1,5 @@
+import 'package:pillwise_app/app/core/constants/app_constants.dart';
+
 class MedicineModel {
   String? id;
   String? tradeName;
@@ -333,6 +335,7 @@ class UserMedicineModel {
   String? periods;
   String? strength;
   String? strengthUnit;
+  LocalizedTextModel? strengthDesc;
 
   UserMedicineModel({
     this.idUser,
@@ -340,6 +343,7 @@ class UserMedicineModel {
     this.periods,
     this.strength,
     this.strengthUnit,
+    this.strengthDesc,
   });
 
   factory UserMedicineModel.fromJson( json) {
@@ -351,6 +355,7 @@ class UserMedicineModel {
       periods: data['periods'],
       strength: data['strength'],
       strengthUnit: data['strengthUnit'],
+      strengthDesc: data['strengthDesc']==null?null:LocalizedTextModel.fromJson(data['strengthDesc']),
     );
   }
 
@@ -361,6 +366,38 @@ class UserMedicineModel {
       'periods': periods,
       'strength': strength,
       'strengthUnit': strengthUnit,
+      'strengthDesc': strengthDesc?.toJson(),
+    };
+  }
+}
+
+class LocalizedTextModel {
+  String? ar;
+  String? en;
+
+  LocalizedTextModel({
+    this.ar,
+    this.en,
+  });
+
+
+  String get text {
+    return translate(en??"", ar??"");
+  }
+
+  factory LocalizedTextModel.fromJson(dynamic json) {
+    if (json == null) return LocalizedTextModel();
+
+    return LocalizedTextModel(
+      ar: json['ar'],
+      en: json['en'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'ar': ar,
+      'en': en,
     };
   }
 }

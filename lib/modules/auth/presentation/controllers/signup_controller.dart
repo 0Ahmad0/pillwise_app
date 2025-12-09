@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ import '../../../../app/core/local/storage.dart';
 import '../../../../app/core/models/user_model.dart';
 import '../../../../app/core/widgets/constants_widgets.dart';
 import '../../../../app/routes/app_routes.dart';
+import '../../../../generated/locale_keys.g.dart';
 
 class SignupController extends GetxController {
   final FocusNode passwordFocus = FocusNode();
@@ -30,7 +32,7 @@ class SignupController extends GetxController {
     final isValid = userSign!=null||formKey.currentState!.validate();
 
     if (!isValid) {
-      Get.snackbar("خطأ", "الرجاء التأكد من جميع الحقول المدخلة");
+      Get.snackbar(tr(LocaleKeys.error)??"خطأ", tr(LocaleKeys.please_check_all_fields)??"الرجاء التأكد من جميع الحقول المدخلة");
       return;
     }
     String name =userSign?.name??nameController.value.text.trim();
@@ -45,13 +47,12 @@ class SignupController extends GetxController {
       if (result['status'] && result['body'] != null) {
         UserModel? userModel = UserModel.fromJson(result['body']);
         if(userModel!=null)
-          throw ("user_name_or_email_already_found");
+          throw (tr(LocaleKeys.user_name_or_email_already_found)??"user_name_or_email_already_found");
       }
 
       UserCredential userCredential = await auth
           .createUserWithEmailAndPassword(email: email, password: password)
           .timeout(FirebaseFun.timeOut);
-
 
 
 
@@ -76,7 +77,7 @@ class SignupController extends GetxController {
       // await AppStorage.storageWrite(key: AppConstants.uidKEY, value: user.uid);
 
       ConstantsWidgets.closeDialog();
-      ConstantsWidgets.TOAST(null, textToast: "Account created successfull", state: true);
+      ConstantsWidgets.TOAST(null, textToast:tr(LocaleKeys.account_created_successfully)?? "Account created successfull", state: true);
       if(userSign==null)
       Get.offAllNamed(AppRoutes.login);
       else

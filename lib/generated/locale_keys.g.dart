@@ -215,7 +215,50 @@ abstract class  LocaleKeys {
   static const write_your_health_description = 'write_your_health_description';
   static const delete_medication_question = 'delete_medication_question';
   static const confirm_delete = 'confirm_delete';
+  static const confirm_logout = 'confirm_logout';
+  static const logout_message = 'logout_message';
+  static const logout = 'logout';
+  static const no_drug_scanned = 'no_drug_scanned';
+  static const nothing_scanned = 'nothing_scanned';
+  static const action_required = 'action_required';
 
+  static const delete_account_confirm = 'delete_account_confirm';
+  static const unexpected_error = 'unexpected_error';
+  static const no_ai_response = 'no_ai_response';
+  static const ai_connection_error = 'ai_connection_error';
+  static const saved_successfully = 'saved_successfully';
+  static const health_info_saved = 'health_info_saved';
+  static const user_name_or_email_already_found = 'user_name_or_email_already_found';
+  static const account_created_successfully = 'account_created_successfully';
+  static const please_check_all_fields = 'please_check_all_fields';
+  static const user_name_or_email_invalid = 'user_name_or_email_invalid';
+  static const operation_failed_try_again = 'operation_failed_try_again';
+  static const no_data_yet = 'no_data_yet';
+  static const operation_failed = 'operation_failed';
+  static const operation_success = 'operation_success';
+  static const account_deleted_successfully = 'account_deleted_successfully';
+  static const saved_successfully_full = 'no_data_yet';
+
+
+
+  static const medication_deleted_successfully = 'medication_deleted_successfully';
+  static const medication_fetched_successfully = 'medication_fetched_successfully';
+  static const code_verified_successfully = 'code_verified_successfully';
+  static const email_code_sent_successfully = 'email_code_sent_successfully';
+  static const users_fetched_successfully = 'users_fetched_successfully';
+  static const account_logged_successfully = 'account_logged_successfully';
+  static const account_not_found = 'account_not_found';
+  static const no_user_for_this_email = 'no_user_for_this_email';
+  static const invalid_user = 'invalid_user';
+  static const invalid_email = 'invalid_email';
+  static const weak_password = 'weak_password';
+  static const email_already_exists = 'email_already_exists';
+  static const too_many_login_attempts = 'too_many_login_attempts';
+  static const user_not_activated = 'user_not_activated';
+  static const entered_email_invalid = 'entered_email_invalid';
+  static const incorrect_password = 'incorrect_password';
+  static const no_user_for_this_email_repeat = 'no_user_for_this_email_repeat';
+  static const users_info_fetched_successfully = 'users_info_fetched_successfully';
 
 
 

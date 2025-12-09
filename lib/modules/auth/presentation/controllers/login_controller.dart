@@ -1,7 +1,9 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pillwise_app/app/routes/app_routes.dart';
 import 'package:pillwise_app/modules/auth/presentation/controllers/signup_controller.dart';
@@ -12,6 +14,7 @@ import '../../../../app/core/constants/app_constants.dart';
 import '../../../../app/core/local/storage.dart';
 import '../../../../app/core/models/user_model.dart';
 import '../../../../app/core/widgets/constants_widgets.dart';
+import '../../../../generated/locale_keys.g.dart';
 
 class LoginController extends GetxController{
   final TextEditingController userNameOrEmailController = TextEditingController();
@@ -30,7 +33,7 @@ class LoginController extends GetxController{
     final isValid =userSign!=null|| formKey.currentState!.validate();
 
     if (!isValid) {
-      Get.snackbar("خطأ", "الرجاء التأكد من جميع الحقول المدخلة");
+      Get.snackbar(tr(LocaleKeys.error)??"خطأ",tr(LocaleKeys.please_check_all_fields)?? "الرجاء التأكد من جميع الحقول المدخلة");
       return;
     }else{
 
@@ -43,12 +46,12 @@ class LoginController extends GetxController{
         if (result['status'] && result['body'] != null) {
            userModel = UserModel.fromJson(result['body']);
           if(userModel==null)
-          throw ("user_name_or_email_invalid");
+          throw (tr(LocaleKeys.user_name_or_email_invalid)??"user_name_or_email_invalid");
 
           // if(userModel?.password!=password)
           //   throw ("password_and_email_has_not_match");
         }else{
-          throw ("user_name_or_email_invalid");
+          throw (tr(LocaleKeys.user_name_or_email_invalid)??"user_name_or_email_invalid");
         }
         await auth
             .signInWithEmailAndPassword(email: userModel.email??userNameOrEmail, password: password)
@@ -64,9 +67,11 @@ class LoginController extends GetxController{
               key: AppConstants.PASSWORD_KEY, value: password);
 
 
-          await AppStorage.storageDelete(key: AppConstants.User);
+
+          // await AppStorage.storageDelete(key: AppConstants.User);
           await AppStorage.storageWrite(
-              key: AppConstants.User, value: userModel);
+              key: AppConstants.User, value: userModel?.toMap());
+
           // Get.find<ProfileController>().currentUser.value=userModel;
           ConstantsWidgets.closeDialog();
           Get.offAllNamed(AppRoutes.navbar);
@@ -85,12 +90,81 @@ class LoginController extends GetxController{
         ConstantsWidgets.closeDialog();
         ConstantsWidgets.TOAST(null, textToast: errorMessage, state: false);
       }
-
       // Get.offAllNamed(AppRoutes.navbar);
     }
   }
 
-  Future<void> signWithGoogle() async {}
+  Future<void> signWithGoogle() async {
+
+    ConstantsWidgets.showLoading();
+    try {
+      if (GoogleSignIn.instance.supportsAuthenticate()) {
+        final googleSignInAccount = await GoogleSignIn.instance.authenticate();
+
+        if (googleSignInAccount != null) {
+          final auth = await googleSignInAccount.authentication;
+
+
+          if(googleSignInAccount?.email ==null)
+            throw ( tr(LocaleKeys.operation_failed_try_again)??"فشلت العملية، حاول مرة أخرى"??'Failed Auth');
+
+          print("UID: ${googleSignInAccount.id}");
+          print("Email: ${googleSignInAccount.email}");
+          print("Access Token: ${auth.idToken}");
+          print(googleSignInAccount!.displayName);
+          print(googleSignInAccount!.photoUrl);
+
+
+
+          var result = await FirebaseFun.fetchUserByEmail(email: googleSignInAccount!.email);
+
+          ///handling
+          // !result['status']?throw FirebaseAuthException(code: result['message']):'';
+          UserModel? userModel;
+
+          if (result['status'] && result['body'] != null) {
+            userModel = UserModel.fromJson(result['body']);
+            userModel.photoUrl=(userModel.googleId?.isEmpty??true)?userModel.photoUrl:googleSignInAccount.photoUrl;
+            userModel.googleId=googleSignInAccount.id;
+            processLogin(userSign: userModel);
+          }
+          else{
+            userModel=UserModel(
+
+              email: googleSignInAccount.email,
+              name: googleSignInAccount.displayName,
+              userName:await _getUserNameByName(googleSignInAccount.displayName??googleSignInAccount.email??""),
+              password: "112233aaAA@@",
+              typeUser: AppConstants.collectionUser,
+              googleId: googleSignInAccount.id,
+              photoUrl: googleSignInAccount.photoUrl,
+            );
+            Get.put(SignupController()).processSignup(userSign: userModel,);
+          }
+
+        }else{
+          throw ( tr(LocaleKeys.operation_failed_try_again)??"فشلت العملية، حاول مرة أخرى"??'Failed Auth');
+        }
+      }
+
+
+
+
+
+
+
+
+    } catch (error) {
+      print("error $error");
+      ConstantsWidgets.TOAST(null, textToast:tr(LocaleKeys.operation_failed_try_again)?? "فشلت العملية، حاول مرة أخرى", state: false);
+
+    }finally{
+      ConstantsWidgets.closeDialog();
+    }
+
+
+
+  }
 
   _getUserNameByName(String name) async {
     String genUserName = _generateUserNameByName(name);

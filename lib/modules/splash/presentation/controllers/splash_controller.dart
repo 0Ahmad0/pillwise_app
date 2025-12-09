@@ -42,7 +42,7 @@ class SplashController extends GetxController {
       else
         Get.offAllNamed(AppRoutes.welcome);
     }else
-      Get.offAllNamed(AppRoutes.login);
+      Get.offAllNamed(AppRoutes.onboarding);
   }
   Future<void> _initSplash() async {
     await AppStorage.init();

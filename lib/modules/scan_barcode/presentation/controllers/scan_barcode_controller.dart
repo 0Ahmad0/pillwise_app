@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:pillwise_app/app/controllers/firebase/firebase_fun.dart';
 import 'package:pillwise_app/app/core/models/medicine_model.dart';
+import 'package:pillwise_app/generated/locale_keys.g.dart';
 
 import '../../../../app/core/widgets/constants_widgets.dart';
 import '../../../../app/routes/app_routes.dart';
@@ -18,8 +20,7 @@ class ScanBarcodeController extends GetxController{
 
     }else if(result['body']==null){
       ConstantsWidgets.closeDialog();
-      ConstantsWidgets.TOAST(null,textToast:"الدواد المقروء غير موجود",state:false );
-
+      ConstantsWidgets.TOAST(null,textToast:tr(LocaleKeys.no_drug_scanned)??"الدواد المقروء غير موجود",state:false );
     }else
       {
         ConstantsWidgets.closeDialog();

@@ -50,7 +50,7 @@ class SearchScreen extends GetView<SearchAppController> {
             }
 
             if (snapshot.hasError) {
-              return Text("Error");
+              return Text( tr(LocaleKeys.error));
             }
 
             if (!snapshot.hasData) {
@@ -71,7 +71,8 @@ class SearchScreen extends GetView<SearchAppController> {
               init: controller,
               builder: (c) {
                 if (c.medicinesWithFilter.items.isEmpty) {
-                  return Text("No Medicines Yet");
+                  return Text( tr(LocaleKeys.medication_not_found_a)??"No Medicines Yet");
+                  // return Text("No Medicines Yet");
                 }
 
                 return ListView.builder(

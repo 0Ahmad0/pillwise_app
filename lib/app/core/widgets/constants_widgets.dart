@@ -129,8 +129,9 @@ class ConstantsWidgets {
     // );
   }
 
-  static emptyWidget(context,{text='No Data Yet!'})=>Center(
-    child: Text(text,style: TextStyle(
+
+  static emptyWidget(context,{text="no_data_yet"??'No Data Yet!'})=>Center(
+    child: Text(tr(text),style: TextStyle(
         fontSize: MediaQuery.of(context).size.width * 0.06,
         fontWeight: FontWeight.bold
     ),),

@@ -142,30 +142,29 @@ class HealthInformationController extends GetxController {
           .update(data).timeout(timeLimit)
           .then((value) async {
 
-        await AppStorage.storageDelete(key: AppConstants.User);
+        // await AppStorage.storageDelete(key: AppConstants.User);
         await AppStorage.storageWrite(
-            key: AppConstants.User, value: userModel);
+            key: AppConstants.User, value: userModel?.toMap());
         // Get.find<ProfileController>().currentUser?.value=userModel;
         update();
 
         ConstantsWidgets.closeDialog();
 
         Get.snackbar(
-          'تم الحفظ',
-          'تم حفظ المعلومات الصحية بنجاح',
+          tr(LocaleKeys.saved_successfully)?? 'تم الحفظ',
+          tr(LocaleKeys.health_info_saved)??'تم حفظ المعلومات الصحية بنجاح',
           snackPosition: SnackPosition.BOTTOM,
         );
         isEditMode.value = false;
-
       });
 
     } catch (e) {
       String errorMessage;
-      errorMessage = "An unexpected error occurred. Please try again later.";
+      errorMessage = tr(LocaleKeys.unexpected_error)??"An unexpected error occurred. Please try again later.";
       ConstantsWidgets.closeDialog();
       // Get.back();
       Get.snackbar(
-          Strings.message_failure,
+          tr(LocaleKeys.operation_failed),
           errorMessage,
           backgroundColor:Colors.redAccent
       );

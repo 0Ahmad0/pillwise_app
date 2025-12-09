@@ -32,6 +32,9 @@ class AppStorage {
     if (!_storage.hasData(AppConstants.NOTIFICATION_ENABLED)) {
       storageWrite(key: AppConstants.NOTIFICATION_ENABLED, value: true);
     }
+    if (!_storage.hasData(AppConstants.IS_DARK_THEME)) {
+      storageWrite(key: AppConstants.IS_DARK_THEME, value: null);
+    }
   }
 
   static Future<void> storageWrite({key, value}) async =>
@@ -40,13 +43,20 @@ class AppStorage {
   static Future<dynamic> storageRead({key}) async =>
       await _storage.read(key);
 
+  static  Future<void> setUserStorage(UserModel? user)  async {
+     _storage.write(AppConstants.User, user?.toMap());
+  }
+
   static UserModel? getUserStorage()  {
     final result = _storage.read(AppConstants.User);
+
     if(result.runtimeType==UserModel.init().runtimeType)
       return result;
     if(result==null)
       return result;
-    return UserModel.fromJson(result);
+    final user=UserModel.fromMap(result);
+    setUserStorage(user);
+    return user;
   }
 
 

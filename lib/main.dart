@@ -56,7 +56,7 @@ Future<void> main() async {
   const InitializationSettings settings =
   InitializationSettings(android: androidSettings);
 
-  await flutterLocalNotificationsPlugin.initialize(settings);
+  // await flutterLocalNotificationsPlugin.initialize(settings);
 
 
   Get.put(SettingsController(), permanent: true);

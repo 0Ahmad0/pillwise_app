@@ -61,10 +61,10 @@
     "save_changes": "حفظ التغييرات",
     "delete": "إزالة الدواء",
     "add": "إضافة الدواء",
-    "next_intake": "الموعد التالي للدواء",
+    "next_intake": "كتابة الأعراض الصحية",
     "cancel": "إلغاء",
     "arabic": "العربية",
-    "english": "الانكليزية"
+    "english": "الانجليزية"
   },
   "splash": {
     "description": "رفيقك الأول لتنظيم مواعيد الدواء والعناية بصحتك.",
@@ -182,7 +182,7 @@
     "legal_status_rx": "وصفة طبية فقط (Rx)",
     "legal_status_otc": "متاح بدون وصفة (OTC)",
     "manufacturer_details": "تفاصيل الشركة المصنعة والمنشأ",
-    "add_reminder": "إضافة تذكير",
+    "add_reminder": "إضافة دواء جديد",
     "daily": "يوميا",
     "weekly": "أسبوعيا",
     "monthly": "شهريا",

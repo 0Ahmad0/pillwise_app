@@ -11,7 +11,7 @@ import '/modules/settings/presentation/screens/settings_screen.dart';
 class NavbarController extends GetxController {
   late final List<Widget> screens;
   late final List<BarItem> items;
-  RxInt selectedIndex = 1.obs;
+  RxInt selectedIndex = 0.obs;
 
   // دالة لتغيير الصفحة عند الضغط على أيقونة في الـ NavBar
   void changePage(int index) {

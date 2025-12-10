@@ -221,7 +221,6 @@ abstract class  LocaleKeys {
   static const no_drug_scanned = 'no_drug_scanned';
   static const nothing_scanned = 'nothing_scanned';
   static const action_required = 'action_required';
-
   static const delete_account_confirm = 'delete_account_confirm';
   static const unexpected_error = 'unexpected_error';
   static const no_ai_response = 'no_ai_response';
@@ -237,10 +236,7 @@ abstract class  LocaleKeys {
   static const operation_failed = 'operation_failed';
   static const operation_success = 'operation_success';
   static const account_deleted_successfully = 'account_deleted_successfully';
-  static const saved_successfully_full = 'no_data_yet';
-
-
-
+  static const saved_successfully_full = 'saved_successfully_full';
   static const medication_deleted_successfully = 'medication_deleted_successfully';
   static const medication_fetched_successfully = 'medication_fetched_successfully';
   static const code_verified_successfully = 'code_verified_successfully';
@@ -259,9 +255,5 @@ abstract class  LocaleKeys {
   static const incorrect_password = 'incorrect_password';
   static const no_user_for_this_email_repeat = 'no_user_for_this_email_repeat';
   static const users_info_fetched_successfully = 'users_info_fetched_successfully';
-
-
-
-
 
 }

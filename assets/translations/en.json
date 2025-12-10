@@ -61,7 +61,7 @@
     "save_changes": "Save Changes",
     "delete": "Delete medication",
     "add": "Add medication",
-    "next_intake": "Next intake medication",
+    "next_intake": "Enter the health symptoms",
     "cancel": "Cancel",
     "arabic": "Arabic",
     "english": "English"
@@ -182,7 +182,7 @@
     "legal_status_rx": "Prescription Only",
     "legal_status_otc": "Over The Counter (OTC)",
     "manufacturer_details": "Manufacturer and Origin Details",
-    "add_reminder": "Add reminder",
+    "add_reminder": "Add New Medication",
     "daily": "Daily",
     "weekly": "Weekly",
     "monthly": "Monthly",

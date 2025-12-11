@@ -67,6 +67,9 @@ class SettingsController extends GetxController {
 
     // 3. تحديث واجهة المستخدم (GetX)
     Get.changeThemeMode(newThemeMode);
+
+
+
     themeMode.value = newThemeMode; // تحديث المتغير التفاعلي
     // 4. حفظ الاختيار
     // bool isDark = (newThemeMode == ThemeMode.dark);

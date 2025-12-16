@@ -36,9 +36,14 @@ class SplashController extends GetxController {
       await profileController.getUser();
 
       UserModel? currentUser= AppStorage.getUserStorage();
-      if(currentUser!=null)
+      if(currentUser!=null){
+        if(currentUser?.isAdmin??false)
+          Get.offAllNamed(AppRoutes.excelConverter);
+        else
+          Get.offAllNamed(AppRoutes.navbar);
+      }
       // if(profileController.currentUser.value!=null)
-       Get.offAllNamed(AppRoutes.navbar);
+
       else
         Get.offAllNamed(AppRoutes.welcome);
     }else

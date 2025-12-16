@@ -188,6 +188,13 @@
     "monthly": "Monthly",
     "reminder_time": "Reminder time"
   },
+  "admin": {
+    "admin_text": "Admin Page",
+    "admin_desc": "Please upload an Excel file\nThe file must contain medicine data",
+    "upload": "Upload",
+    "medicine": "Medicine",
+    "copy": "Copy"
+  },
   "help_support_title": "Help & Support",
   "how_to_add_medication_q": "How do I add a medication?",
   "how_to_add_medication_a": "Tap the “+” button on the main screen. You can: <ul><li>Scan the medication barcode using your camera, or</li><li>Search for the medication name using the built-in database.</li></ul>",

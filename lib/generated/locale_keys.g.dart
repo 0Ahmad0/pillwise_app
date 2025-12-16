@@ -175,6 +175,12 @@ abstract class  LocaleKeys {
   static const medicationDetails_monthly = 'medicationDetails.monthly';
   static const medicationDetails_reminder_time = 'medicationDetails.reminder_time';
   static const medicationDetails = 'medicationDetails';
+  static const admin_admin_text = 'admin.admin_text';
+  static const admin_admin_desc = 'admin.admin_desc';
+  static const admin_upload = 'admin.upload';
+  static const admin_medicine = 'admin.medicine';
+  static const admin_copy = 'admin.copy';
+  static const admin = 'admin';
   static const help_support_title = 'help_support_title';
   static const how_to_add_medication_q = 'how_to_add_medication_q';
   static const how_to_add_medication_a = 'how_to_add_medication_a';

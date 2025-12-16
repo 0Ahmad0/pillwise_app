@@ -29,6 +29,15 @@ class LoginController extends GetxController{
     rememberMe.value = newValue ?? false;
   }
 
+  // bool loginAsAdmin(String userNameOrEmail, String password){
+  //   if(userNameOrEmail==('admin')&&password==("PillWise1234")){
+  //     Get.offNamed(AppRoutes.excelConverter);
+  //     return true;
+  //   }
+  //   return false;
+  //
+  //
+  // }
   Future<void> processLogin({UserModel? userSign}) async {
     final isValid =userSign!=null|| formKey.currentState!.validate();
 
@@ -74,6 +83,9 @@ class LoginController extends GetxController{
 
           // Get.find<ProfileController>().currentUser.value=userModel;
           ConstantsWidgets.closeDialog();
+          if(userModel?.isAdmin??false)
+            Get.offAllNamed(AppRoutes.excelConverter);
+          else
           Get.offAllNamed(AppRoutes.navbar);
         });
 

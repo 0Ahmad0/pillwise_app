@@ -65,6 +65,7 @@ class SignupController extends GetxController {
         phoneNumber: phoneNumber,
         userName: userName,
         password: password,
+
         typeUser: AppConstants.collectionUser,
         googleId: userSign?.googleId,
         photoUrl: userSign?.photoUrl??'',

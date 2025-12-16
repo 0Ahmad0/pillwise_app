@@ -274,7 +274,7 @@ class MedicationDetailsController extends GetxController {
 
 class AIClient {
   // static const String apiKey = "AIzaSyCkTxOIoQJP1hUA44Ik0hX6h79PWv02Hlo";
-  static const String apiKey = "AIzaSyBVHWAidz4Zu6BOI1dSpRGrgCJe2F5FKk0";
+  static const String apiKey = "AIzaSyCXyN91fjcZswwl-QCJ8qLWr_ya-TiicyA";
   static const String modelName = "gemini-2.5-flash";
 
 

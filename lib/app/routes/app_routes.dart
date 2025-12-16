@@ -31,5 +31,6 @@ abstract class AppRoutes {
   static const privacyPolicy = '/privacy_policy';
   static const search = '/search';
   static const medicationDetails = '/medication_details';
+  static const excelConverter = '/excel_converter';
 
 }

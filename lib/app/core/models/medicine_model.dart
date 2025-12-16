@@ -314,7 +314,7 @@ class Ids {
       referenceNumber: data['reference_number'],
       oldRegisterNumber: data['old_register_number'],
       descriptionCode: data['description_code'],
-      lastUpdate: data['last_update'],
+      lastUpdate: num.tryParse(data['last_update']),
     );
   }
 

@@ -21,6 +21,7 @@ import '../../modules/auth/presentation/screens/forget_password_screen.dart';
 import '../../modules/auth/presentation/screens/login_screen.dart';
 import '../../modules/contact_us/presentation/bindings/contact_us_binding.dart';
 import '../../modules/contact_us/presentation/screens/contact_us_screen.dart';
+import '../../modules/excel_converter/excel_converter_screen.dart';
 import '../../modules/help_support/presentation/bindings/help_support_binding.dart';
 import '../../modules/help_support/presentation/screens/help_support_screen.dart';
 import '../../modules/home/presentation/bindings/home_binding.dart';
@@ -140,6 +141,11 @@ class AppPages {
       name: AppRoutes.medicationDetails,
       page: () => const MedicationDetailsScreen(),
       binding: MedicationDetailsBinding(), // <-- يستخدم ForgetPasswordBinding
+    ),
+    GetPage(
+      name: AppRoutes.excelConverter,
+      page: () => const ExcelConverterScreen(),
+      // binding: MedicationDetailsBinding(), // <-- يستخدم ForgetPasswordBinding
     ),
 
   ];

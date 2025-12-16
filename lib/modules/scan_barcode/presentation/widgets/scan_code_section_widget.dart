@@ -14,7 +14,6 @@ import '../../../../app/core/local/storage.dart';
 import '../../../../app/core/widgets/constants_widgets.dart';
 import '../../../../app/routes/app_routes.dart';
 import '../controllers/scan_barcode_controller.dart';
-
 class ScanCodeSectionWidget extends StatelessWidget {
   const ScanCodeSectionWidget({super.key});
 
@@ -44,7 +43,11 @@ class ScanCodeSectionWidget extends StatelessWidget {
           icon: Icon(Iconsax.scan_barcode),
           onPressed: () async {
             // await  Get.put(ScanBarcodeController()).searchMedication("DRG_020");
+            // scanWithMLKit();
+            ///
             if(AppStorage.getUserStorage()?.healthInfo!=null) {
+
+
               String result = await FlutterBarcodeScanner.scanBarcode(
                 '#ff6666',
                 tr(LocaleKeys.core_cancel),
@@ -71,4 +74,7 @@ class ScanCodeSectionWidget extends StatelessWidget {
       ],
     );
   }
+
+
+
 }

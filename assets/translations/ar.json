@@ -188,6 +188,13 @@
     "monthly": "شهريا",
     "reminder_time": "وقت التذكير"
   },
+  "admin": {
+    "admin_text": "صفحة الآدمن",
+    "admin_desc":"قم برفع ملف Excel\n يجب أن يحتوي الملف على بيانات الأدوية",
+    "upload": "رفع",
+    "medicine":"دواء",
+    "copy": "نسخ"
+  },
 
   "help_support_title": "المساعدة والدعم",
   "how_to_add_medication_q": "كيف أُضيف دواء؟",
